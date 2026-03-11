@@ -8,7 +8,22 @@ const KofunApp = () => {
 
   return (
     <div>
-      {state.isRunning ? <h1>I am running!</h1> : <h1>I got nothing to do!</h1>}
+      <button
+        onClick={() =>
+          dispatch({
+            type: 'ADD_TASK',
+            payload: {
+              id: null,
+              text: 'Learn React',
+              duration: 1500,
+              remainingTime: 1500,
+              isComplete: false,
+            },
+          })
+        }
+      >
+        Test Button
+      </button>
     </div>
   );
 };
