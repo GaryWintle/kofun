@@ -13,7 +13,6 @@ const KofunApp = () => {
           dispatch({
             type: 'ADD_TASK',
             payload: {
-              id: null,
               text: 'Learn React',
               duration: 1500,
               remainingTime: 1500,
