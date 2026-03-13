@@ -32,6 +32,29 @@ export default function timerReducer(state, action) {
         ...state,
         isRunning: false,
       };
+    case 'RESET_TIMER':
+      return {
+        ...state,
+        tasks: state.tasks.map((task) =>
+          task.id === state.activeTaskId
+            ? { ...task, remainingTime: task.duration }
+            : task,
+        ),
+      };
+    case 'DELETE_TASK':
+      return {
+        ...state,
+        tasks: state.tasks.filter((task) => task.id !== state.activeTaskId),
+      };
+    case 'EDIT_TASK':
+      return {
+        ...state,
+        tasks: state.tasks.map((task) =>
+          task.id === state.activeTaskId
+            ? { ...task, text: action.payload }
+            : task,
+        ),
+      };
     default:
       return state;
   }
