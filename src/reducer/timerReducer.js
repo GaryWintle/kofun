@@ -55,6 +55,19 @@ export default function timerReducer(state, action) {
             : task,
         ),
       };
+    case 'EXTEND_TIME':
+      return {
+        ...state,
+        tasks: state.tasks.map((task) =>
+          task.id === state.activeTaskId
+            ? {
+                ...task,
+                remainingTime: task.remainingTime + action.payload,
+                duration: task.duration + action.payload,
+              }
+            : task,
+        ),
+      };
     default:
       return state;
   }
