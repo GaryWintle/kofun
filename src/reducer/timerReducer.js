@@ -68,6 +68,29 @@ export default function timerReducer(state, action) {
             : task,
         ),
       };
+    case 'TICK':
+      return {
+        ...state,
+        tasks: state.tasks.map((task) =>
+          task.id === state.activeTaskId
+            ? {
+                ...task,
+                remainingTime:
+                  task.remainingTime > 0
+                    ? task.remainingTime - 1
+                    : task.remainingTime,
+              }
+            : task,
+        ),
+      };
+    case 'COMPLETE_TASK':
+      return {
+        ...state,
+        isRunning: false,
+        tasks: state.tasks.map((task) =>
+          task.id === state.activeTaskId ? { ...task, isComplete: true } : task,
+        ),
+      };
     default:
       return state;
   }
