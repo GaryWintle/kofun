@@ -8,6 +8,7 @@ const KofunApp = () => {
 
   return (
     <div>
+      <pre>{JSON.stringify(state, null, 2)}</pre>
       <button
         onClick={() =>
           dispatch({
@@ -21,7 +22,25 @@ const KofunApp = () => {
           })
         }
       >
-        Test Button
+        Add Task
+      </button>
+      <button
+        onClick={() =>
+          dispatch({
+            type: 'START_TIMER',
+          })
+        }
+      >
+        Start Timer
+      </button>
+      <button
+        onClick={() =>
+          dispatch({
+            type: 'DELETE_TASK',
+          })
+        }
+      >
+        Delete Task
       </button>
     </div>
   );
