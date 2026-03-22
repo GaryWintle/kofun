@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-function useTimer(isRunning, dispatch) {
+function useTimer(isRunning, activeTaskId, dispatch) {
   useEffect(() => {
     if (!isRunning) return;
 
