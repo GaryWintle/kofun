@@ -44,14 +44,14 @@ export default function timerReducer(state, action) {
     case 'DELETE_TASK':
       return {
         ...state,
-        tasks: state.tasks.filter((task) => task.id !== state.activeTaskId),
+        tasks: state.tasks.filter((task) => task.id !== action.payload),
       };
     case 'EDIT_TASK':
       return {
         ...state,
         tasks: state.tasks.map((task) =>
-          task.id === state.activeTaskId
-            ? { ...task, text: action.payload }
+          task.id === action.payload.id
+            ? { ...task, text: action.payload.text }
             : task,
         ),
       };
@@ -59,11 +59,12 @@ export default function timerReducer(state, action) {
       return {
         ...state,
         tasks: state.tasks.map((task) =>
-          task.id === state.activeTaskId
+          task.id === action.payload.id
             ? {
                 ...task,
-                remainingTime: task.remainingTime + action.payload,
-                duration: task.duration + action.payload,
+                remainingTime:
+                  task.remainingTime + action.payload.additionalTime,
+                duration: task.duration + action.payload.additionalTime,
               }
             : task,
         ),
