@@ -2,20 +2,33 @@
 
 import { useReducer } from 'react';
 import timerReducer, { timerInitialState } from '../reducer/timerReducer';
+import TaskList from '@/components/TaskList';
+import TaskForm from '@/components/TaskForm';
 import useTimer from '@/hooks/useTimer';
 
 const KofunApp = () => {
   const [state, dispatch] = useReducer(timerReducer, timerInitialState);
+
   useTimer(
     state.isRunning,
     state.tasks.find((task) => task.id === state.activeTaskId),
     dispatch,
   );
 
+  const handleAddTask = (newTask) => {
+    dispatch({ type: 'ADD_TASK', payload: newTask });
+  };
+
   return (
     <div>
-      <pre>{JSON.stringify(state, null, 2)}</pre>
-      <button
+      <TaskList state={state} dispatch={dispatch} />
+      <TaskForm
+        tasks={state.tasks}
+        dispatch={dispatch}
+        onAddTask={handleAddTask}
+      />
+
+      {/* <button
         onClick={() => {
           const testId = Date.now();
           dispatch({
@@ -28,32 +41,10 @@ const KofunApp = () => {
               isComplete: false,
             },
           });
-          dispatch({
-            type: 'SELECT_TASK',
-            payload: testId,
-          });
         }}
       >
         Add Task
-      </button>
-      <button
-        onClick={() =>
-          dispatch({
-            type: 'START_TIMER',
-          })
-        }
-      >
-        Start Timer
-      </button>
-      <button
-        onClick={() =>
-          dispatch({
-            type: 'DELETE_TASK',
-          })
-        }
-      >
-        Delete Task
-      </button>
+      </button> */}
     </div>
   );
 };
