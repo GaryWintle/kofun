@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import styles from '@/components/TaskList/TaskList.module.css';
 
 const TaskList = ({ state, dispatch }) => {
@@ -6,9 +7,9 @@ const TaskList = ({ state, dispatch }) => {
       {state.tasks.map((task) => (
         <li
           key={task.id}
-          className={
-            state.activeTaskId === task.id ? styles.selectedPoop : styles.poop
-          }
+          className={clsx(styles.poop, {
+            [styles.selectedPoop]: state.activeTaskId === task.id,
+          })}
           onClick={() => {
             dispatch({ type: 'SELECT_TASK', payload: task.id });
           }}
