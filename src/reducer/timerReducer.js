@@ -7,7 +7,6 @@ const timerInitialState = {
       id: 1,
       text: 'Write blog post',
       duration: 1500,
-      displayTime: 1500,
       remainingTime: 1500,
       isComplete: false,
     },
@@ -15,7 +14,6 @@ const timerInitialState = {
       id: 2,
       text: 'Review designs',
       duration: 900,
-      displayTime: 900,
       remainingTime: 900,
       isComplete: false,
     },
@@ -57,7 +55,6 @@ export default function timerReducer(state, action) {
           task.id === state.activeTaskId
             ? {
                 ...task,
-                displayTime: task.displayTime - elapsedSeconds,
                 remainingTime: task.remainingTime - elapsedSeconds,
               }
             : task,
@@ -73,7 +70,6 @@ export default function timerReducer(state, action) {
           task.id === state.activeTaskId
             ? {
                 ...task,
-                displayTime: task.duration,
                 remainingTime: task.duration,
               }
             : task,
@@ -110,16 +106,6 @@ export default function timerReducer(state, action) {
     case 'TICK':
       return {
         ...state,
-        tasks: state.tasks.map((task) =>
-          task.id === state.activeTaskId
-            ? {
-                ...task,
-                displayTime:
-                  task.remainingTime -
-                  Math.floor((Date.now() - state.startedAt) / 1000),
-              }
-            : task,
-        ),
       };
     case 'COMPLETE_TASK':
       return {

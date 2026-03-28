@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const TaskForm = ({ tasks, dispatch, onAddTask }) => {
+const TaskForm = ({ tasks, dispatch, onAddTask, displayTime }) => {
   const [taskText, setTaskText] = useState('');
   const [taskTime, setTaskTime] = useState(0);
 
@@ -16,7 +16,6 @@ const TaskForm = ({ tasks, dispatch, onAddTask }) => {
     const newTask = {
       text: taskText,
       duration: taskTime,
-      displayTime: taskTime,
       remainingTime: taskTime,
       isComplete: false,
     };
@@ -52,23 +51,6 @@ const TaskForm = ({ tasks, dispatch, onAddTask }) => {
         +
       </button>
       <button type="submit">ADD TASK</button>
-      {/* <button
-        onClick={() => {
-          const testId = Date.now();
-          dispatch({
-            type: 'ADD_TASK',
-            payload: {
-              id: testId,
-              text: 'Learn React',
-              duration: 1500,
-              remainingTime: 1500,
-              isComplete: false,
-            },
-          });
-        }}
-      >
-        Add Task
-      </button> */}
     </form>
   );
 };

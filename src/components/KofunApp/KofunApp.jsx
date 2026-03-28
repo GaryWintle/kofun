@@ -13,7 +13,14 @@ const KofunApp = () => {
 
   const activeTask = state.tasks.find((task) => task.id === state.activeTaskId);
 
-  useTimer(state.isRunning, activeTask, dispatch);
+  const displayTime = activeTask
+    ? state.isRunning
+      ? activeTask.remainingTime -
+        Math.floor((Date.now() - state.startedAt) / 1000)
+      : activeTask.remainingTime
+    : null;
+
+  useTimer(state.isRunning, activeTask, dispatch, displayTime);
 
   const handleAddTask = (newTask) => {
     dispatch({ type: 'ADD_TASK', payload: newTask });
@@ -22,8 +29,8 @@ const KofunApp = () => {
   return (
     <div>
       {activeTask?.isComplete && <p>HURRAY!!!</p>}
-      <Hero state={state} dispatch={dispatch} />
-      <TaskList state={state} dispatch={dispatch} />
+      <Hero state={state} dispatch={dispatch} displayTime={displayTime} />
+      <TaskList state={state} dispatch={dispatch} displayTime={displayTime} />
       <TaskForm
         tasks={state.tasks}
         dispatch={dispatch}

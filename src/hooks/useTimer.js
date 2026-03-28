@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-function useTimer(isRunning, activeTask, dispatch) {
+function useTimer(isRunning, activeTask, dispatch, displayTime) {
   useEffect(() => {
     if (!isRunning) return;
 
@@ -14,8 +14,8 @@ function useTimer(isRunning, activeTask, dispatch) {
   useEffect(() => {
     if (!activeTask) return;
 
-    !activeTask.displayTime && dispatch({ type: 'COMPLETE_TASK' });
-  }, [activeTask?.displayTime]);
+    displayTime <= 0 && dispatch({ type: 'COMPLETE_TASK' });
+  }, [displayTime]);
 }
 
 export default useTimer;

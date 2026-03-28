@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import styles from '@/components/TaskList/TaskList.module.css';
 import formatTime from '@/utils/formatTime';
 
-const TaskList = ({ state, dispatch }) => {
+const TaskList = ({ state, dispatch, displayTime }) => {
   return (
     <ul role="list">
       {state.tasks.map((task) => (
@@ -16,7 +16,11 @@ const TaskList = ({ state, dispatch }) => {
           }}
         >
           <p className="filler">{task.text}</p>
-          <p className="filler">{formatTime(task.displayTime)}</p>
+          <p className="filler">
+            {formatTime(
+              task.id === state.activeTaskId ? displayTime : task.remainingTime,
+            )}
+          </p>
         </li>
       ))}
     </ul>
