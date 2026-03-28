@@ -3,7 +3,7 @@ import styles from '@/components/TaskList/TaskList.module.css';
 
 const TaskList = ({ state, dispatch }) => {
   return (
-    <ul>
+    <ul role="list">
       {state.tasks.map((task) => (
         <li
           key={task.id}

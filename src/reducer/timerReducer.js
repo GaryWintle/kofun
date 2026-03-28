@@ -7,6 +7,7 @@ const timerInitialState = {
       id: 1,
       text: 'Write blog post',
       duration: 1500,
+      displayTime: 1500,
       remainingTime: 1500,
       isComplete: false,
     },
@@ -14,6 +15,7 @@ const timerInitialState = {
       id: 2,
       text: 'Review designs',
       duration: 900,
+      displayTime: 900,
       remainingTime: 900,
       isComplete: false,
     },
@@ -42,11 +44,23 @@ export default function timerReducer(state, action) {
       return {
         ...state,
         isRunning: true,
+        startedAt: Date.now(),
       };
     case 'PAUSE_TIMER':
       return {
         ...state,
         isRunning: false,
+        startedAt: null,
+        tasks: state.tasks.map((task) =>
+          task.id === state.activeTaskId
+            ? {
+                ...task,
+                remainingTime:
+                  task.remainingTime -
+                  Math.floor((Date.now() - state.startedAt) / 1000),
+              }
+            : task,
+        ),
       };
     case 'RESET_TIMER':
       return {
@@ -92,10 +106,9 @@ export default function timerReducer(state, action) {
           task.id === state.activeTaskId
             ? {
                 ...task,
-                remainingTime:
-                  task.remainingTime > 0
-                    ? task.remainingTime - 1
-                    : task.remainingTime,
+                displayTime:
+                  task.remainingTime -
+                  Math.floor((Date.now() - state.startedAt) / 1000),
               }
             : task,
         ),

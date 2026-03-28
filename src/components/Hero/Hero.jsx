@@ -7,9 +7,7 @@ const Hero = ({ state, dispatch }) => {
   return (
     <header className={styles.container}>
       <div className={styles.heroText}>{heroTask?.text}</div>
-      <div className={styles.heroTime}>
-        {formatTime(heroTask?.remainingTime)}
-      </div>
+      <div className={styles.heroTime}>{formatTime(heroTask?.displayTime)}</div>
       <button
         onClick={() => {
           state.isRunning

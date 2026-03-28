@@ -5,6 +5,7 @@ function useTimer(isRunning, activeTask, dispatch) {
     if (!isRunning) return;
 
     const id = setInterval(() => {
+      // console.log('TICK FIRING');
       dispatch({ type: 'TICK' });
     }, 1000);
 
@@ -14,8 +15,8 @@ function useTimer(isRunning, activeTask, dispatch) {
   useEffect(() => {
     if (!activeTask) return;
 
-    !activeTask.remainingTime && dispatch({ type: 'COMPLETE_TASK' });
-  }, [activeTask?.remainingTime]);
+    !activeTask.displayTime && dispatch({ type: 'COMPLETE_TASK' });
+  }, [activeTask?.displayTime]);
 }
 
 export default useTimer;
