@@ -46,7 +46,9 @@ export default function timerReducer(state, action) {
         isRunning: true,
         startedAt: Date.now(),
       };
-    case 'PAUSE_TIMER':
+    case 'PAUSE_TIMER': {
+      const elapsedSeconds = Math.floor((Date.now() - state.startedAt) / 1000);
+
       return {
         ...state,
         isRunning: false,
@@ -55,19 +57,25 @@ export default function timerReducer(state, action) {
           task.id === state.activeTaskId
             ? {
                 ...task,
-                remainingTime:
-                  task.remainingTime -
-                  Math.floor((Date.now() - state.startedAt) / 1000),
+                displayTime: task.displayTime - elapsedSeconds,
+                remainingTime: task.remainingTime - elapsedSeconds,
               }
             : task,
         ),
       };
+    }
     case 'RESET_TIMER':
       return {
         ...state,
+        isRunning: false,
+        startedAt: null,
         tasks: state.tasks.map((task) =>
           task.id === state.activeTaskId
-            ? { ...task, remainingTime: task.duration }
+            ? {
+                ...task,
+                displayTime: task.duration,
+                remainingTime: task.duration,
+              }
             : task,
         ),
       };
@@ -116,6 +124,7 @@ export default function timerReducer(state, action) {
     case 'COMPLETE_TASK':
       return {
         ...state,
+        startedAt: null,
         isRunning: false,
         tasks: state.tasks.map((task) =>
           task.id === state.activeTaskId ? { ...task, isComplete: true } : task,

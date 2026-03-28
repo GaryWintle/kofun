@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import styles from '@/components/TaskList/TaskList.module.css';
+import formatTime from '@/utils/formatTime';
 
 const TaskList = ({ state, dispatch }) => {
   return (
@@ -15,7 +16,7 @@ const TaskList = ({ state, dispatch }) => {
           }}
         >
           <p className="filler">{task.text}</p>
-          <p className="filler">{task.remainingTime}</p>
+          <p className="filler">{formatTime(task.displayTime)}</p>
         </li>
       ))}
     </ul>

@@ -5,7 +5,6 @@ function useTimer(isRunning, activeTask, dispatch) {
     if (!isRunning) return;
 
     const id = setInterval(() => {
-      // console.log('TICK FIRING');
       dispatch({ type: 'TICK' });
     }, 1000);
 
