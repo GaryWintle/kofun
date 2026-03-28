@@ -1,20 +1,21 @@
 const timerInitialState = {
   activeTaskId: null,
   isRunning: false,
+  startedAt: null,
   tasks: [
     {
       id: 1,
       text: 'Write blog post',
       duration: 1500,
       remainingTime: 1500,
-      completed: false,
+      isComplete: false,
     },
     {
       id: 2,
       text: 'Review designs',
       duration: 900,
       remainingTime: 900,
-      completed: false,
+      isComplete: false,
     },
   ],
 };

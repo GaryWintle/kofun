@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-function useTimer(isRunning, activeTaskId, dispatch) {
+function useTimer(isRunning, activeTask, dispatch) {
   useEffect(() => {
     if (!isRunning) return;
 
@@ -10,6 +10,12 @@ function useTimer(isRunning, activeTaskId, dispatch) {
 
     return () => clearInterval(id);
   }, [isRunning, dispatch]);
+
+  useEffect(() => {
+    if (!activeTask) return;
+
+    !activeTask.remainingTime && dispatch({ type: 'COMPLETE_TASK' });
+  }, [activeTask?.remainingTime]);
 }
 
 export default useTimer;

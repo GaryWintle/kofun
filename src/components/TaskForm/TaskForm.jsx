@@ -17,7 +17,7 @@ const TaskForm = ({ tasks, dispatch, onAddTask }) => {
       text: taskText,
       duration: taskTime,
       remainingTime: taskTime,
-      completed: false,
+      isComplete: false,
     };
     onAddTask(newTask);
     setTaskText('');
