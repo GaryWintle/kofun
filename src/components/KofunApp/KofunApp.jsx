@@ -11,8 +11,10 @@ import useTimer from '@/hooks/useTimer';
 const KofunApp = () => {
   const [state, dispatch] = useReducer(timerReducer, timerInitialState);
 
+  // Chooses the active task
   const activeTask = state.tasks.find((task) => task.id === state.activeTaskId);
 
+  //// Derived from startedAt + Date.now() so it stays accurate even if JS is throttled
   const displayTime = activeTask
     ? state.isRunning
       ? activeTask.remainingTime -
@@ -20,8 +22,10 @@ const KofunApp = () => {
       : activeTask.remainingTime
     : null;
 
+  // Custom hook for controlling countdown and completion
   useTimer(state.isRunning, activeTask, dispatch, displayTime);
 
+  // Adds task object to useReducer
   const handleAddTask = (newTask) => {
     dispatch({ type: 'ADD_TASK', payload: newTask });
   };
@@ -41,13 +45,3 @@ const KofunApp = () => {
 };
 
 export default KofunApp;
-
-// useEffect(() => {
-//   if (!state.isRunning) return;
-
-//   const id = setInterval(() => {
-//     dispatch({ type: 'TICK' });
-//   }, 1000);
-
-//   return () => clearInterval(id);
-// }, [state.isRunning, dispatch]);

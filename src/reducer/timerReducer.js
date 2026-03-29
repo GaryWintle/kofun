@@ -34,9 +34,21 @@ export default function timerReducer(state, action) {
       };
     }
     case 'SELECT_TASK':
+      if (!state.isRunning) return { ...state, activeTaskId: action.payload };
+      const elapsedSeconds = Math.floor((Date.now() - state.startedAt) / 1000);
       return {
         ...state,
         activeTaskId: action.payload,
+        isRunning: false,
+        startedAt: null,
+        tasks: state.tasks.map((task) =>
+          task.id === state.activeTaskId
+            ? {
+                ...task,
+                remainingTime: task.remainingTime - elapsedSeconds,
+              }
+            : task,
+        ),
       };
     case 'START_TIMER':
       return {
