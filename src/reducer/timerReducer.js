@@ -13,8 +13,8 @@ const timerInitialState = {
     {
       id: 2,
       text: 'Review designs',
-      duration: 900,
-      remainingTime: 900,
+      duration: 5,
+      remainingTime: 5,
       isComplete: false,
     },
     {
@@ -126,15 +126,25 @@ export default function timerReducer(state, action) {
       return {
         ...state,
       };
-    case 'COMPLETE_TASK':
+    case 'COMPLETE_TASK': {
+      const elapsedSeconds = state.startedAt
+        ? Math.floor((Date.now() - state.startedAt) / 1000)
+        : 0;
       return {
         ...state,
-        startedAt: null,
         isRunning: false,
+        startedAt: null,
         tasks: state.tasks.map((task) =>
-          task.id === state.activeTaskId ? { ...task, isComplete: true } : task,
+          task.id === state.activeTaskId
+            ? {
+                ...task,
+                isComplete: true,
+                remainingTime: task.remainingTime - elapsedSeconds,
+              }
+            : task,
         ),
       };
+    }
     default:
       return state;
   }

@@ -15,12 +15,19 @@ const KofunApp = () => {
   const activeTask = state.tasks.find((task) => task.id === state.activeTaskId);
 
   //// Derived from startedAt + Date.now() so it stays accurate even if JS is throttled
-  const displayTime = activeTask
-    ? state.isRunning
-      ? activeTask.remainingTime -
-        Math.floor((Date.now() - state.startedAt) / 1000)
-      : activeTask.remainingTime
-    : null;
+  let displayTime;
+
+  if (!activeTask) {
+    displayTime = null;
+  } else {
+    if (state.isRunning) {
+      displayTime =
+        activeTask.remainingTime -
+        Math.floor((Date.now() - state.startedAt) / 1000);
+    } else {
+      displayTime = activeTask.remainingTime;
+    }
+  }
 
   // Custom hook for controlling countdown and completion
   useTimer(state.isRunning, activeTask, dispatch, displayTime);
@@ -31,7 +38,7 @@ const KofunApp = () => {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       {activeTask?.isComplete && <p>HURRAY!!!</p>}
       <Hero
         state={state}

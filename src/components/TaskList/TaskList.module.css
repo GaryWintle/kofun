@@ -1,4 +1,7 @@
 .container {
-  width: 500px;
-  margin: 23px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-inline: 1rem;
+  margin-block: 1.5rem;
 }

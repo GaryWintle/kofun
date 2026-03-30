@@ -1,11 +1,16 @@
 /* hero section */
 .container {
-  background-color: rgb(163, 218, 218);
+  background-color: hsl(285, 7%, 12%);
+  display: grid;
 }
 
 .heroText {
-  font-size: 50px;
+  font-size: clamp(1rem, 12vw, 5rem);
+  color: white;
+  text-align: center;
 }
 .heroTime {
-  font-size: 80px;
+  font-size: 2rem;
+  color: white;
+  text-align: center;
 }

@@ -1,7 +1,13 @@
-.poop {
+.task {
   background-color: gainsboro;
+  gap: 1rem;
+  display: flex;
+  padding-inline: 1rem;
+  padding-block: 0.5rem;
+  border-radius: 0.5rem;
 }
 
-.selectedPoop {
-  background-color: rgb(204, 167, 238);
+.selectedTask {
+  background-color: #2bce8b;
+  color: white;
 }
