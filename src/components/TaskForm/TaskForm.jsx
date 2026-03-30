@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import styles from '@/components/TaskForm/TaskForm.module.css';
 
 const TaskForm = ({ tasks, dispatch, onAddTask, displayTime }) => {
   const [taskText, setTaskText] = useState('');
@@ -25,31 +26,35 @@ const TaskForm = ({ tasks, dispatch, onAddTask, displayTime }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      {/* <h1>{taskText}</h1>
-      <h1>{taskTime}</h1> */}
-      <label htmlFor="taskText">Enter your Task</label>
-      <input
-        id="taskText"
-        value={taskText}
-        type="text"
-        placeholder="Whatcha working on?"
-        onChange={(e) => setTaskText(e.target.value)}
-      ></input>
-      <label htmlFor="taskTime">Task Time Limit</label>
-      <button type="button" onClick={() => decrement(1)}>
-        -
-      </button>
-      <input
-        id="taskTime"
-        value={taskTime}
-        type="text"
-        placeholder="25"
-        onChange={(e) => setTaskTime(Number(e.target.value))}
-      ></input>
-      <button type="button" onClick={() => increment(1)}>
-        +
-      </button>
+    <form onSubmit={handleSubmit} className={styles.container}>
+      <div className={styles.field}>
+        <label htmlFor="taskText">Enter your Task</label>
+        <input
+          id="taskText"
+          value={taskText}
+          type="text"
+          placeholder="Whatcha working on?"
+          onChange={(e) => setTaskText(e.target.value)}
+        ></input>
+      </div>
+      <div className={styles.field}>
+        <label htmlFor="taskTime">Task Time Limit</label>
+        <div className={styles.stepper}>
+          <button type="button" onClick={() => decrement(1)}>
+            -
+          </button>
+          <input
+            id="taskTime"
+            value={taskTime}
+            type="text"
+            placeholder="25"
+            onChange={(e) => setTaskTime(Number(e.target.value))}
+          ></input>
+          <button type="button" onClick={() => increment(1)}>
+            +
+          </button>
+        </div>
+      </div>
       <button type="submit">ADD TASK</button>
     </form>
   );

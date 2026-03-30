@@ -1,0 +1,24 @@
+/* containers */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-inline: 1rem;
+  gap: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+/* enter text */
+
+/* enter time */
+.stepper {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}

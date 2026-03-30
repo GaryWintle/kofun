@@ -84,6 +84,13 @@ select {
   font: inherit;
 }
 
+input,
+button {
+  appearance: none;
+  border: none;
+  outline: none;
+}
+
 textarea:not([rows]) {
   min-height: 10em;
 }

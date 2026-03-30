@@ -8,3 +8,8 @@ h3,
 h4 {
   font-family: var(--font-display); /* Playfair for headings */
 }
+
+input:focus-visible {
+  outline: 2px solid blue;
+  outline-offset: 2px;
+}

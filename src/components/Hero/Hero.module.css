@@ -1,6 +1,7 @@
 /* hero section */
 .container {
   background-color: hsl(285, 7%, 12%);
+  height: 60vh;
   display: grid;
 }
 
