@@ -33,7 +33,12 @@ const KofunApp = () => {
   return (
     <div>
       {activeTask?.isComplete && <p>HURRAY!!!</p>}
-      <Hero state={state} dispatch={dispatch} displayTime={displayTime} />
+      <Hero
+        state={state}
+        dispatch={dispatch}
+        displayTime={displayTime}
+        activeTask={activeTask}
+      />
       <TaskList state={state} dispatch={dispatch} displayTime={displayTime} />
       <TaskForm
         tasks={state.tasks}

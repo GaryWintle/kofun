@@ -1,27 +1,17 @@
-import clsx from 'clsx';
+import TaskListItem from '@/components/TaskListItem/TaskListItem';
 import styles from '@/components/TaskList/TaskList.module.css';
-import formatTime from '@/utils/formatTime';
 
 const TaskList = ({ state, dispatch, displayTime }) => {
   return (
-    <ul role="list">
+    <ul role="list" className={styles.container}>
       {state.tasks.map((task) => (
-        <li
+        <TaskListItem
           key={task.id}
-          className={clsx(styles.poop, {
-            [styles.selectedPoop]: state.activeTaskId === task.id,
-          })}
-          onClick={() => {
-            dispatch({ type: 'SELECT_TASK', payload: task.id });
-          }}
-        >
-          <p className="filler">{task.text}</p>
-          <p className="filler">
-            {formatTime(
-              task.id === state.activeTaskId ? displayTime : task.remainingTime,
-            )}
-          </p>
-        </li>
+          task={task}
+          activeTaskId={state.activeTaskId}
+          dispatch={dispatch}
+          displayTime={displayTime}
+        />
       ))}
     </ul>
   );

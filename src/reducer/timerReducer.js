@@ -17,6 +17,13 @@ const timerInitialState = {
       remainingTime: 900,
       isComplete: false,
     },
+    {
+      id: 3,
+      text: 'Work in Figma',
+      duration: 4500,
+      remainingTime: 4500,
+      isComplete: false,
+    },
   ],
 };
 
