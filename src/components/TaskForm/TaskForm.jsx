@@ -31,6 +31,7 @@ const TaskForm = ({ tasks, dispatch, onAddTask, displayTime }) => {
         <label htmlFor="taskText">Enter your Task</label>
         <input
           id="taskText"
+          className={styles.textInput}
           value={taskText}
           type="text"
           placeholder="Whatcha working on?"
@@ -55,7 +56,9 @@ const TaskForm = ({ tasks, dispatch, onAddTask, displayTime }) => {
           </button>
         </div>
       </div>
-      <button type="submit">ADD TASK</button>
+      <button type="submit" className={styles.submitButton}>
+        ADD TASK
+      </button>
     </form>
   );
 };

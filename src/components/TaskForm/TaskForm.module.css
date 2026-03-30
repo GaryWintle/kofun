@@ -1,10 +1,12 @@
-/* containers */
-
 .container {
   display: flex;
   flex-direction: column;
-  margin-inline: 1rem;
-  gap: 1rem;
+  /* margin-inline: 1rem; */
+  padding-inline: 1rem;
+  padding-block: 3rem;
+  gap: 2rem;
+  background-color: rgb(194, 236, 201);
+  border-radius: 1rem 1rem 0 0;
 }
 
 .field {
@@ -14,7 +16,24 @@
   text-align: center;
 }
 
+.submitButton {
+  color: white;
+  background-color: rgb(50, 38, 58);
+  padding-block: 0.5rem;
+  padding-inline: 1rem;
+  border-radius: 1rem;
+}
+
 /* enter text */
+.textInput {
+  padding-block: 0.5rem;
+  padding-inline: 1rem;
+  border-radius: 1rem;
+}
+
+input::placeholder {
+  text-align: center;
+}
 
 /* enter time */
 .stepper {
