@@ -1,8 +1,19 @@
 /* hero section */
 .container {
   background-color: hsl(285, 7%, 12%);
-  height: 60vh;
+  padding: 2rem;
+}
+
+.counterContainer {
   display: grid;
+  place-content: center;
+}
+
+.innerCounterContainer {
+  display: grid;
+  grid-area: 1 / 1;
+  place-content: center;
+  gap: 1rem;
 }
 
 .heroText {

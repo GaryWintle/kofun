@@ -1,4 +1,6 @@
 .container {
+  grid-area: 1 / 1;
+  pointer-events: none;
 }
 
 .progressCircle {

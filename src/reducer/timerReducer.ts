@@ -1,3 +1,30 @@
+interface TimerState {
+  activeTaskId: number | null;
+  isRunning: boolean;
+  startedAt: number | null;
+  tasks: Task[];
+}
+
+interface Task {
+  id: number;
+  text: string;
+  duration: number;
+  remainingTime: number;
+  isComplete: boolean;
+}
+
+type TimerAction =
+  | { type: 'ADD_TASK'; payload: Omit<Task, 'id'> }
+  | { type: 'SELECT_TASK'; payload: number }
+  | { type: 'START_TIMER' }
+  | { type: 'PAUSE_TIMER' }
+  | { type: 'RESET_TIMER' }
+  | { type: 'DELETE_TASK'; payload: number }
+  | { type: 'EDIT_TASK'; payload: { id: number; text: string } }
+  | { type: 'EXTEND_TIME'; payload: { id: number; additionalTime: number } }
+  | { type: 'TICK' }
+  | { type: 'COMPLETE_TASK' };
+
 const timerInitialState = {
   activeTaskId: null,
   isRunning: false,
@@ -27,7 +54,10 @@ const timerInitialState = {
   ],
 };
 
-export default function timerReducer(state, action) {
+export default function timerReducer(
+  state: TimerState,
+  action: TimerAction,
+): TimerState {
   switch (action.type) {
     case 'ADD_TASK': {
       const taskId = Date.now();
@@ -42,7 +72,9 @@ export default function timerReducer(state, action) {
     }
     case 'SELECT_TASK':
       if (!state.isRunning) return { ...state, activeTaskId: action.payload };
-      const elapsedSeconds = Math.floor((Date.now() - state.startedAt) / 1000);
+      const elapsedSeconds = state.startedAt
+        ? Math.floor((Date.now() - state.startedAt) / 1000)
+        : 0;
       return {
         ...state,
         activeTaskId: action.payload,
@@ -64,7 +96,9 @@ export default function timerReducer(state, action) {
         startedAt: Date.now(),
       };
     case 'PAUSE_TIMER': {
-      const elapsedSeconds = Math.floor((Date.now() - state.startedAt) / 1000);
+      const elapsedSeconds = state.startedAt
+        ? Math.floor((Date.now() - state.startedAt) / 1000)
+        : 0;
 
       return {
         ...state,
