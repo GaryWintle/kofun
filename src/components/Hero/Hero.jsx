@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import styles from '@/components/Hero/Hero.module.css';
 import formatTime from '@/utils/formatTime';
 import CircleTimer from '@/components/CircleTimer/CircleTimer';
@@ -13,6 +14,7 @@ const Hero = ({ state, dispatch, displayTime, activeTask }) => {
           <div className={styles.heroText}>{heroTask?.text}</div>
           <div className={styles.counterContainer}>
             <div className={styles.innerCounterContainer}>
+              <Image src="/Haniwa-filler-01.svg" width={150} height={150} />
               <div className={styles.heroTime}>{formatTime(displayTime)}</div>
               <TimerButton isRunning={state.isRunning} dispatch={dispatch} />
             </div>
