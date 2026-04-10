@@ -46,12 +46,12 @@ const KofunApp = () => {
         displayTime={displayTime}
         activeTask={activeTask}
       />
-      <TaskList state={state} dispatch={dispatch} displayTime={displayTime} />
+      {/* <TaskList state={state} dispatch={dispatch} displayTime={displayTime} />
       <TaskForm
         tasks={state.tasks}
         dispatch={dispatch}
         onAddTask={handleAddTask}
-      />
+      /> */}
     </div>
   );
 };

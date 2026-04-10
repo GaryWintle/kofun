@@ -1,7 +1,22 @@
 /* hero section */
 .container {
-  background-color: hsl(285, 7%, 12%);
-  padding: 2rem;
+  background: linear-gradient(
+    to top,
+
+    oklch(92.852% 0.11207 195.449),
+    oklch(76.658% 0.14238 233.664)
+  );
+  height: 60dvh;
+}
+.backgroundContainer {
+  width: min(100%, 32rem);
+}
+.backgroundContainer img {
+  /* width: 100; */
+}
+
+.haniwa {
+  /* top: -400px; */
 }
 
 .counterContainer {

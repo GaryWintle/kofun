@@ -9,22 +9,24 @@ const Hero = ({ state, dispatch, displayTime, activeTask }) => {
 
   return (
     <header className={styles.container}>
-      {activeTask && (
-        <>
-          <div className={styles.heroText}>{heroTask?.text}</div>
-          <div className={styles.counterContainer}>
-            <div className={styles.innerCounterContainer}>
-              <Image src="/Haniwa-filler-01.svg" width={150} height={150} />
-              <div className={styles.heroTime}>{formatTime(displayTime)}</div>
-              <TimerButton isRunning={state.isRunning} dispatch={dispatch} />
-            </div>
-            <CircleTimer
-              displayTime={displayTime}
-              duration={activeTask?.duration}
-            />
+      <div className={styles.heroText}>{heroTask?.text}</div>
+      <div className={styles.backgroundContainer}>
+        <img src="/kofun-bg-01.svg" />
+      </div>
+
+      <div className={styles.counterContainer}>
+        <div className={styles.innerCounterContainer}>
+          <div className={styles.haniwa}>
+            <img src="/Haniwa-filler-01.svg" />
           </div>
-        </>
-      )}
+          <div className={styles.heroTime}>{formatTime(displayTime)}</div>
+          <TimerButton isRunning={state.isRunning} dispatch={dispatch} />
+        </div>
+        <CircleTimer
+          displayTime={displayTime}
+          duration={activeTask?.duration}
+        />
+      </div>
     </header>
   );
 };
