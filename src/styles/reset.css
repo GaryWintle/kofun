@@ -28,7 +28,6 @@ ol[role='list'] {
 }
 
 body {
-  /* min-height: 100vh; */
   min-block-size: 100svh;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;

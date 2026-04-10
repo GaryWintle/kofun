@@ -10,14 +10,11 @@ const Hero = ({ state, dispatch, displayTime, activeTask }) => {
   return (
     <header className={styles.container}>
       <div className={styles.heroText}>{heroTask?.text}</div>
-      <div className={styles.backgroundContainer}>
-        <img src="/kofun-bg-01.svg" />
-      </div>
 
       <div className={styles.counterContainer}>
         <div className={styles.innerCounterContainer}>
           <div className={styles.haniwa}>
-            <img src="/Haniwa-filler-01.svg" />
+            <img src="/kofun-haniwa.svg" />
           </div>
           <div className={styles.heroTime}>{formatTime(displayTime)}</div>
           <TimerButton isRunning={state.isRunning} dispatch={dispatch} />
@@ -26,6 +23,9 @@ const Hero = ({ state, dispatch, displayTime, activeTask }) => {
           displayTime={displayTime}
           duration={activeTask?.duration}
         />
+        <div className={styles.backgroundIllo}>
+          <img src="/kofunbg-02.svg" />
+        </div>
       </div>
     </header>
   );

@@ -6,33 +6,33 @@
     oklch(92.852% 0.11207 195.449),
     oklch(76.658% 0.14238 233.664)
   );
-  height: 60dvh;
-}
-.backgroundContainer {
-  width: min(100%, 32rem);
-}
-.backgroundContainer img {
-  /* width: 100; */
-}
-
-.haniwa {
-  /* top: -400px; */
+  /* height: 60dvh; */
 }
 
 .counterContainer {
   display: grid;
   place-content: center;
+  width: 100%;
+}
+
+.backgroundIllo {
+  grid-area: 1 / 1;
+  pointer-events: none;
+}
+
+.haniwa {
 }
 
 .innerCounterContainer {
+  border-color: red;
   display: grid;
   grid-area: 1 / 1;
-  place-content: center;
-  gap: 1rem;
+  align-content: end;
+  z-index: 2;
 }
 
 .heroText {
-  font-size: clamp(1rem, 12vw, 5rem);
+  font-size: clamp(1rem, 8vw, 3rem);
   color: white;
   text-align: center;
 }
