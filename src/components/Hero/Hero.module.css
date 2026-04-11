@@ -1,30 +1,38 @@
 /* hero section */
 .container {
+  display: grid;
   background: linear-gradient(
     to top,
-
     oklch(92.852% 0.11207 195.449),
     oklch(76.658% 0.14238 233.664)
   );
-  /* height: 60dvh; */
+}
+
+.heroTextContainer {
+  min-height: clamp(10rem, 20vh, 30rem);
+  place-content: center;
 }
 
 .counterContainer {
   display: grid;
-  place-content: center;
-  width: 100%;
+  /* place-content: center; */
 }
 
 .backgroundIllo {
+  width: 100%;
   grid-area: 1 / 1;
   pointer-events: none;
+}
+
+.backgroundIllo img {
+  width: 100%;
+  display: block;
 }
 
 .haniwa {
 }
 
 .innerCounterContainer {
-  border-color: red;
   display: grid;
   grid-area: 1 / 1;
   align-content: end;
@@ -37,6 +45,8 @@
   text-align: center;
 }
 .heroTime {
+  grid-area: 1 /1;
+  place-content: center;
   font-size: 2rem;
   color: white;
   text-align: center;

@@ -9,7 +9,9 @@ const Hero = ({ state, dispatch, displayTime, activeTask }) => {
 
   return (
     <header className={styles.container}>
-      <div className={styles.heroText}>{heroTask?.text}</div>
+      <div className={styles.heroTextContainer}>
+        <div className={styles.heroText}>{heroTask?.text}</div>
+      </div>
 
       <div className={styles.counterContainer}>
         <div className={styles.innerCounterContainer}>

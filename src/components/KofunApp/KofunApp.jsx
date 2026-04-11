@@ -38,7 +38,7 @@ const KofunApp = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <>
       {activeTask?.isComplete && <p>HURRAY!!!</p>}
       <Hero
         state={state}
@@ -52,7 +52,7 @@ const KofunApp = () => {
         dispatch={dispatch}
         onAddTask={handleAddTask}
       />
-    </div>
+    </>
   );
 };
 

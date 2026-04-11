@@ -14,7 +14,3 @@ input:focus-visible {
   outline-offset: 2px;
 }
 
-body {
-  display: flex;
-  justify-content: center;
-}
