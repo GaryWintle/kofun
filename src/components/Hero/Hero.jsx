@@ -21,17 +21,22 @@ const Hero = ({ state, dispatch, displayTime, activeTask }) => {
         <img src="/kofun-haniwa-03.svg" />
       </div>
 
-      <CircleTimer displayTime={displayTime} duration={activeTask?.duration} />
+      {state.activeTaskId && (
+        <>
+          <div className={styles.numberTimer}>{formatTime(displayTime)}</div>
+          <TimerButton isRunning={state.isRunning} dispatch={dispatch} />
+          <CircleTimer
+            displayTime={displayTime}
+            duration={activeTask?.duration}
+          />
+        </>
+      )}
       <div className={styles.foregroundLeft}>
         <img src="/kofun-foreground-left.svg" />
       </div>
       <div className={styles.foregroundRight}>
         <img src="/kofun-foreground-right.svg" />
       </div>
-
-      <div className={styles.numberTimer}>{formatTime(displayTime)}</div>
-
-      <TimerButton isRunning={state.isRunning} dispatch={dispatch} />
     </header>
   );
 };

@@ -11,3 +11,7 @@
 .progressCircle {
   transition: stroke-dashoffset 1s linear;
 }
+
+.backCircle {
+  backdrop-filter: blur(10px);
+}

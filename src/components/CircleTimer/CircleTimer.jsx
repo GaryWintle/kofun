@@ -5,6 +5,7 @@ const CircleTimer = ({ displayTime, duration }) => {
 
   const size = 350;
   const strokeWidth = 8;
+  const backStrokeWidth = 12;
   const radius = size / 2 - strokeWidth;
   const circumference = 2 * Math.PI * radius;
   const offset = duration ? circumference * (currentTime / duration) : 0;
@@ -24,12 +25,13 @@ const CircleTimer = ({ displayTime, duration }) => {
         </defs>
         {
           <circle
+            className={styles.backCircle}
             cx={cx}
             cy={cy}
             r={radius}
             fill="none"
-            stroke="hsl(285, 7%, 22%)"
-            strokeWidth={strokeWidth}
+            stroke="hsla(285, 7%, 22%, 0.2)"
+            strokeWidth={backStrokeWidth}
           />
         }
         {
