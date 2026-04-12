@@ -4,10 +4,10 @@ const CircleTimer = ({ displayTime, duration }) => {
   const currentTime = Math.max(0, displayTime);
 
   const size = 350;
-  const strokeWidth = 16;
+  const strokeWidth = 8;
   const radius = size / 2 - strokeWidth;
   const circumference = 2 * Math.PI * radius;
-  const offset = circumference * (currentTime / duration);
+  const offset = duration ? circumference * (currentTime / duration) : 0;
   const cx = size / 2;
   const cy = size / 2;
 
@@ -15,7 +15,7 @@ const CircleTimer = ({ displayTime, duration }) => {
 
   return (
     <div className={styles.container}>
-      <svg width="350" height="350" viewBox="0 0 350 350">
+      <svg viewBox="0 0 350 350">
         <defs>
           <linearGradient id="timerGradient" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="#50E7C4" />

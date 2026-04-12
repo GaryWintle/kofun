@@ -1,53 +1,63 @@
-/* hero section */
 .container {
   display: grid;
+  /* max-width: 600px; */
+  grid-template-areas:
+    'text'
+    'timer';
   background: linear-gradient(
     to top,
     oklch(92.852% 0.11207 195.449),
     oklch(76.658% 0.14238 233.664)
   );
 }
-
+/* Top Text Section */
 .heroTextContainer {
-  min-height: clamp(10rem, 20vh, 30rem);
+  min-height: clamp(5rem, 10vh, 20rem);
   place-content: center;
+  grid-area: text;
 }
-
-.counterContainer {
-  display: grid;
-  /* place-content: center; */
-}
-
-.backgroundIllo {
-  width: 100%;
-  grid-area: 1 / 1;
-  pointer-events: none;
-}
-
-.backgroundIllo img {
-  width: 100%;
-  display: block;
-}
-
-.haniwa {
-}
-
-.innerCounterContainer {
-  display: grid;
-  grid-area: 1 / 1;
-  align-content: end;
-  z-index: 2;
-}
-
-.heroText {
+.taskText {
   font-size: clamp(1rem, 8vw, 3rem);
   color: white;
   text-align: center;
 }
-.heroTime {
-  grid-area: 1 /1;
-  place-content: center;
-  font-size: 2rem;
+
+/* Bottom Illustration/Timer Section */
+
+/* Haniwa Character */
+.haniwaCharacter {
+  grid-area: timer;
+  place-self: start;
+  width: 100%;
+  height: 100%;
+}
+
+/* Timer Text */
+.numberTimer {
+  grid-area: timer;
+  justify-self: center;
+  /* text-align: center; */
+  margin-top: 14%;
+  font-size: clamp(1rem, 10vw, 5rem);
   color: white;
   text-align: center;
+}
+
+/* Foreground Images */
+.foregroundLeft {
+  grid-area: timer;
+  place-self: start;
+  width: 100%;
+  height: 100%;
+}
+.foregroundRight {
+  grid-area: timer;
+  place-self: start;
+  width: 100%;
+  height: 100%;
+}
+
+/* Background Image */
+.backgroundArt {
+  grid-area: timer;
 }

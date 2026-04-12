@@ -10,25 +10,28 @@ const Hero = ({ state, dispatch, displayTime, activeTask }) => {
   return (
     <header className={styles.container}>
       <div className={styles.heroTextContainer}>
-        <div className={styles.heroText}>{heroTask?.text}</div>
+        <div className={styles.taskText}>{heroTask?.text}</div>
       </div>
 
-      <div className={styles.counterContainer}>
-        <div className={styles.innerCounterContainer}>
-          <div className={styles.haniwa}>
-            <img src="/kofun-haniwa.svg" />
-          </div>
-          <div className={styles.heroTime}>{formatTime(displayTime)}</div>
-          <TimerButton isRunning={state.isRunning} dispatch={dispatch} />
-        </div>
-        <CircleTimer
-          displayTime={displayTime}
-          duration={activeTask?.duration}
-        />
-        <div className={styles.backgroundIllo}>
-          <img src="/kofunbg-02.svg" />
-        </div>
+      <div className={styles.backgroundArt}>
+        <img src="/kofun-background-03.svg" />
       </div>
+
+      <div className={styles.haniwaCharacter}>
+        <img src="/kofun-haniwa-03.svg" />
+      </div>
+
+      <CircleTimer displayTime={displayTime} duration={activeTask?.duration} />
+      <div className={styles.foregroundLeft}>
+        <img src="/kofun-foreground-left.svg" />
+      </div>
+      <div className={styles.foregroundRight}>
+        <img src="/kofun-foreground-right.svg" />
+      </div>
+
+      <div className={styles.numberTimer}>{formatTime(displayTime)}</div>
+
+      <TimerButton isRunning={state.isRunning} dispatch={dispatch} />
     </header>
   );
 };

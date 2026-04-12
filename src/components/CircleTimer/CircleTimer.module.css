@@ -1,8 +1,11 @@
 .container {
-  grid-area: 1 / 1;
+  grid-area: timer;
   pointer-events: none;
-  place-content: center;
-  z-index: 2;
+}
+
+.container svg {
+  width: 100%;
+  padding: 5%;
 }
 
 .progressCircle {

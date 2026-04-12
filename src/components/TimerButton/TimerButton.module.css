@@ -1,4 +1,12 @@
 .container {
+  grid-area: timer;
+  place-self: start;
+  margin-left: calc(50% - 50px);
+  margin-top: 75%;
+  width: 100px;
+  height: 50px;
   background-color: #2bce8b;
   border-radius: 1rem;
+  color: white;
+  padding: 0.5rem;
 }
