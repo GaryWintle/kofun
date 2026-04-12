@@ -23,8 +23,8 @@ const CircleTimer = ({ displayTime, duration }) => {
             cy="175"
             r="350"
           >
-            <stop offset="10%" stopColor="#FF924C" />
-            <stop offset="100%" stopColor="#FFCA3A" />
+            <stop offset="10%" stopColor="rgb(255, 229, 79)" />
+            <stop offset="100%" stopColor="rgb(255, 221, 28)" />
           </radialGradient>
           <filter id="myBlur">
             <feGaussianBlur stdDeviation="3" />
