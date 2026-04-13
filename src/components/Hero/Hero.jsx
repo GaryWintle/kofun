@@ -14,11 +14,11 @@ const Hero = ({ state, dispatch, displayTime, activeTask }) => {
       </div>
 
       <div className={styles.backgroundArt}>
-        <img src="/kofun-background-03.svg" />
+        <img src="/kofun-background-04.svg" />
       </div>
 
       <div className={styles.haniwaCharacter}>
-        <img src="/kofun-haniwa-03.svg" />
+        <img src="/kofun-haniwa-04.svg" />
       </div>
 
       {state.activeTaskId && (

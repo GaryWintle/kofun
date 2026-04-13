@@ -10,7 +10,11 @@ const TimerButton = ({ isRunning, dispatch }) => {
           : dispatch({ type: 'START_TIMER' });
       }}
     >
-      {isRunning ? 'pause' : 'play'}
+      {isRunning ? (
+        <img src="/kofun-button-pause.svg" width="57" height="57" />
+      ) : (
+        <img src="/kofun-button-play.svg" width="57" height="57" />
+      )}
     </button>
   );
 };

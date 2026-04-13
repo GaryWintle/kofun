@@ -4,7 +4,7 @@ const CircleTimer = ({ displayTime, duration }) => {
   const currentTime = Math.max(0, displayTime);
 
   const size = 350;
-  const strokeWidth = 6;
+  const strokeWidth = 3;
   const backStrokeWidth = 6;
   const radius = size / 2 - strokeWidth;
   const circumference = 2 * Math.PI * radius;
