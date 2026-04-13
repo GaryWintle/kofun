@@ -2,8 +2,7 @@
   grid-area: timer;
   place-self: start;
   position: relative;
-  /* z-index: 10; */
-  margin-left: calc(50% - 35px);
+  margin-left: calc(50% - 23px);
   margin-top: 67%;
   background: none;
   border: none;
