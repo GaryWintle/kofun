@@ -1,12 +1,62 @@
-body {
-  font-family: var(--font-body); /* Geist everywhere by default */
+:root {
+  /* Green scale */
+  --green-100: oklch(1 0.01 120);
+  --green-200: oklch(0.94 0.08 126);
+  --green-300: oklch(0.84 0.14 133);
+  --green-400: oklch(0.72 0.2 134);
+  --green-500: oklch(0.58 0.11 150);
+  --green-600: oklch(0.47 0.07 147);
+  --green-700: oklch(0.3 0.02 165);
+
+  /* Neutrals */
+  --neutral-white: oklch(0.98 0 90);
+  --neutral-200: oklch(0.96 0 248);
+  --neutral-300: oklch(0.92 0.01 165);
+  --neutral-400: oklch(0.75 0.03 149);
+  --neutral-500: oklch(0.6 0.025 146);
+  --neutral-black: oklch(22.782% 0.00483 145.664);
+
+  /* Highlight yellow */
+  --yellow-300: oklch(0.91 0.19 100);
+  --yellow-400: oklch(0.85 0.17 85);
+
+  /* Highlight green */
+  --color-highlight-green-300: oklch(0.92 0.21 122);
+  --color-highlight-green-500: oklch(0.88 0.23 130);
+
+  /* Highlight red */
+  --color-red-300: oklch(0.7 0.19 22);
+  --color-red-400: oklch(0.65 0.24 357);
+
+  /* Typography */
+  --font-family-base: 'Aleo', serif;
+
+  --font-size-sm: 1rem; /* 16px */
+  --font-size-md: 1.25rem; /* 20px */
+  --font-size-lg: 1.5rem; /* 24px */
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 600;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+
+  /* Spacing */
+  --sp-01: 0.5rem; /* 8px */
+  --sp-02: 0.75rem; /* 12px */
+  --sp-03: 1rem; /* 16px */
+  --sp-04: 1.5rem; /* 24px */
+  --sp-05: 2rem; /* 32px */
+  --sp-06: 3rem; /* 48px */
+
+  /* Border radius */
+  --br-sm: 0.5rem; /* 8px */
+  --br-md: 1rem; /* 16px */
+  --br-lg: 1.5rem; /* 24px */
 }
 
-h1,
-h2,
-h3,
-h4 {
-  font-family: var(--font-display); /* Playfair for headings */
+body {
+  font-family: var(--font-family-base);
+  background-color: var(--green-700);
 }
 
 input:focus-visible {
@@ -15,5 +65,4 @@ input:focus-visible {
 }
 
 body {
-  background-color: #223d2d;
 }

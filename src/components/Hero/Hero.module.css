@@ -20,6 +20,7 @@
   font-size: clamp(1rem, 8vw, 3rem);
   color: white;
   text-align: center;
+  font-weight: var(--font-weight-black);
 }
 
 /* Bottom Illustration/Timer Section */

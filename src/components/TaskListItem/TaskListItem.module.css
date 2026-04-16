@@ -1,13 +1,16 @@
 .task {
-  background-color: gainsboro;
-  gap: 1rem;
+  background-color: var(--green-100);
+  font-size: var(--font-size-sm);
+  gap: var(--sp-01);
   display: flex;
   padding-inline: 1rem;
   padding-block: 0.5rem;
-  border-radius: 0.5rem;
+  border-radius: var(--br-lg);
+  border: 1px solid var(--green-600);
 }
 
 .selectedTask {
   background-color: #2bce8b;
   color: white;
+  font-weight: var(--font-weight-bold);
 }

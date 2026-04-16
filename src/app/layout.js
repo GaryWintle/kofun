@@ -1,12 +1,8 @@
-import { Roboto, Playfair_Display } from 'next/font/google';
+import { Aleo } from 'next/font/google';
 import '@/styles/reset.css';
 import '@/styles/global.css';
 
-const body = Roboto({ subsets: ['latin'], variable: '--font-body' });
-const header = Playfair_Display({
-  subsets: ['latin'],
-  variable: '--font-display',
-});
+const base = Aleo({ subsets: ['latin'], variable: '--font-family-base' });
 
 export const metadata = {
   title: 'KOFUN',
@@ -17,7 +13,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${body.variable} ${header.variable}`}>{children}</body>
+      <body className={base.variable}>{children}</body>
     </html>
   );
 }
