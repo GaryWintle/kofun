@@ -3,7 +3,7 @@
   font-size: var(--font-size-sm);
   gap: var(--sp-01);
   display: grid;
-  grid-template-columns: 6rem 1fr;
+  grid-template-columns: 4.5rem 1fr;
   padding-inline: var(--sp-01);
   padding-block: 0.5rem;
   border-radius: var(--br-lg);

@@ -23,7 +23,9 @@ const Hero = ({ state, dispatch, displayTime, activeTask }) => {
 
       {state.activeTaskId && (
         <>
-          <div className={styles.numberTimer}>{formatTime(displayTime)}</div>
+          <div className={styles.numberTimer}>
+            {formatTime(displayTime, false)}
+          </div>
           <TimerButton isRunning={state.isRunning} dispatch={dispatch} />
           <CircleTimer
             displayTime={displayTime}
