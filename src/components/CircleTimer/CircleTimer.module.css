@@ -3,11 +3,10 @@
   pointer-events: none;
 }
 
-.container svg {
-  color: rgb(255, 221, 28);
+/* .container svg {
   width: 100%;
   padding: 5%;
-}
+} */
 
 .progressCircle {
   transition: stroke-dashoffset 1s linear;

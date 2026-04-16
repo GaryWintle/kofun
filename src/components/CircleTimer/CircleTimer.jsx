@@ -1,11 +1,17 @@
 import styles from '@/components/CircleTimer/CircleTimer.module.css';
 
-const CircleTimer = ({ displayTime, duration }) => {
+const CircleTimer = ({
+  displayTime,
+  duration,
+  timerStrokeWidth = 4,
+  circleWidth = '100%',
+  circlePadding = '5%',
+}) => {
   const currentTime = Math.max(0, displayTime);
 
   const size = 350;
-  const strokeWidth = 4;
-  const backStrokeWidth = 9;
+  const strokeWidth = timerStrokeWidth;
+  const backStrokeWidth = timerStrokeWidth * 2;
   const radius = size / 2 - strokeWidth;
   const circumference = 2 * Math.PI * radius;
   const offset = duration ? circumference * (currentTime / duration) : 0;
@@ -14,7 +20,10 @@ const CircleTimer = ({ displayTime, duration }) => {
 
   return (
     <div className={styles.container}>
-      <svg viewBox="0 0 350 350">
+      <svg
+        style={{ width: circleWidth, padding: circlePadding }}
+        viewBox="0 0 350 350"
+      >
         <defs>
           <radialGradient
             id="timerGradient"

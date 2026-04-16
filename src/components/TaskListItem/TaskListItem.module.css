@@ -9,8 +9,13 @@
   border: 1px solid var(--green-600);
 }
 
+.timeContainer {
+  display: flex;
+  gap: var(--sp-01);
+}
+
 .selectedTask {
-  background-color: #2bce8b;
+  background-color: var(--green-400);
   color: white;
   font-weight: var(--font-weight-bold);
 }
