@@ -4,8 +4,8 @@ const CircleTimer = ({ displayTime, duration }) => {
   const currentTime = Math.max(0, displayTime);
 
   const size = 350;
-  const strokeWidth = 3;
-  const backStrokeWidth = 6;
+  const strokeWidth = 4;
+  const backStrokeWidth = 9;
   const radius = size / 2 - strokeWidth;
   const circumference = 2 * Math.PI * radius;
   const offset = duration ? circumference * (currentTime / duration) : 0;
@@ -23,8 +23,8 @@ const CircleTimer = ({ displayTime, duration }) => {
             cy="175"
             r="350"
           >
-            <stop offset="10%" stopColor="rgb(255, 229, 79)" />
-            <stop offset="100%" stopColor="rgb(255, 221, 28)" />
+            <stop offset="10%" stopColor="#a3f521" />
+            <stop offset="100%" stopColor="#cdfa2c" />
           </radialGradient>
           <filter id="myBlur">
             <feGaussianBlur stdDeviation="3" />
