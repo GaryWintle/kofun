@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from '@/components/TaskForm/TaskForm.module.css';
+import formatTime from '@/utils/formatTime';
 
 const TaskForm = ({ tasks, dispatch, onAddTask, displayTime }) => {
   const [taskText, setTaskText] = useState('');
@@ -28,7 +29,9 @@ const TaskForm = ({ tasks, dispatch, onAddTask, displayTime }) => {
   return (
     <form onSubmit={handleSubmit} className={styles.container}>
       <div className={styles.field}>
-        <label htmlFor="taskText">Enter your Task</label>
+        <label htmlFor="taskText" className={styles.title}>
+          Enter your Task
+        </label>
         <input
           id="taskText"
           className={styles.textInput}
@@ -39,19 +42,22 @@ const TaskForm = ({ tasks, dispatch, onAddTask, displayTime }) => {
         ></input>
       </div>
       <div className={styles.field}>
-        <label htmlFor="taskTime">Task Time Limit</label>
+        <label htmlFor="taskTime" className={styles.title}>
+          Task Time Limit
+        </label>
         <div className={styles.stepper}>
-          <button type="button" onClick={() => decrement(1)}>
+          <button type="button" onClick={() => decrement(60)}>
             -
           </button>
           <input
             id="taskTime"
-            value={taskTime}
+            className={styles.taskTime}
+            value={formatTime(taskTime)}
             type="text"
-            placeholder="25"
             onChange={(e) => setTaskTime(Number(e.target.value))}
+            disabled
           ></input>
-          <button type="button" onClick={() => increment(1)}>
+          <button type="button" onClick={() => increment(60)}>
             +
           </button>
         </div>

@@ -2,11 +2,16 @@
   display: flex;
   flex-direction: column;
   /* margin-inline: 1rem; */
-  padding-inline: 1rem;
+  padding-inline: var(--sp-04);
   padding-block: 3rem;
   gap: 2rem;
-  background-color: rgb(194, 236, 201);
+  background-color: var(--green-700);
   border-radius: 1rem 1rem 0 0;
+}
+
+.title {
+  font-size: var(--font-size-lg);
+  color: var(--green-100);
 }
 
 .field {
@@ -17,10 +22,13 @@
 }
 
 .submitButton {
-  color: white;
-  background-color: rgb(50, 38, 58);
-  padding-block: 0.5rem;
+  color: var(--green-100);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-black);
+  background-color: var(--green-400);
+  padding-block: 1rem;
   padding-inline: 1rem;
+  margin-inline: 3rem;
   border-radius: 1rem;
 }
 
@@ -36,6 +44,15 @@ input::placeholder {
 }
 
 /* enter time */
+
+.taskTime {
+  font-family: var(--font-family-base);
+  color: var(--green-100);
+  font-size: 1.5rem;
+  background-color: rgba(0, 0, 255, 0);
+  text-align: center;
+}
+
 .stepper {
   display: flex;
   gap: 0.5rem;
