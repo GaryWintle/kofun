@@ -9,9 +9,9 @@ function formatTime(time) {
     return String(num).padStart(2, 0);
   };
 
-  const formattedTime = `${hours}:${numPadding(minutes)}:${numPadding(seconds)}`;
+  const formattedTime = `${hours}h${numPadding(minutes)}m`;
 
-  const underHourTime = `${numPadding(minutes)}:${numPadding(seconds)}`;
+  const underHourTime = `${minutes}m`;
 
   const underMinuteTime = `${seconds}s`;
 
