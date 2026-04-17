@@ -107,7 +107,7 @@ const TaskForm = ({ tasks, dispatch, onAddTask, displayTime }) => {
           </ul>
           <button
             type="button"
-            className={styles.presetButton}
+            className={`${styles.presetButton} ${styles.resetButton}`}
             onClick={() => setTaskTime((prev) => 0)}
           >
             Reset

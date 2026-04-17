@@ -24,20 +24,25 @@
 
 .submitButton {
   color: var(--green-100);
-  font-size: var(--font-size-small);
+  font-size: var(--font-size-md);
   font-weight: var(--font-weight-black);
   background-color: var(--green-400);
   padding-block: 1rem;
   padding-inline: 1rem;
   margin-inline: 3rem;
   border-radius: 1rem;
+  box-shadow: inset 0 2px 0 var(--green-300);
 }
 
 /* enter text */
 .textInput {
-  padding-block: var(--sp-03);
+  background-color: var(--green-100);
+  box-shadow: inset 0 0 6px var(--highlight-green-300);
+  border: 2px solid var(--green-500);
+  padding-block: var(--sp-04);
   padding-inline: var(--sp-03);
   border-radius: var(--br-md);
+  line-height: 1;
 }
 
 input::placeholder {
@@ -66,9 +71,11 @@ input::placeholder {
 
 .taskTime {
   font-family: var(--font-family-base);
-  font-weight: var(--font-weight-black);
-  color: var(--green-100);
   font-size: 2.5rem;
+  font-weight: var(--font-weight-black);
+  line-height: 1;
+  padding-block-start: 5px;
+  color: var(--green-100);
   background-color: transparent;
   text-align: center;
 }
@@ -94,7 +101,7 @@ input::placeholder {
 
 .longTimeText {
   font-size: var(--font-size-md);
-  color: var(--green-200);
+  color: var(--green-300);
   text-align: center;
 }
 
@@ -111,8 +118,20 @@ input::placeholder {
   background-color: var(--green-100);
   font-size: var(--font-size-md);
   font-weight: var(--font-weight-bold);
+  line-height: 1;
   border-radius: var(--br-sm);
-  padding: var(--sp-01) var(--sp-03);
+  padding-block: var(--sp-01);
+  padding-inline: clamp(var(--sp-01), 12vw, var(--sp-02));
   border: 2px solid var(--green-200);
   box-shadow: 0 1px 0 var(--green-300);
+}
+
+.resetButton {
+  align-self: center;
+  font-weight: var(--font-weight-regular);
+  color: var(--green-300);
+  background-color: transparent;
+  padding-block: var(--sp-01);
+  padding-inline: var(--sp-03);
+  border: 2px solid var(--green-300);
 }
