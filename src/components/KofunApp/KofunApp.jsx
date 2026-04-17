@@ -60,7 +60,6 @@ const KofunApp = () => {
         className={styles.addTaskButton}
         onClick={() => setTaskModule((prev) => !prev)}
       >
-        {' '}
         <img src="/buttons-icons/kofun-button-addtask.svg" />
       </button>
     </div>

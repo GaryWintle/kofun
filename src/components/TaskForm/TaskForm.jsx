@@ -97,7 +97,7 @@ const TaskForm = ({
               </svg>
             </button>
           </div>
-          <p className={styles.longTimeText}>1 hour & 15 Minutes</p>
+          {/* <p className={styles.longTimeText}>1 hour & 15 Minutes</p> */}
 
           <ul className={styles.presetButtonsWrapper} role="list">
             {presetTimes.map((time) => (
@@ -121,15 +121,17 @@ const TaskForm = ({
           </button>
         </div>
       </div>
-      <button type="submit" className={styles.submitButton}>
-        ADD TASK
-      </button>
-      <button
-        className={styles.cancelButton}
-        onClick={() => setTaskModule((prev) => !prev)}
-      >
-        Cancel
-      </button>
+      <div className={styles.finalButtonsWrapper}>
+        <button type="submit" className={styles.submitButton}>
+          ADD TASK
+        </button>
+        <button
+          className={styles.cancelButton}
+          onClick={() => setTaskModule((prev) => !prev)}
+        >
+          Cancel
+        </button>
+      </div>
     </form>
   );
 };
