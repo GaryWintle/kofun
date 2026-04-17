@@ -82,7 +82,7 @@ const TaskForm = ({
               value={formatTime(taskTime, false)}
               type="text"
               onChange={(e) => setTaskTime(Number(e.target.value))}
-              disabled
+              readOnly
             ></input>
             <button
               type="button"
@@ -114,7 +114,7 @@ const TaskForm = ({
           </ul>
           <button
             type="button"
-            className={`${styles.presetButton} ${styles.resetButton}`}
+            className={styles.subtleButton}
             onClick={() => setTaskTime((prev) => 0)}
           >
             Reset
@@ -126,8 +126,9 @@ const TaskForm = ({
           ADD TASK
         </button>
         <button
-          className={styles.cancelButton}
+          className={styles.subtleButton}
           onClick={() => setTaskModule((prev) => !prev)}
+          type="button"
         >
           Cancel
         </button>

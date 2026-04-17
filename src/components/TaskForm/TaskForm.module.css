@@ -2,12 +2,13 @@
   display: flex;
   flex-direction: column;
   /* margin-inline: 1rem; */
-  padding-inline: var(--sp-04);
-  padding-block: var(--sp-04);
+  padding-inline: var(--sp-05);
+  padding-block-start: var(--sp-05);
+  padding-block-end: var(--sp-02);
   gap: var(--sp-04);
-  background: url('/kofun-pattern-neutral-10.svg'), none;
+  background: url('/kofun-pattern-neutral-20.svg'), none;
   /* background-color: var(--neutral-black); */
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(10px);
   background-size: 15%;
   border-top: 2px solid var(--green-600);
@@ -16,7 +17,8 @@
   position: fixed;
   bottom: 0;
   overflow-y: auto;
-  max-height: 65vh;
+  max-height: 70dvh;
+  box-shadow: 0 -24px 24px rgba(0, 0, 0, 0.212);
 }
 
 .title {
@@ -60,7 +62,7 @@
   border: 2px solid var(--green-300);
 }
 
-.cancelButton {
+.subtleButton {
   color: var(--green-300);
   font-size: var(--font-size-sm);
   background-color: transparent;
@@ -69,12 +71,12 @@
 /* enter text */
 .textInput {
   color: var(--green-700);
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-lg);
   font-weight: var(--font-weight-medium);
   background-color: var(--green-100);
   box-shadow: inset 0 0 6px var(--highlight-green-300);
   border: 2px solid var(--green-500);
-  padding-block: var(--sp-03);
+  padding-block: var(--sp-04);
   padding-inline: var(--sp-03);
   border-radius: var(--br-md);
   line-height: 1;
@@ -97,9 +99,9 @@ input::placeholder {
   display: flex;
   flex-direction: column;
   gap: var(--sp-04);
-  /* background-color: var(--green-700); */
-  background: linear-gradient(var(--neutral-black), var(--green-700));
-  padding-block: var(--sp-04);
+  background-color: var(--neutral-black);
+  /* background: linear-gradient(var(--neutral-black), var(--green-700)); */
+  padding-block: var(--sp-03);
   padding-inline: var(--sp-05);
   border-radius: var(--br-lg);
   border: 1px solid var(--green-600);
@@ -130,14 +132,14 @@ input::placeholder {
 }
 
 .taskTimeButton {
-  background-color: var(--green-100);
+  background-color: var(--green-700);
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-black);
   width: 2.4rem;
   aspect-ratio: 1;
   padding: var(--sp-01);
   border-radius: var(--br-circle);
-  border: 2px solid var(--green-200);
+  border: 1px solid var(--green-400);
   box-shadow: 0 1px 0 var(--green-200);
   display: flex;
   align-items: center;
@@ -160,14 +162,14 @@ input::placeholder {
 
 .presetButton {
   color: var(--green-400);
-  background-color: var(--green-100);
+  background-color: var(--green-700);
   font-size: var(--font-size-md);
   font-weight: var(--font-weight-bold);
   line-height: 1;
   border-radius: var(--br-sm);
   padding-block: var(--sp-01);
   padding-inline: clamp(var(--sp-01), 12vw, var(--sp-02));
-  border: 2px solid var(--green-200);
+  border: 1px solid var(--green-500);
   box-shadow: 0 1px 0 var(--green-300);
 }
 
