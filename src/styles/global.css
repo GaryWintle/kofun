@@ -14,7 +14,7 @@
   --neutral-300: oklch(0.92 0.01 165);
   --neutral-400: oklch(0.75 0.03 149);
   --neutral-500: oklch(0.6 0.025 146);
-  --neutral-black: oklch(23.5% 0.01 145.5);
+  --neutral-black: oklch(23.36% 0.0096 145.388);
 
   /* Highlight yellow */
   --highlight-yellow-300: oklch(0.91 0.19 100);
