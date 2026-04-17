@@ -4,21 +4,22 @@
   /* margin-inline: 1rem; */
   padding-inline: var(--sp-04);
   padding-block: 3rem;
-  gap: 2rem;
-  background-color: var(--green-700);
+  gap: var(--sp-06);
+  background-color: var(--neutral-black);
+  border-top: 2px solid var(--green-600);
   border-radius: 1rem 1rem 0 0;
 }
 
 .title {
   font-size: var(--font-size-lg);
   color: var(--green-100);
+  text-align: center;
 }
 
 .field {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  text-align: center;
+  gap: 1rem;
 }
 
 .submitButton {
@@ -34,27 +35,57 @@
 
 /* enter text */
 .textInput {
-  padding-block: 0.5rem;
-  padding-inline: 1rem;
-  border-radius: 1rem;
+  padding-block: var(--sp-03);
+  padding-inline: var(--sp-03);
+  border-radius: var(--br-md);
 }
 
 input::placeholder {
   text-align: center;
+  font-size: var(--font-size-md);
 }
 
 /* enter time */
+.timeField {
+  background-color: var(--green-700);
+  padding: var(--sp-05);
+  border-radius: var(--br-lg);
+  border: 1px solid var(--green-600);
+}
+
+.timeStepper {
+  display: grid;
+  grid-template-columns: auto 50% auto;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
 
 .taskTime {
   font-family: var(--font-family-base);
+  font-weight: var(--font-weight-black);
   color: var(--green-100);
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   background-color: rgba(0, 0, 255, 0);
   text-align: center;
 }
 
-.stepper {
+.taskTimeButton {
+  background-color: var(--green-100);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-black);
+  width: 2rem;
+  aspect-ratio: 1;
+  padding: var(--sp-01);
+  border-radius: var(--br-circle);
+  border: 2px solid var(--green-200);
+  box-shadow: 0 1px 0 var(--green-200);
   display: flex;
-  gap: 0.5rem;
+  align-items: center;
   justify-content: center;
+}
+
+.longTimeText {
+  color: var(--green-200);
+  text-align: center;
 }
