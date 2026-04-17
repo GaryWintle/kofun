@@ -2,7 +2,13 @@ import { useState } from 'react';
 import styles from '@/components/TaskForm/TaskForm.module.css';
 import formatTime from '@/utils/formatTime';
 
-const TaskForm = ({ tasks, dispatch, onAddTask, displayTime }) => {
+const TaskForm = ({
+  tasks,
+  dispatch,
+  onAddTask,
+  displayTime,
+  setTaskModule,
+}) => {
   const [taskText, setTaskText] = useState('');
   const [taskTime, setTaskTime] = useState(0);
 
@@ -34,6 +40,7 @@ const TaskForm = ({ tasks, dispatch, onAddTask, displayTime }) => {
     onAddTask(newTask);
     setTaskText('');
     setTaskTime(0);
+    setTaskModule((prev) => !prev);
   };
 
   return (
@@ -116,6 +123,12 @@ const TaskForm = ({ tasks, dispatch, onAddTask, displayTime }) => {
       </div>
       <button type="submit" className={styles.submitButton}>
         ADD TASK
+      </button>
+      <button
+        className={styles.cancelButton}
+        onClick={() => setTaskModule((prev) => !prev)}
+      >
+        Cancel
       </button>
     </form>
   );

@@ -1,3 +1,10 @@
 .container {
-  /* position: relative; */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.addTaskButton {
+  background-color: transparent;
+  align-self: center;
 }

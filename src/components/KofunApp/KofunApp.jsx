@@ -1,6 +1,6 @@
 'use client';
 
-import { useReducer } from 'react';
+import { useReducer, useState } from 'react';
 import timerReducer, { timerInitialState } from '@/reducer/timerReducer';
 import styles from '@/components/KofunApp/KofunApp.module.css';
 import Hero from '@/components/Hero/Hero';
@@ -10,6 +10,7 @@ import useTimer from '@/hooks/useTimer';
 
 const KofunApp = () => {
   const [state, dispatch] = useReducer(timerReducer, timerInitialState);
+  const [taskModule, setTaskModule] = useState(false);
 
   // Chooses the active task
   const activeTask = state.tasks.find((task) => task.id === state.activeTaskId);
@@ -47,11 +48,21 @@ const KofunApp = () => {
         activeTask={activeTask}
       />
       <TaskList state={state} dispatch={dispatch} displayTime={displayTime} />
-      <TaskForm
-        tasks={state.tasks}
-        dispatch={dispatch}
-        onAddTask={handleAddTask}
-      />
+      {taskModule && (
+        <TaskForm
+          tasks={state.tasks}
+          dispatch={dispatch}
+          onAddTask={handleAddTask}
+          setTaskModule={setTaskModule}
+        />
+      )}
+      <button
+        className={styles.addTaskButton}
+        onClick={() => setTaskModule((prev) => !prev)}
+      >
+        {' '}
+        <img src="/buttons-icons/kofun-button-addtask.svg" />
+      </button>
     </div>
   );
 };

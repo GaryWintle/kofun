@@ -30,27 +30,27 @@ const timerInitialState = {
   isRunning: false,
   startedAt: null,
   tasks: [
-    {
-      id: 1,
-      text: 'Write blog post',
-      duration: 1500,
-      remainingTime: 1500,
-      isComplete: false,
-    },
-    {
-      id: 2,
-      text: 'Review designs',
-      duration: 5,
-      remainingTime: 5,
-      isComplete: false,
-    },
-    {
-      id: 3,
-      text: 'Work in Figma',
-      duration: 4500,
-      remainingTime: 4500,
-      isComplete: false,
-    },
+    // {
+    //   id: 1,
+    //   text: 'Write blog post',
+    //   duration: 1500,
+    //   remainingTime: 1500,
+    //   isComplete: false,
+    // },
+    // {
+    //   id: 2,
+    //   text: 'Review designs',
+    //   duration: 5,
+    //   remainingTime: 5,
+    //   isComplete: false,
+    // },
+    // {
+    //   id: 3,
+    //   text: 'Work in Figma',
+    //   duration: 4500,
+    //   remainingTime: 4500,
+    //   isComplete: false,
+    // },
   ],
 };
 
