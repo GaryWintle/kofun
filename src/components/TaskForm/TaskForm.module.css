@@ -47,6 +47,9 @@ input::placeholder {
 
 /* enter time */
 .timeField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-04);
   background-color: var(--green-700);
   padding: var(--sp-05);
   border-radius: var(--br-lg);
@@ -55,7 +58,7 @@ input::placeholder {
 
 .timeStepper {
   display: grid;
-  grid-template-columns: auto 50% auto;
+  grid-template-columns: auto 60% auto;
   gap: 1rem;
   justify-content: center;
   align-items: center;
@@ -66,8 +69,12 @@ input::placeholder {
   font-weight: var(--font-weight-black);
   color: var(--green-100);
   font-size: 2.5rem;
-  background-color: rgba(0, 0, 255, 0);
+  background-color: transparent;
   text-align: center;
+}
+.taskTime:disabled {
+  -webkit-text-fill-color: var(--green-100);
+  opacity: 1;
 }
 
 .taskTimeButton {
@@ -86,6 +93,26 @@ input::placeholder {
 }
 
 .longTimeText {
+  font-size: var(--font-size-md);
   color: var(--green-200);
   text-align: center;
+}
+
+.presetButtonsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: var(--sp-02);
+  row-gap: var(--sp-03);
+}
+
+.presetButton {
+  color: var(--green-400);
+  background-color: var(--green-100);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  border-radius: var(--br-sm);
+  padding: var(--sp-01) var(--sp-03);
+  border: 2px solid var(--green-200);
+  box-shadow: 0 1px 0 var(--green-300);
 }

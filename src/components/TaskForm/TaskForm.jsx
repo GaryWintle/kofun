@@ -13,6 +13,16 @@ const TaskForm = ({ tasks, dispatch, onAddTask, displayTime }) => {
     setTaskTime((prev) => prev + amount);
   };
 
+  const presetTimes = [
+    { timeDisplay: '3h', timeAmount: 10800 },
+    { timeDisplay: '2h', timeAmount: 7200 },
+    { timeDisplay: '1h', timeAmount: 3600 },
+    { timeDisplay: '30m', timeAmount: 1800 },
+    { timeDisplay: '15m', timeAmount: 900 },
+    { timeDisplay: '10m', timeAmount: 600 },
+    { timeDisplay: '5m', timeAmount: 300 },
+  ];
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const newTask = {
@@ -62,7 +72,7 @@ const TaskForm = ({ tasks, dispatch, onAddTask, displayTime }) => {
             <input
               id="taskTime"
               className={styles.taskTime}
-              value={formatTime(taskTime)}
+              value={formatTime(taskTime, false)}
               type="text"
               onChange={(e) => setTaskTime(Number(e.target.value))}
               disabled
@@ -81,6 +91,27 @@ const TaskForm = ({ tasks, dispatch, onAddTask, displayTime }) => {
             </button>
           </div>
           <p className={styles.longTimeText}>1 hour & 15 Minutes</p>
+
+          <ul className={styles.presetButtonsWrapper} role="list">
+            {presetTimes.map((time) => (
+              <li key={time.timeAmount}>
+                <button
+                  type="button"
+                  className={styles.presetButton}
+                  onClick={() => setTaskTime((prev) => prev + time.timeAmount)}
+                >
+                  {time.timeDisplay}
+                </button>
+              </li>
+            ))}
+          </ul>
+          <button
+            type="button"
+            className={styles.presetButton}
+            onClick={() => setTaskTime((prev) => 0)}
+          >
+            Reset
+          </button>
         </div>
       </div>
       <button type="submit" className={styles.submitButton}>
