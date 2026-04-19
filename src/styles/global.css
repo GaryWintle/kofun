@@ -65,6 +65,3 @@ input:focus-visible {
   outline: 1px solid var(--color-highlight-green-300);
   outline-offset: 2px;
 }
-
-body {
-}

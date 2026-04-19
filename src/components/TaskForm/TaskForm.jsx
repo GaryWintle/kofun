@@ -44,96 +44,107 @@ const TaskForm = ({
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.container}>
-      <div className={styles.field}>
-        <label htmlFor="taskText" className={styles.title}>
-          Enter your Task
-        </label>
-        <input
-          id="taskText"
-          className={styles.textInput}
-          value={taskText}
-          type="text"
-          placeholder="Whatcha working on?"
-          onChange={(e) => setTaskText(e.target.value)}
-        ></input>
+    <div className={styles.moduleWrapper}>
+      <div className={styles.moduleHeader}>
+        <p className={styles.headerText}>Enter Task</p>
+        <p className={styles.headerSecondaryText}>
+          Enter your task and its time limit.
+        </p>
+        <button className={styles.cancelButton}>X</button>
       </div>
-      <div className={styles.field}>
-        <label htmlFor="taskTime" className={styles.title}>
-          Task Time Limit
-        </label>
-        <div className={styles.timeField}>
-          <div className={styles.timeStepper}>
+      <form onSubmit={handleSubmit} className={styles.container}>
+        <div className={styles.field}>
+          {/* <label htmlFor="taskText" className={styles.title}>
+            Enter your Task
+          </label> */}
+          <input
+            id="taskText"
+            className={styles.textInput}
+            value={taskText}
+            type="text"
+            placeholder="Whatcha working on?"
+            onChange={(e) => setTaskText(e.target.value)}
+          ></input>
+        </div>
+        <div className={styles.field}>
+          {/* <label htmlFor="taskTime" className={styles.title}>
+            Task Time Limit
+          </label> */}
+          <div className={styles.timeField}>
+            <div className={styles.timeStepper}>
+              <button
+                type="button"
+                className={styles.taskTimeButton}
+                onClick={() => decrement(60)}
+              >
+                <svg width="13" height="5" viewBox="0 0 13 5">
+                  <path
+                    d="M12.667 4.87207H0V0H12.667V4.87207Z"
+                    fill="var(--green-300)"
+                  />
+                </svg>
+              </button>
+              <input
+                id="taskTime"
+                className={styles.taskTime}
+                value={formatTime(taskTime, false)}
+                type="text"
+                onChange={(e) => setTaskTime(Number(e.target.value))}
+                readOnly
+              ></input>
+              <button
+                type="button"
+                className={styles.taskTimeButton}
+                onClick={() => increment(60)}
+              >
+                <svg width="14" height="14" viewBox="0 0 14 14">
+                  <path
+                    d="M9.23047 4.10254H13.333V9.23047H9.23047V13.333H4.10254V9.23047H0V4.10254H4.10254V0H9.23047V4.10254Z"
+                    fill="var(--green-300)"
+                  />
+                </svg>
+              </button>
+            </div>
+            {/* <p className={styles.longTimeText}>1 hour & 15 Minutes</p> */}
+
+            <ul className={styles.presetButtonsWrapper} role="list">
+              {presetTimes.map((time) => (
+                <li key={time.timeAmount}>
+                  <button
+                    type="button"
+                    className={styles.presetButton}
+                    onClick={() =>
+                      setTaskTime((prev) => prev + time.timeAmount)
+                    }
+                  >
+                    {time.timeDisplay}
+                  </button>
+                </li>
+              ))}
+            </ul>
             <button
               type="button"
-              className={styles.taskTimeButton}
-              onClick={() => decrement(60)}
+              className={styles.subtleButton}
+              onClick={() => setTaskTime((prev) => 0)}
             >
-              <svg width="13" height="5" viewBox="0 0 13 5">
-                <path
-                  d="M12.667 4.87207H0V0H12.667V4.87207Z"
-                  fill="var(--green-400)"
-                />
-              </svg>
-            </button>
-            <input
-              id="taskTime"
-              className={styles.taskTime}
-              value={formatTime(taskTime, false)}
-              type="text"
-              onChange={(e) => setTaskTime(Number(e.target.value))}
-              readOnly
-            ></input>
-            <button
-              type="button"
-              className={styles.taskTimeButton}
-              onClick={() => increment(60)}
-            >
-              <svg width="14" height="14" viewBox="0 0 14 14">
-                <path
-                  d="M9.23047 4.10254H13.333V9.23047H9.23047V13.333H4.10254V9.23047H0V4.10254H4.10254V0H9.23047V4.10254Z"
-                  fill="var(--green-400)"
-                />
-              </svg>
+              Reset
             </button>
           </div>
-          {/* <p className={styles.longTimeText}>1 hour & 15 Minutes</p> */}
-
-          <ul className={styles.presetButtonsWrapper} role="list">
-            {presetTimes.map((time) => (
-              <li key={time.timeAmount}>
-                <button
-                  type="button"
-                  className={styles.presetButton}
-                  onClick={() => setTaskTime((prev) => prev + time.timeAmount)}
-                >
-                  {time.timeDisplay}
-                </button>
-              </li>
-            ))}
-          </ul>
+        </div>
+        <div className={styles.finalButtonsWrapper}>
+          <button type="submit" className={styles.submitButton}>
+            ADD TASK
+          </button>
           <button
-            type="button"
             className={styles.subtleButton}
-            onClick={() => setTaskTime((prev) => 0)}
+            onClick={() => setTaskModule((prev) => !prev)}
+            type="button"
           >
-            Reset
+            Cancel
           </button>
         </div>
-      </div>
-      <div className={styles.finalButtonsWrapper}>
-        <button type="submit" className={styles.submitButton}>
-          ADD TASK
-        </button>
-        <button
-          className={styles.subtleButton}
-          onClick={() => setTaskModule((prev) => !prev)}
-          type="button"
-        >
-          Cancel
-        </button>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 };
 
