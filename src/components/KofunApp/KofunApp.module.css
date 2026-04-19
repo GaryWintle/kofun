@@ -8,3 +8,7 @@
   background-color: transparent;
   align-self: center;
 }
+
+.addTaskButton img {
+  width: 4.5rem;
+}
