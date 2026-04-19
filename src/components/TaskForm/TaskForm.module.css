@@ -26,7 +26,7 @@
 .headerText {
   font-size: var(--font-size-md);
   font-weight: var(--font-weight-bold);
-  color: var(--green-300);
+  color: var(--green-100);
   text-align: center;
 }
 
@@ -40,8 +40,9 @@
   width: 1.8rem;
   background-color: transparent;
   position: absolute;
-  right: var(--sp-02);
-  top: calc(50% - 1ch);
+  right: var(--sp-01);
+  /* top: calc(50% - 1ch); */
+  top: var(--sp-01);
 }
 
 .container {
@@ -119,7 +120,6 @@
   padding-inline: var(--sp-03);
   border-radius: var(--br-md);
   line-height: 1;
-  caret: red;
   transition:
     box-shadow 0.2s ease,
     background-color 0.2s ease;
@@ -139,7 +139,6 @@ input::placeholder {
   display: flex;
   flex-direction: column;
   gap: var(--sp-05);
-  /* background-color: var(--neutral-black); */
   background: linear-gradient(
     oklch(from var(--neutral-black) l c h / 0.6),
     oklch(from var(--green-700) l c h / 0.3)
@@ -151,8 +150,6 @@ input::placeholder {
   border-radius: var(--br-lg);
   border: 1px solid var(--green-600);
   box-shadow: 0 12px 12px oklch(from var(--neutral-black) l c h / 0.4);
-
-  /* background-color: oklch(from var(--green-700) l c h / 0.9); */
 }
 
 .timeStepper {
@@ -182,12 +179,12 @@ input::placeholder {
   background-color: var(--green-700);
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-black);
-  width: 2.4rem;
+  width: 2.2rem;
   aspect-ratio: 1;
   padding: var(--sp-01);
   border-radius: var(--br-circle);
-  border: 1px solid var(--green-400);
-  box-shadow: 0 1px 0 var(--green-200);
+  border: 1px solid var(--green-500);
+  box-shadow: 0 1px 0 var(--green-400);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -210,14 +207,14 @@ input::placeholder {
 .presetButton {
   color: var(--green-300);
   background-color: var(--green-700);
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-bold);
   line-height: 1;
   border-radius: var(--br-sm);
   padding-block: var(--sp-01);
   padding-inline: clamp(var(--sp-01), 12vw, var(--sp-02));
   border: 1px solid var(--green-500);
-  box-shadow: 0 1px 0 var(--green-300);
+  box-shadow: 0 1px 0 var(--green-400);
 }
 
 .resetButton {
