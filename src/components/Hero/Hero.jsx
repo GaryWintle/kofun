@@ -3,6 +3,7 @@ import styles from '@/components/Hero/Hero.module.css';
 import formatTime from '@/utils/formatTime';
 import CircleTimer from '@/components/CircleTimer/CircleTimer';
 import TimerButton from '@/components/TimerButton/TimerButton';
+import { motion, AnimatePresence } from 'motion/react';
 
 const Hero = ({ state, dispatch, displayTime, activeTask }) => {
   const heroTask = state.tasks.find((task) => task.id === state.activeTaskId);

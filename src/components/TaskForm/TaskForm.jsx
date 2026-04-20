@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import styles from '@/components/TaskForm/TaskForm.module.css';
 import formatTime from '@/utils/formatTime';
-import {motion} from "motion/react";
+import { motion } from 'motion/react';
+import { buttonPress } from '@/animations/variants';
 
 const TaskForm = ({
   tasks,
@@ -45,18 +46,25 @@ const TaskForm = ({
   };
 
   return (
-    <motion.div className={styles.moduleWrapper} initial={{ y: "100%", scale: 0.9, opacity: 1 }}
+    <motion.div
+      className={styles.moduleWrapper}
+      initial={{ y: '100%', scale: 0.9, opacity: 1 }}
       animate={{ y: 0, scale: 1, opacity: 1 }}
-      exit={{y:"100%", scale: 0.9, opacity: 0, transition: {duration: 0.15, ease: "easeIn"}}}
-      transition={{ type: "spring", stiffness: 280, damping: 32}}
-      >
-        
+      exit={{
+        y: '100%',
+        scale: 0.9,
+        opacity: 0,
+        transition: { duration: 0.15, ease: 'easeIn' },
+      }}
+      transition={{ type: 'spring', stiffness: 280, damping: 32 }}
+    >
       <div className={styles.moduleHeader}>
         <p className={styles.headerText}>Please enter task & time limit.</p>
         {/* <p className={styles.headerSecondaryText}>
           Enter your task and its time limit.
         </p> */}
-        <button
+        <motion.button
+          {...buttonPress}
           className={styles.cancelButton}
           type="button"
           onClick={() => setTaskModule((prev) => !prev)}
@@ -67,7 +75,7 @@ const TaskForm = ({
               fill="var(--green-300)"
             />
           </svg>
-        </button>
+        </motion.button>
       </div>
       <form onSubmit={handleSubmit} className={styles.container}>
         <div className={styles.field}>
@@ -89,7 +97,8 @@ const TaskForm = ({
           </label> */}
           <div className={styles.timeField}>
             <div className={styles.timeStepper}>
-              <button
+              <motion.button
+                {...buttonPress}
                 type="button"
                 className={styles.taskTimeButton}
                 onClick={() => decrement(60)}
@@ -100,7 +109,7 @@ const TaskForm = ({
                     fill="var(--green-300)"
                   />
                 </svg>
-              </button>
+              </motion.button>
               <input
                 id="taskTime"
                 className={styles.taskTime}
@@ -109,7 +118,8 @@ const TaskForm = ({
                 onChange={(e) => setTaskTime(Number(e.target.value))}
                 readOnly
               ></input>
-              <button
+              <motion.button
+                {...buttonPress}
                 type="button"
                 className={styles.taskTimeButton}
                 onClick={() => increment(60)}
@@ -120,14 +130,15 @@ const TaskForm = ({
                     fill="var(--green-300)"
                   />
                 </svg>
-              </button>
+              </motion.button>
             </div>
             {/* <p className={styles.longTimeText}>1 hour & 15 Minutes</p> */}
 
             <ul className={styles.presetButtonsWrapper} role="list">
               {presetTimes.map((time) => (
                 <li key={time.timeAmount}>
-                  <button
+                  <motion.button
+                    {...buttonPress}
                     type="button"
                     className={styles.presetButton}
                     onClick={() =>
@@ -135,7 +146,7 @@ const TaskForm = ({
                     }
                   >
                     {time.timeDisplay}
-                  </button>
+                  </motion.button>
                 </li>
               ))}
             </ul>
@@ -149,9 +160,13 @@ const TaskForm = ({
           </div>
         </div>
         <div className={styles.finalButtonsWrapper}>
-          <button type="submit" className={styles.submitButton}>
+          <motion.button
+            {...buttonPress}
+            type="submit"
+            className={styles.submitButton}
+          >
             ADD TASK
-          </button>
+          </motion.button>
           <button
             className={styles.subtleButton}
             onClick={() => setTaskModule((prev) => !prev)}

@@ -7,7 +7,8 @@ import Hero from '@/components/Hero/Hero';
 import TaskList from '@/components/TaskList/TaskList';
 import TaskForm from '@/components/TaskForm/TaskForm';
 import useTimer from '@/hooks/useTimer';
-import {motion, AnimatePresence} from "motion/react";
+import { motion, AnimatePresence } from 'motion/react';
+import { buttonPress } from '@/animations/variants';
 
 const KofunApp = () => {
   const [state, dispatch] = useReducer(timerReducer, timerInitialState);
@@ -49,24 +50,23 @@ const KofunApp = () => {
         activeTask={activeTask}
       />
       <TaskList state={state} dispatch={dispatch} displayTime={displayTime} />
-       <AnimatePresence>
-      {taskModule && (
-        <TaskForm
-          tasks={state.tasks}
-          dispatch={dispatch}
-          onAddTask={handleAddTask}
-          setTaskModule={setTaskModule}
-        />
-      )}
-       </AnimatePresence>
       <motion.button
-        whileHover={{scale: 1.05}}
-        whileTap={{scale: 0.95}}
+        {...buttonPress}
         className={styles.addTaskButton}
         onClick={() => setTaskModule((prev) => !prev)}
       >
         <img src="/buttons-icons/kofun-button-addtask.svg" />
       </motion.button>
+      <AnimatePresence>
+        {taskModule && (
+          <TaskForm
+            tasks={state.tasks}
+            dispatch={dispatch}
+            onAddTask={handleAddTask}
+            setTaskModule={setTaskModule}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 };
