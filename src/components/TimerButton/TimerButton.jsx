@@ -1,9 +1,12 @@
 import styles from '@/components/TimerButton/TimerButton.module.css';
+import { motion } from 'motion/react';
+import { heroTimerOpening, buttonPress } from '@/animations/variants';
 
 const TimerButton = ({ isRunning, dispatch }) => {
   return (
     <div className={styles.container}>
-      <button
+      <motion.button
+        {...buttonPress}
         className={styles.button}
         onClick={() => {
           isRunning
@@ -16,7 +19,7 @@ const TimerButton = ({ isRunning, dispatch }) => {
         ) : (
           <img src="/buttons-icons/kofun-button-play.svg" />
         )}
-      </button>
+      </motion.button>
     </div>
   );
 };
