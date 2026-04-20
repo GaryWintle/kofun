@@ -14,7 +14,7 @@ interface Task {
 }
 
 type TimerAction =
-  | { type: 'ADD_TASK'; payload: Omit<Task, 'id'> }
+  | { type: 'ADD_TASK'; payload: Omit<Task, 'id'> & { id?: number } }
   | { type: 'SELECT_TASK'; payload: number }
   | { type: 'START_TIMER' }
   | { type: 'PAUSE_TIMER' }
@@ -56,14 +56,13 @@ const timerInitialState = {
 
 export default function timerReducer(
   state: TimerState,
-  action: TimerAction,
+  action: TimerAction
 ): TimerState {
   switch (action.type) {
     case 'ADD_TASK': {
-      const taskId = Date.now();
       const newTask = {
         ...action.payload,
-        id: taskId,
+        id: action.payload.id ?? Date.now(),
       };
       return {
         ...state,
@@ -86,7 +85,7 @@ export default function timerReducer(
                 ...task,
                 remainingTime: task.remainingTime - elapsedSeconds,
               }
-            : task,
+            : task
         ),
       };
     case 'START_TIMER':
@@ -110,7 +109,7 @@ export default function timerReducer(
                 ...task,
                 remainingTime: task.remainingTime - elapsedSeconds,
               }
-            : task,
+            : task
         ),
       };
     }
@@ -125,7 +124,7 @@ export default function timerReducer(
                 ...task,
                 remainingTime: task.duration,
               }
-            : task,
+            : task
         ),
       };
     case 'DELETE_TASK':
@@ -139,7 +138,7 @@ export default function timerReducer(
         tasks: state.tasks.map((task) =>
           task.id === action.payload.id
             ? { ...task, text: action.payload.text }
-            : task,
+            : task
         ),
       };
     case 'EXTEND_TIME':
@@ -153,7 +152,7 @@ export default function timerReducer(
                   task.remainingTime + action.payload.additionalTime,
                 duration: task.duration + action.payload.additionalTime,
               }
-            : task,
+            : task
         ),
       };
     case 'TICK':
@@ -175,7 +174,7 @@ export default function timerReducer(
                 isComplete: true,
                 remainingTime: task.remainingTime - elapsedSeconds,
               }
-            : task,
+            : task
         ),
       };
     }

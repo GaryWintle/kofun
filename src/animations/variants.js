@@ -19,11 +19,13 @@ export const moduleSlideInOut = {
   exit: {
     y: '100%',
     scale: 0.9,
-    opacity: [1, 0, 0],
+    opacity: 0,
     transition: {
-      y: { type: 'spring', stiffness: 400, damping: 35 },
-      scale: { type: 'spring', stiffness: 400, damping: 35 },
-      opacity: { duration: 0.3, times: [0, 0.3, 1] },
+      y: { type: 'spring', stiffness: 300, damping: 32 },
+      scale: { type: 'spring', stiffness: 300, damping: 32 },
+      opacity: { duration: 0.3 },
     },
   },
 };
+
+export const heroTimerOpening = {};

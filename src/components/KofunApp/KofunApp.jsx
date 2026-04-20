@@ -35,9 +35,11 @@ const KofunApp = () => {
   // Custom hook for controlling countdown and completion
   useTimer(state.isRunning, activeTask, dispatch, displayTime);
 
-  // Adds task object to useReducer
+  // Adds task object to useReducer and selects it so it's highlighted
   const handleAddTask = (newTask) => {
-    dispatch({ type: 'ADD_TASK', payload: newTask });
+    const id = Date.now();
+    dispatch({ type: 'ADD_TASK', payload: { ...newTask, id } });
+    dispatch({ type: 'SELECT_TASK', payload: id });
   };
 
   return (

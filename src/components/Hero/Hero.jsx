@@ -1,9 +1,9 @@
-import Image from 'next/image';
 import styles from '@/components/Hero/Hero.module.css';
 import formatTime from '@/utils/formatTime';
 import CircleTimer from '@/components/CircleTimer/CircleTimer';
 import TimerButton from '@/components/TimerButton/TimerButton';
 import { motion, AnimatePresence } from 'motion/react';
+import { heroTimerOpening } from '@/animations/variants';
 
 const Hero = ({ state, dispatch, displayTime, activeTask }) => {
   const heroTask = state.tasks.find((task) => task.id === state.activeTaskId);
@@ -11,7 +11,15 @@ const Hero = ({ state, dispatch, displayTime, activeTask }) => {
   return (
     <header className={styles.container}>
       <div className={styles.heroTextContainer}>
-        <div className={styles.taskText}>{heroTask?.text}</div>
+        <motion.div
+          key={state.activeTaskId}
+          className={styles.taskText}
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ opacity: { duration: 0.2 } }}
+        >
+          {heroTask?.text}
+        </motion.div>
       </div>
 
       <div className={styles.backgroundArt}>
@@ -24,9 +32,15 @@ const Hero = ({ state, dispatch, displayTime, activeTask }) => {
 
       {state.activeTaskId && (
         <>
-          <div className={styles.numberTimer}>
+          <motion.div
+            key={state.activeTaskId}
+            className={styles.numberTimer}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ opacity: { duration: 0.2 } }}
+          >
             {formatTime(displayTime, false)}
-          </div>
+          </motion.div>
           <TimerButton isRunning={state.isRunning} dispatch={dispatch} />
           <CircleTimer
             displayTime={displayTime}

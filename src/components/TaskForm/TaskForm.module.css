@@ -5,7 +5,7 @@
   bottom: 0;
   max-height: 75dvh;
   width: 100%;
-  z-index: ;
+  z-index:;
 }
 
 /* Header Section */
@@ -181,7 +181,7 @@ input::placeholder {
   background-color: var(--green-700);
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-black);
-  width: 2.2rem;
+  width: 2.3rem;
   aspect-ratio: 1;
   padding: var(--sp-01);
   border-radius: var(--br-circle);
@@ -213,8 +213,8 @@ input::placeholder {
   font-weight: var(--font-weight-bold);
   line-height: 1;
   border-radius: var(--br-sm);
-  padding-block: var(--sp-01);
-  padding-inline: clamp(var(--sp-01), 12vw, var(--sp-02));
+  padding-block: var(--sp-02);
+  padding-inline: clamp(var(--sp-02), 12vw, var(--sp-03));
   border: 1px solid var(--green-500);
   box-shadow: 0 1px 0 var(--green-400);
 }
