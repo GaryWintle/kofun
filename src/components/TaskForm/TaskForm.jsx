@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styles from '@/components/TaskForm/TaskForm.module.css';
 import formatTime from '@/utils/formatTime';
+import {motion} from "motion/react";
 
 const TaskForm = ({
   tasks,
@@ -44,7 +45,12 @@ const TaskForm = ({
   };
 
   return (
-    <div className={styles.moduleWrapper}>
+    <motion.div className={styles.moduleWrapper} initial={{ y: "100%", scale: 0.9, opacity: 1 }}
+      animate={{ y: 0, scale: 1, opacity: 1 }}
+      exit={{y:"100%", scale: 0.9, opacity: 0, transition: {duration: 0.15, ease: "easeIn"}}}
+      transition={{ type: "spring", stiffness: 280, damping: 32}}
+      >
+        
       <div className={styles.moduleHeader}>
         <p className={styles.headerText}>Please enter task & time limit.</p>
         {/* <p className={styles.headerSecondaryText}>
@@ -155,7 +161,7 @@ const TaskForm = ({
           </button>
         </div>
       </form>
-    </div>
+    </motion.div>
   );
 };
 
