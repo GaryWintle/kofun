@@ -24,13 +24,13 @@ const TaskListItem = ({ task, activeTaskId, dispatch, displayTime }) => {
           circleWidth={'24px'}
           circlePadding={0}
         />
-        <p className="filler">
+        <p>
           {formatTime(
             task.id === activeTaskId ? displayTime : task.remainingTime
           )}
         </p>
       </div>
-      <p className="filler">{task.text}</p>
+      <p>{task.text}</p>
     </li>
   );
 };

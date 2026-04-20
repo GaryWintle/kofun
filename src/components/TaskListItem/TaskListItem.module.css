@@ -1,6 +1,8 @@
 .task {
   background-color: var(--green-100);
+  color: var(--green-700);
   font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
   gap: var(--sp-01);
   display: grid;
   grid-template-columns: 4.5rem 1fr;
@@ -8,17 +10,18 @@
   padding-block: 0.5rem;
   border-radius: var(--br-lg);
   border: 1px solid var(--green-600);
+  box-shadow: inset 1px 1px 5px oklch(from var(--green-700) l c h / 0.15);
 }
 
 .timeContainer {
   display: flex;
   /* width: 5rem; */
   gap: var(--sp-01);
-  border-right: 1px solid var(--green-600);
+  border-right: 1px solid var(--neutral-400);
 }
 
 .selectedTask {
   background-color: var(--green-400);
-  color: white;
+  color: var(--green-100);
   font-weight: var(--font-weight-bold);
 }

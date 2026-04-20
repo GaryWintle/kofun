@@ -46,7 +46,11 @@ const TaskForm = ({
   };
 
   return (
-    <motion.div className={styles.moduleWrapper} {...moduleSlideInOut}>
+    <motion.div
+      className={styles.moduleWrapper}
+      onClick={(e) => e.stopPropagation()}
+      {...moduleSlideInOut}
+    >
       <div className={styles.moduleHeader}>
         <p className={styles.headerText}>Please enter task & time limit.</p>
         {/* <p className={styles.headerSecondaryText}>
@@ -56,7 +60,10 @@ const TaskForm = ({
           {...buttonPress}
           className={styles.cancelButton}
           type="button"
-          onClick={() => setTaskModule((prev) => !prev)}
+          onClick={(e) => {
+            e.stopPropagation();
+            setTaskModule((prev) => !prev);
+          }}
         >
           <svg width="26" height="25" viewBox="0 0 26 25" fill="none">
             <path
