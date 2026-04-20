@@ -43,7 +43,10 @@ const KofunApp = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      onClick={() => dispatch({ type: 'DESELECT_TASK' })}
+    >
       {activeTask?.isComplete && <p>HURRAY!!!</p>}
       <Hero
         state={state}
@@ -55,7 +58,10 @@ const KofunApp = () => {
       <motion.button
         {...buttonPress}
         className={styles.addTaskButton}
-        onClick={() => setTaskModule((prev) => !prev)}
+        onClick={(e) => {
+          e.stopPropagation();
+          setTaskModule((prev) => !prev);
+        }}
       >
         <img src="/buttons-icons/kofun-button-addtask.svg" />
       </motion.button>

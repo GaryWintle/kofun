@@ -16,6 +16,7 @@ interface Task {
 type TimerAction =
   | { type: 'ADD_TASK'; payload: Omit<Task, 'id'> & { id?: number } }
   | { type: 'SELECT_TASK'; payload: number }
+  | { type: 'DESELECT_TASK' }
   | { type: 'START_TIMER' }
   | { type: 'PAUSE_TIMER' }
   | { type: 'RESET_TIMER' }
@@ -87,6 +88,11 @@ export default function timerReducer(
               }
             : task
         ),
+      };
+    case 'DESELECT_TASK':
+      return {
+        ...state,
+        activeTaskId: null,
       };
     case 'START_TIMER':
       return {

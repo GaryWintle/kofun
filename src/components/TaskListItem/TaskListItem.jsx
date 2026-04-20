@@ -9,7 +9,8 @@ const TaskListItem = ({ task, activeTaskId, dispatch, displayTime }) => {
       className={clsx(styles.task, {
         [styles.selectedTask]: activeTaskId === task.id,
       })}
-      onClick={() => {
+      onClick={(e) => {
+        e.stopPropagation();
         dispatch({ type: 'SELECT_TASK', payload: task.id });
       }}
     >
@@ -25,7 +26,7 @@ const TaskListItem = ({ task, activeTaskId, dispatch, displayTime }) => {
         />
         <p className="filler">
           {formatTime(
-            task.id === activeTaskId ? displayTime : task.remainingTime,
+            task.id === activeTaskId ? displayTime : task.remainingTime
           )}
         </p>
       </div>

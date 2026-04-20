@@ -8,7 +8,8 @@ const TimerButton = ({ isRunning, dispatch }) => {
       <motion.button
         {...buttonPress}
         className={styles.button}
-        onClick={() => {
+        onClick={(e) => {
+          e.stopPropagation();
           isRunning
             ? dispatch({ type: 'PAUSE_TIMER' })
             : dispatch({ type: 'START_TIMER' });
