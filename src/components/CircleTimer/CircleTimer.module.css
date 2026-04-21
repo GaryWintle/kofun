@@ -9,7 +9,9 @@
 } */
 
 .progressCircle {
-  transition: stroke-dashoffset 1s ease-in-out;
+  transition:
+    stroke-dashoffset 1s linear,
+    stroke 3s ease;
 }
 
 .backCircle {

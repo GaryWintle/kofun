@@ -12,6 +12,13 @@ const CircleTimer = ({
 }) => {
   const currentTime = Math.max(0, displayTime);
 
+  const strokeColor =
+    currentTime <= 10
+      ? 'var(--highlight-red-300)'
+      : currentTime <= 120
+        ? 'var(--highlight-yellow-300)'
+        : 'var(--highlight-green-300)';
+
   const size = 350;
   const strokeWidth = timerStrokeWidth;
   const backStrokeWidth = timerStrokeWidth;
@@ -27,31 +34,10 @@ const CircleTimer = ({
         style={{ width: circleWidth, padding: circlePadding }}
         viewBox="0 0 350 350"
       >
-        <defs>
-          <radialGradient
-            id="timerGradient"
-            gradientUnits="userSpaceOnUse"
-            cx="0"
-            cy="175"
-            r="350"
-          >
-            <stop offset="10%" stopColor="var(--highlight-green-300)" />
-            <stop offset="100%" stopColor="var(--highlight-green-400)" />
-          </radialGradient>
-          <radialGradient
-            id="redTimerGradient"
-            gradientUnits="userSpaceOnUse"
-            cx="0"
-            cy="175"
-            r="350"
-          >
-            <stop offset="10%" stopColor="var(--highlight-red-300)" />
-            <stop offset="100%" stopColor="var(--highlight-red-400)" />
-          </radialGradient>
-          <filter id="myBlur">
-            <feGaussianBlur stdDeviation="3" />
-          </filter>
-        </defs>
+        <filter id="myBlur">
+          <feGaussianBlur stdDeviation="3" />
+        </filter>
+
         <circle
           className={clsx(styles.backCircle, {
             [styles.selectedBackCircle]: activeTaskId === task.id,
@@ -69,9 +55,7 @@ const CircleTimer = ({
           cy={cy}
           r={radius}
           fill="none"
-          stroke={
-            currentTime < 10 ? 'url(#redTimerGradient)' : 'url(#timerGradient)'
-          }
+          stroke={strokeColor}
           strokeDasharray={circumference}
           strokeDashoffset={offset}
           strokeWidth={strokeWidth}
@@ -85,9 +69,7 @@ const CircleTimer = ({
           cy={cy}
           r={radius}
           fill="none"
-          stroke={
-            currentTime < 10 ? 'url(#redTimerGradient)' : 'url(#timerGradient)'
-          }
+          stroke={strokeColor}
           strokeDasharray={circumference}
           strokeDashoffset={offset}
           strokeWidth={strokeWidth}

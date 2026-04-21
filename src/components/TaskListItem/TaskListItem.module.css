@@ -31,6 +31,7 @@
   padding-block: var(--sp-005);
   padding-inline: var(--sp-01);
   border: 1px solid var(--neutral-300);
+  box-shadow: inset 2px 2px 2px oklch(from var(--green-700) l c h / 0.1);
   /* border-right: 1px solid var(--neutral-400); */
 }
 
