@@ -2,10 +2,12 @@ import clsx from 'clsx';
 import formatTime from '@/utils/formatTime';
 import styles from '@/components/TaskListItem/TaskListItem.module.css';
 import CircleTimer from '../CircleTimer/CircleTimer';
+import { motion } from 'motion/react';
+import { buttonPress } from '@/animations/variants';
 
 const TaskListItem = ({ task, activeTaskId, dispatch, displayTime }) => {
   return (
-    <li
+    <motion.li
       className={clsx(styles.task, {
         [styles.selectedTask]: activeTaskId === task.id,
       })}
@@ -13,8 +15,13 @@ const TaskListItem = ({ task, activeTaskId, dispatch, displayTime }) => {
         e.stopPropagation();
         dispatch({ type: 'SELECT_TASK', payload: task.id });
       }}
+      {...buttonPress(0.99)}
     >
-      <div className={styles.timeContainer}>
+      <div
+        className={clsx(styles.timeContainer, {
+          [styles.selectedTimeContainer]: activeTaskId === task.id,
+        })}
+      >
         <CircleTimer
           displayTime={
             task.id === activeTaskId ? displayTime : task.remainingTime
@@ -24,14 +31,14 @@ const TaskListItem = ({ task, activeTaskId, dispatch, displayTime }) => {
           circleWidth={'24px'}
           circlePadding={0}
         />
-        <p>
+        <p className={styles.taskTime}>
           {formatTime(
             task.id === activeTaskId ? displayTime : task.remainingTime
           )}
         </p>
       </div>
       <p>{task.text}</p>
-    </li>
+    </motion.li>
   );
 };
 

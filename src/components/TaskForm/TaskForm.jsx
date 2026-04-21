@@ -57,7 +57,7 @@ const TaskForm = ({
           Enter your task and its time limit.
         </p> */}
         <motion.button
-          {...buttonPress}
+          {...buttonPress()}
           className={styles.cancelButton}
           type="button"
           onClick={(e) => {
@@ -94,7 +94,7 @@ const TaskForm = ({
           <div className={styles.timeField}>
             <div className={styles.timeStepper}>
               <motion.button
-                {...buttonPress}
+                {...buttonPress()}
                 type="button"
                 className={styles.taskTimeButton}
                 onClick={() => decrement(60)}
@@ -115,7 +115,7 @@ const TaskForm = ({
                 readOnly
               ></input>
               <motion.button
-                {...buttonPress}
+                {...buttonPress()}
                 type="button"
                 className={styles.taskTimeButton}
                 onClick={() => increment(60)}
@@ -134,7 +134,7 @@ const TaskForm = ({
               {presetTimes.map((time) => (
                 <li key={time.timeAmount}>
                   <motion.button
-                    {...buttonPress}
+                    {...buttonPress()}
                     type="button"
                     className={styles.presetButton}
                     onClick={() =>
@@ -157,7 +157,7 @@ const TaskForm = ({
         </div>
         <div className={styles.finalButtonsWrapper}>
           <motion.button
-            {...buttonPress}
+            {...buttonPress()}
             type="submit"
             className={styles.submitButton}
           >

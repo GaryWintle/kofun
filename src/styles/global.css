@@ -22,7 +22,7 @@
 
   /* Highlight green */
   --highlight-green-300: oklch(0.92 0.21 122);
-  --highlight-green-500: oklch(0.88 0.23 130);
+  --highlight-green-400: oklch(0.88 0.23 130);
 
   /* Highlight red */
   --highlight-color-red-300: oklch(0.7 0.19 22);

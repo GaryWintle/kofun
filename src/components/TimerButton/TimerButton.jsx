@@ -6,7 +6,7 @@ const TimerButton = ({ isRunning, dispatch }) => {
   return (
     <div className={styles.container}>
       <motion.button
-        {...buttonPress}
+        {...buttonPress()}
         className={styles.button}
         onClick={(e) => {
           e.stopPropagation();
@@ -16,7 +16,7 @@ const TimerButton = ({ isRunning, dispatch }) => {
         }}
       >
         {isRunning ? (
-          <img src="/buttons-icons/kofun-button-pause.svg" />
+          <img src="/buttons-icons/kofun-button-pause-02.svg" />
         ) : (
           <img src="/buttons-icons/kofun-button-play.svg" />
         )}

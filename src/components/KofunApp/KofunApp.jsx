@@ -56,7 +56,7 @@ const KofunApp = () => {
       />
       <TaskList state={state} dispatch={dispatch} displayTime={displayTime} />
       <motion.button
-        {...buttonPress}
+        {...buttonPress()}
         className={styles.addTaskButton}
         onClick={(e) => {
           e.stopPropagation();

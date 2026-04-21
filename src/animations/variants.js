@@ -1,8 +1,8 @@
-export const buttonPress = {
+export const buttonPress = (tapStrength = 0.95) => ({
   whileHover: { scale: 1.05 },
-  whileTap: { scale: 0.95, y: 1, filter: 'brightness(0.85)' },
+  whileTap: { scale: tapStrength, y: 1, filter: 'brightness(0.85)' },
   transition: { duration: 0.1, ease: 'easeIn' },
-};
+});
 
 export const moduleSlideInOut = {
   initial: { y: '100%', scale: 0.9, opacity: 0 },
