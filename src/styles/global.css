@@ -11,9 +11,9 @@
   /* Neutrals */
   --neutral-white: oklch(0.98 0 90);
   --neutral-200: oklch(0.96 0 248);
-  --neutral-300: oklch(0.92 0.01 165);
+  --neutral-300: oklch(88.925% 0.01178 162.482);
   --neutral-400: oklch(0.75 0.03 149);
-  --neutral-500: oklch(0.6 0.025 146);
+  --neutral-500: oklch(59.52% 0.01331 145.642);
   --neutral-black: oklch(23.36% 0.0096 145.388);
 
   /* Highlight yellow */
@@ -25,8 +25,8 @@
   --highlight-green-400: oklch(0.88 0.23 130);
 
   /* Highlight red */
-  --highlight-color-red-300: oklch(0.7 0.19 22);
-  --highlight-color-red-400: oklch(0.65 0.24 357);
+  --highlight-red-300: oklch(74.214% 0.15909 35.017);
+  --highlight-red-400: oklch(89.365% 0.18599 104.581);
 
   /* Typography */
   --font-family-base: 'Aleo', serif;
@@ -42,6 +42,7 @@
   --font-weight-black: 900;
 
   /* Spacing */
+  --sp-005: 0.25rem;
   --sp-01: 0.5rem; /* 8px */
   --sp-02: 0.75rem; /* 12px */
   --sp-03: 1rem; /* 16px */

@@ -23,12 +23,14 @@ const TaskListItem = ({ task, activeTaskId, dispatch, displayTime }) => {
         })}
       >
         <CircleTimer
+          task={task}
+          activeTaskId={activeTaskId}
           displayTime={
             task.id === activeTaskId ? displayTime : task.remainingTime
           }
           duration={task.duration}
           timerStrokeWidth={40}
-          circleWidth={'24px'}
+          circleWidth={'22px'}
           circlePadding={0}
         />
         <p className={styles.taskTime}>

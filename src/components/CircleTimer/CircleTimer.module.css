@@ -14,4 +14,9 @@
 
 .backCircle {
   backdrop-filter: blur(10px);
+  stroke: oklch(from var(--neutral-500) l c h / 0.45);
+}
+
+.selectedBackCircle {
+  stroke: oklch(from var(--green-100) l c h / 0.15);
 }

@@ -8,9 +8,11 @@
   background: linear-gradient(in oklab, var(--neutral-200), var(--green-100));
   gap: var(--sp-02);
   display: grid;
-  grid-template-columns: 4.5rem 1fr;
-  padding-inline: var(--sp-01);
-  padding-block: 0.5rem;
+  align-items: center;
+
+  grid-template-columns: 5.5rem 1fr;
+  padding-inline: 4px;
+  padding-block: 4px;
   border-radius: var(--br-lg);
   border: 1px solid var(--green-600);
   box-shadow: inset 1px 1px 5px oklch(from var(--green-700) l c h / 0.15);
@@ -18,9 +20,18 @@
 
 .timeContainer {
   display: flex;
+  background: linear-gradient(
+    90deg,
+    var(--neutral-300) 0,
+    var(--neutral-200) 100%
+  );
+  border-radius: calc(var(--br-md) + var(--sp-005));
   /* width: 5rem; */
   gap: var(--sp-01);
-  border-right: 1px solid var(--neutral-400);
+  padding-block: var(--sp-005);
+  padding-inline: var(--sp-01);
+  border: 1px solid var(--neutral-300);
+  /* border-right: 1px solid var(--neutral-400); */
 }
 
 .taskTime {
@@ -29,24 +40,43 @@
 /* SELECTED TASK */
 
 .selectedTask {
-  background: linear-gradient(
-    45deg in oklab,
-    var(--green-500),
-    var(--green-400)
-  );
+  background:
+    repeating-linear-gradient(
+      45deg,
+      oklch(from var(--green-500) l c h / 0.15) 0px,
+      oklch(from var(--green-500) l c h / 0.15) 10px,
+      transparent 10px,
+      transparent 20px
+    ),
+    linear-gradient(45deg in oklab, var(--green-500), var(--green-400));
   color: var(--green-100);
   font-weight: var(--font-weight-black);
   border: 1px solid var(--green-500);
   box-shadow:
-    inset 0 1px 0 oklch(from var(--highlight-green-300) l c h / 0.45),
-    inset 0 -1px 0 oklch(from var(--green-700) l c h / 0.45);
+    inset 0 1px 0 oklch(from var(--highlight-green-300) l c h / 0.25),
+    inset 0 -1px 0 oklch(from var(--green-700) l c h / 0.25);
+  animation: slide 3s linear infinite;
   /* box-shadow:
     0 0 12px oklch(from var(--highlight-green-300) l c h / 0.15),
     0 0 4px oklch(from var(--highlight-green-300) l c h / 0.15); */
 }
 
 .selectedTimeContainer {
-  border-right: 2px solid var(--green-300);
+  /* border-right: 2px solid var(--green-300); */
+  border: 1px solid var(--green-500);
+  background: linear-gradient(90deg, var(--green-700) 0, var(--green-600) 140%);
 }
 
+@keyframes slide {
+  from {
+    background-position:
+      0 0,
+      0 0;
+  }
+  to {
+    background-position:
+      28.28px 0,
+      0 0;
+  }
+}
 /* RUNNING TASK */

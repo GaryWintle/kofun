@@ -45,6 +45,8 @@ const Hero = ({ state, dispatch, displayTime, activeTask }) => {
           <CircleTimer
             displayTime={displayTime}
             duration={activeTask?.duration}
+            task={heroTask}
+            activeTaskId={state.activeTaskId}
           />
         </>
       )}
