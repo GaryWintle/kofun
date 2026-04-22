@@ -5,7 +5,7 @@
   bottom: 0;
   max-height: 75dvh;
   width: 100%;
-  z-index:;
+  z-index: 100;
 }
 
 /* Header Section */

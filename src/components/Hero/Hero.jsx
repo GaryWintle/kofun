@@ -30,6 +30,7 @@ const Hero = ({ state, dispatch, displayTime, activeTask }) => {
         <img src="/kofun-haniwa-04.svg" />
       </div>
 
+      <div className={styles.blurFilter}></div>
       {state.activeTaskId && (
         <>
           <motion.div

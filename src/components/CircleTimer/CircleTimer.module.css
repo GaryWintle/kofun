@@ -1,6 +1,7 @@
 .container {
   grid-area: timer;
   pointer-events: none;
+  z-index: 1;
 }
 
 /* .container svg {
@@ -9,14 +10,16 @@
 } */
 
 .progressCircle {
+  filter: brightness(-20);
+
   transition:
     stroke-dashoffset 1s linear,
     stroke 3s ease;
 }
 
 .backCircle {
-  backdrop-filter: blur(10px);
-  stroke: oklch(from var(--neutral-500) l c h / 0.45);
+  stroke: oklch(from var(--neutral-black) l c h / 0.45);
+  /* filter: drop-shadow(0 0 3px oklch(from var(--green-700) l c h / 0.45)); */
 }
 
 .selectedBackCircle {
