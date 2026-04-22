@@ -10,6 +10,12 @@ const Hero = ({ state, dispatch, displayTime, activeTask }) => {
 
   return (
     <header className={styles.container}>
+      <div className={styles.dialogBubble}>
+        <p className={styles.dialogText}>
+          Oh wow, writing a blog post? Are you starting with pen and paper or
+          clickity clacking?
+        </p>
+      </div>
       <div className={styles.heroTextContainer}>
         <motion.div
           key={state.activeTaskId}

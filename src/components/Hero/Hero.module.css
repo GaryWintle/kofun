@@ -11,18 +11,62 @@
   );
   overflow: hidden;
   isolation: isolate;
+  position: relative;
 }
 /* Top Text Section */
 .heroTextContainer {
   min-height: clamp(5rem, 10vh, 20rem);
   place-content: center;
+  text-align: center;
   grid-area: text;
 }
 .taskText {
   font-size: clamp(1rem, 8vw, 3rem);
-  color: white;
+  color: var(--green-100);
   place-self: center;
   font-weight: var(--font-weight-black);
+}
+
+/* Dialog Text */
+
+.dialogBubble {
+  position: absolute;
+  filter: drop-shadow(0 2px 3px oklch(from var(--green-700) l c h / 0.15));
+  top: min(17%, 30%);
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: var(--green-100);
+  padding-inline: var(--sp-04);
+  padding-block: var(--sp-03);
+  border-radius: var(--br-md);
+  width: min(70%, 400px);
+  /* border: 1px solid var(--green-200); */
+}
+.dialogBubble::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid var(--green-100);
+}
+.dialogBubble::before {
+  content: 'X';
+  position: absolute;
+  bottom: 4px;
+  right: 9px;
+}
+
+.dialogText {
+  color: var(--green-500);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  text-wrap: pretty;
+  line-height: 1.4;
 }
 
 /* Bottom Illustration/Timer Section */
@@ -70,10 +114,11 @@
 }
 
 /* Blur overlay — sits above background/character, below foreground */
-.blurFilter {
+
+/* .blurFilter {
   grid-area: timer;
   width: 100%;
   height: 100%;
   backdrop-filter: blur(5px);
   mask-image: radial-gradient(circle at center, transparent 40%, black 70%);
-}
+} */
