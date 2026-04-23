@@ -29,55 +29,7 @@
 
 /* Dialog Text */
 
-.dialogBubble {
-  position: absolute;
-  filter: drop-shadow(0 2px 3px oklch(from var(--green-700) l c h / 0.15));
-  top: min(17%, 30%);
-  left: 50%;
-  transform: translate(-50%, 0);
-  background-color: var(--green-100);
-  padding-inline: var(--sp-04);
-  padding-block: var(--sp-03);
-  border-radius: var(--br-md);
-  width: min(70%, 400px);
-  /* border: 1px solid var(--green-200); */
-}
-.dialogBubble::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 10px solid var(--green-100);
-}
-.dialogBubble::before {
-  content: 'X';
-  position: absolute;
-  bottom: 4px;
-  right: 9px;
-}
-
-.dialogText {
-  color: var(--green-500);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-bold);
-  text-wrap: pretty;
-  line-height: 1.4;
-}
-
 /* Bottom Illustration/Timer Section */
-
-/* Haniwa Character */
-.haniwaCharacter {
-  grid-area: timer;
-  place-self: start;
-  width: 100%;
-  height: 100%;
-}
 
 /* Timer Text */
 .numberTimer {
@@ -90,24 +42,6 @@
   text-align: center;
 }
 
-/* Foreground Images */
-.foregroundLeft {
-  grid-area: timer;
-  place-self: start;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-}
-.foregroundRight {
-  grid-area: timer;
-  place-self: start;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-}
-
 /* Background Image */
 .backgroundArt {
   grid-area: timer;
@@ -115,10 +49,11 @@
 
 /* Blur overlay — sits above background/character, below foreground */
 
-/* .blurFilter {
+.blurFilter {
   grid-area: timer;
   width: 100%;
   height: 100%;
-  backdrop-filter: blur(5px);
+  /* background-color: rgba(16, 62, 88, 0.541);
+  backdrop-filter: blur(5px); */
   mask-image: radial-gradient(circle at center, transparent 40%, black 70%);
-} */
+}

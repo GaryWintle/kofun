@@ -1,0 +1,43 @@
+.dialogBubble {
+  position: absolute;
+  filter: drop-shadow(0 3px 0 oklch(from var(--green-400) l c h / 1))
+    drop-shadow(0 2px 0 oklch(from var(--neutral-black) l c h / 0.1));
+  /* box-shadow:
+    inset 0 0 0 8px var(--green-100),
+    inset 0 0 0 10px var(--green-200); */
+  top: min(15%, 30%);
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: var(--green-100);
+  padding-inline: var(--sp-05);
+  padding-block: var(--sp-04);
+  border-radius: 2.5rem;
+  width: min(70%, 35ch);
+}
+
+.dialogBubble::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid var(--green-100);
+}
+/* .dialogBubble::before {
+  content: 'X';
+  position: absolute;
+  bottom: 4px;
+  right: 9px;
+} */
+
+.dialogText {
+  color: var(--green-500);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  text-wrap: pretty;
+  line-height: 1.5;
+}

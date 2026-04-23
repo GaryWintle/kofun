@@ -10,11 +10,11 @@
 
   /* Neutrals */
   --neutral-white: oklch(0.98 0 90);
-  --neutral-200: oklch(0.96 0 248);
+  --neutral-200: oklch(0.96 0.007 248);
   --neutral-300: oklch(88.925% 0.01178 162.482);
-  --neutral-400: oklch(0.75 0.03 149);
-  --neutral-500: oklch(59.52% 0.01331 145.642);
-  --neutral-600: oklch(49.604% 0.00596 145.925);
+  --neutral-400: oklch(74.93% 0.01514 180.875);
+  --neutral-500: oklch(59.706% 0.00847 187.189);
+  --neutral-600: oklch(49.703% 0.00378 197.86);
   --neutral-black: oklch(23.36% 0.0096 145.388);
 
   /* Highlight yellow */

@@ -1,0 +1,17 @@
+/* Foreground Images */
+.foregroundLeft {
+  grid-area: timer;
+  place-self: start;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+.foregroundRight {
+  grid-area: timer;
+  place-self: start;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}

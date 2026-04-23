@@ -13,6 +13,7 @@
   grid-template-columns: 5.5rem 1fr;
   padding-inline: 4px;
   padding-block: 4px;
+  /* border-radius: var(--br-lg) var(--br-sm) var(--br-sm) var(--br-lg); */
   border-radius: var(--br-lg);
   border: 1px solid var(--green-600);
   /* box-shadow: inset 1px 1px 5px oklch(from var(--green-700) l c h / 0.15); */
@@ -22,6 +23,13 @@
   /* transition: color 0.1s ease-in; */
 }
 
+/* .task:first-child {
+  border-radius: var(--br-lg) var(--br-lg) var(--br-sm) var(--br-lg);
+}
+.task:last-child {
+  border-radius: var(--br-lg) var(--br-sm) var(--br-lg) var(--br-lg);
+} */
+
 .timeContainer {
   display: flex;
   background: linear-gradient(
@@ -29,6 +37,8 @@
     var(--neutral-300) 0,
     var(--neutral-200) 100%
   );
+  /* border-radius: calc(var(--br-md) + var(--sp-005)) var(--br-sm) var(--br-sm)
+    calc(var(--br-md) + var(--sp-005)); */
   border-radius: calc(var(--br-md) + var(--sp-005));
   /* width: 5rem; */
   gap: var(--sp-01);
