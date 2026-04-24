@@ -4,13 +4,7 @@ import formatTime from '@/utils/formatTime';
 import { motion } from 'motion/react';
 import { buttonPress, moduleSlideInOut } from '@/animations/variants';
 
-const TaskForm = ({
-  tasks,
-  dispatch,
-  onAddTask,
-  displayTime,
-  setTaskModule,
-}) => {
+const TaskForm = ({ onAddTask, setTaskModule }) => {
   const [taskText, setTaskText] = useState('');
   const [taskTime, setTaskTime] = useState(0);
 

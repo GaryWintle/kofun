@@ -1,17 +1,14 @@
-import TaskListItem from '@/components/TaskListItem/TaskListItem';
 import styles from '@/components/TaskList/TaskList.module.css';
+import useTimerStore from '@/store/timerStore';
+import TaskListItem from '@/components/TaskListItem/TaskListItem';
 
-const TaskList = ({ state, dispatch, displayTime }) => {
+const TaskList = ({ displayTime }) => {
+  const tasks = useTimerStore((state) => state.tasks);
+
   return (
     <ul role="list" className={styles.container}>
-      {state.tasks.map((task) => (
-        <TaskListItem
-          key={task.id}
-          task={task}
-          activeTaskId={state.activeTaskId}
-          dispatch={dispatch}
-          displayTime={displayTime}
-        />
+      {tasks.map((task) => (
+        <TaskListItem key={task.id} task={task} displayTime={displayTime} />
       ))}
     </ul>
   );

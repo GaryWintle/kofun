@@ -1,4 +1,5 @@
 import styles from '@/components/Hero/Hero.module.css';
+import useTimerStore from '@/store/timerStore';
 import formatTime from '@/utils/formatTime';
 import { motion, AnimatePresence } from 'motion/react';
 import { heroTimerOpening, buttonPress } from '@/animations/variants';
@@ -9,17 +10,20 @@ import DialogBubble from '@/components/DialogBubble/DialogBubble';
 import HaniwaCharacter from '../HaniwaCharacter/HaniwaCharacter';
 import ForegroundArt from '../ForegroundArt/ForegroundArt';
 
-const Hero = ({ state, dispatch, displayTime, activeTask }) => {
-  const heroTask = state.tasks.find((task) => task.id === state.activeTaskId);
+const Hero = ({ displayTime, activeTask }) => {
+  const tasks = useTimerStore((state) => state.tasks);
+  const activeTaskId = useTimerStore((state) => state.activeTaskId);
+
+  const heroTask = tasks.find((task) => task.id === activeTaskId);
 
   return (
     <header className={styles.container}>
-      <DialogBubble>
+      {/* <DialogBubble>
         Oh wow, writing a blog post? Are you starting with pen and paper or
         clickity clacking?
-      </DialogBubble>
+      </DialogBubble> */}
       <div className={styles.heroTextContainer}>
-        <div key={state.activeTaskId} className={styles.taskText}>
+        <div key={activeTaskId} className={styles.taskText}>
           {heroTask?.text}
         </div>
       </div>
@@ -29,17 +33,16 @@ const Hero = ({ state, dispatch, displayTime, activeTask }) => {
       </div>
 
       <div className={styles.blurFilter}></div>
-      {state.activeTaskId && (
+      {activeTaskId && (
         <>
-          <div key={state.activeTaskId} className={styles.numberTimer}>
+          <div key={activeTaskId} className={styles.numberTimer}>
             {formatTime(displayTime, false)}
           </div>
-          <TimerButton isRunning={state.isRunning} dispatch={dispatch} />
+          <TimerButton />
           <CircleTimer
+            task={heroTask}
             displayTime={displayTime}
             duration={activeTask?.duration}
-            task={heroTask}
-            activeTaskId={state.activeTaskId}
           />
         </>
       )}

@@ -1,15 +1,18 @@
+import useTimerStore from '@/store/timerStore';
 import styles from '@/components/CircleTimer/CircleTimer.module.css';
 import clsx from 'clsx';
 
 const CircleTimer = ({
   task,
-  activeTaskId,
   displayTime,
   duration,
   timerStrokeWidth = 4,
   circleWidth = '100%',
   circlePadding = '5%',
 }) => {
+  const activeTaskId = useTimerStore((state) => state.activeTaskId);
+  // const task = useTimerStore((state) => state.task);
+
   const currentTime = Math.max(0, displayTime);
 
   const strokeColor =

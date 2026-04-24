@@ -1,7 +1,7 @@
 'use client';
 
-import { useReducer, useState } from 'react';
-import timerReducer, { timerInitialState } from '@/reducer/timerReducer';
+import { useState } from 'react';
+import useTimerStore from '@/store/timerStore';
 import styles from '@/components/KofunApp/KofunApp.module.css';
 import Hero from '@/components/Hero/Hero';
 import TaskList from '@/components/TaskList/TaskList';
@@ -11,11 +11,17 @@ import { motion, AnimatePresence } from 'motion/react';
 import { buttonPress } from '@/animations/variants';
 
 const KofunApp = () => {
-  const [state, dispatch] = useReducer(timerReducer, timerInitialState);
   const [taskModule, setTaskModule] = useState(false);
+  const activeTaskId = useTimerStore((state) => state.activeTaskId);
+  const isRunning = useTimerStore((state) => state.isRunning);
+  const startedAt = useTimerStore((state) => state.startedAt);
+  const tasks = useTimerStore((state) => state.tasks);
+  const addTask = useTimerStore((state) => state.addTask);
+  const selectTask = useTimerStore((state) => state.selectTask);
+  const deselectTask = useTimerStore((state) => state.deselectTask);
 
   // Chooses the active task
-  const activeTask = state.tasks.find((task) => task.id === state.activeTaskId);
+  const activeTask = tasks.find((task) => task.id === activeTaskId);
 
   //// Derived from startedAt + Date.now() so it stays accurate even if JS is throttled
   let displayTime;
@@ -23,38 +29,29 @@ const KofunApp = () => {
   if (!activeTask) {
     displayTime = null;
   } else {
-    if (state.isRunning) {
+    if (isRunning) {
       displayTime =
-        activeTask.remainingTime -
-        Math.floor((Date.now() - state.startedAt) / 1000);
+        activeTask.remainingTime - Math.floor((Date.now() - startedAt) / 1000);
     } else {
       displayTime = activeTask.remainingTime;
     }
   }
 
   // Custom hook for controlling countdown and completion
-  useTimer(state.isRunning, activeTask, dispatch, displayTime);
+  useTimer(activeTask, displayTime);
 
   // Adds task object to useReducer and selects it so it's highlighted
   const handleAddTask = (newTask) => {
     const id = Date.now();
-    dispatch({ type: 'ADD_TASK', payload: { ...newTask, id } });
-    dispatch({ type: 'SELECT_TASK', payload: id });
+    addTask({ ...newTask, id });
+    selectTask(id);
   };
 
   return (
-    <div
-      className={styles.container}
-      onClick={() => dispatch({ type: 'DESELECT_TASK' })}
-    >
+    <div className={styles.container} onClick={() => deselectTask()}>
       {activeTask?.isComplete && <p>HURRAY!!!</p>}
-      <Hero
-        state={state}
-        dispatch={dispatch}
-        displayTime={displayTime}
-        activeTask={activeTask}
-      />
-      <TaskList state={state} dispatch={dispatch} displayTime={displayTime} />
+      <Hero displayTime={displayTime} activeTask={activeTask} />
+      <TaskList displayTime={displayTime} />
       <motion.button
         {...buttonPress()}
         className={styles.addTaskButton}
@@ -67,12 +64,7 @@ const KofunApp = () => {
       </motion.button>
       <AnimatePresence>
         {taskModule && (
-          <TaskForm
-            tasks={state.tasks}
-            dispatch={dispatch}
-            onAddTask={handleAddTask}
-            setTaskModule={setTaskModule}
-          />
+          <TaskForm onAddTask={handleAddTask} setTaskModule={setTaskModule} />
         )}
       </AnimatePresence>
     </div>

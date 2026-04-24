@@ -1,20 +1,25 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import useTimerStore from '@/store/timerStore';
 
-function useTimer(isRunning, activeTask, dispatch, displayTime) {
+function useTimer(activeTask, displayTime) {
+  const isRunning = useTimerStore((state) => state.isRunning);
+  const completeTask = useTimerStore((state) => state.completeTask);
+  const [, setTick] = useState(0);
+
   useEffect(() => {
     if (!isRunning) return;
 
     const id = setInterval(() => {
-      dispatch({ type: 'TICK' });
+      setTick((t) => t + 1);
     }, 1000);
 
     return () => clearInterval(id);
-  }, [isRunning, dispatch]);
+  }, [isRunning, completeTask]);
 
   useEffect(() => {
     if (!activeTask) return;
 
-    displayTime <= 0 && dispatch({ type: 'COMPLETE_TASK' });
+    displayTime <= 0 && completeTask();
   }, [displayTime]);
 }
 

@@ -1,11 +1,15 @@
+import styles from '@/components/TaskListItem/TaskListItem.module.css';
+import useTimerStore from '@/store/timerStore';
 import clsx from 'clsx';
 import formatTime from '@/utils/formatTime';
-import styles from '@/components/TaskListItem/TaskListItem.module.css';
 import CircleTimer from '../CircleTimer/CircleTimer';
 import { motion } from 'motion/react';
 import { buttonPress } from '@/animations/variants';
 
-const TaskListItem = ({ task, activeTaskId, dispatch, displayTime }) => {
+const TaskListItem = ({ task, displayTime }) => {
+  const activeTaskId = useTimerStore((state) => state.activeTaskId);
+  const selectTask = useTimerStore((state) => state.selectTask);
+
   return (
     <motion.li
       className={clsx(styles.task, {
@@ -13,7 +17,7 @@ const TaskListItem = ({ task, activeTaskId, dispatch, displayTime }) => {
       })}
       onClick={(e) => {
         e.stopPropagation();
-        dispatch({ type: 'SELECT_TASK', payload: task.id });
+        selectTask(task.id);
       }}
       {...buttonPress(0.99)}
     >
@@ -24,7 +28,6 @@ const TaskListItem = ({ task, activeTaskId, dispatch, displayTime }) => {
       >
         <CircleTimer
           task={task}
-          activeTaskId={activeTaskId}
           displayTime={
             task.id === activeTaskId ? displayTime : task.remainingTime
           }
