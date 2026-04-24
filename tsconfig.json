@@ -28,7 +28,8 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "src/app/api/haniwa/route.js"
   ],
   "exclude": ["node_modules"]
 }

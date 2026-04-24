@@ -9,6 +9,7 @@ import TimerButton from '@/components/TimerButton/TimerButton';
 import DialogBubble from '@/components/DialogBubble/DialogBubble';
 import HaniwaCharacter from '../HaniwaCharacter/HaniwaCharacter';
 import ForegroundArt from '../ForegroundArt/ForegroundArt';
+import TaskDialog from '../TaskDialog/TaskDialog';
 
 const Hero = ({ displayTime, activeTask }) => {
   const tasks = useTimerStore((state) => state.tasks);
@@ -22,8 +23,9 @@ const Hero = ({ displayTime, activeTask }) => {
       <AnimatePresence>
         {activeTaskId && !isRunning ? (
           <DialogBubble>
-            Oh wow, writing a blog post? Are you starting with pen and paper or
-            clickity clacking?
+            <TaskDialog />
+            {/* Oh wow, writing a blog post? Are you starting with pen and paper or
+            clickity clacking? */}
           </DialogBubble>
         ) : null}
       </AnimatePresence>
