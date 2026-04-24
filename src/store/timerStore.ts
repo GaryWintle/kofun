@@ -32,7 +32,29 @@ const useTimerStore = create<TimerStore>()((set) => ({
   activeTaskId: null,
   isRunning: false,
   startedAt: null,
-  tasks: [],
+  tasks: [
+    {
+      id: 1,
+      text: 'Write blog post',
+      duration: 500,
+      remainingTime: 500,
+      isComplete: false,
+    },
+    {
+      id: 2,
+      text: 'Review designs',
+      duration: 15,
+      remainingTime: 15,
+      isComplete: false,
+    },
+    {
+      id: 3,
+      text: 'Work in Figma',
+      duration: 300,
+      remainingTime: 300,
+      isComplete: false,
+    },
+  ],
 
   // START TIMER
   startTimer: () =>

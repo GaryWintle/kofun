@@ -13,6 +13,7 @@
   padding-block: var(--sp-04);
   border-radius: 2.5rem;
   width: min(70%, 35ch);
+  z-index: 3;
 }
 
 .dialogBubble::after {
