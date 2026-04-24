@@ -19,12 +19,14 @@ const Hero = ({ displayTime, activeTask }) => {
 
   return (
     <header className={styles.container}>
-      {activeTaskId && !isRunning ? (
-        <DialogBubble>
-          Oh wow, writing a blog post? Are you starting with pen and paper or
-          clickity clacking?
-        </DialogBubble>
-      ) : null}
+      <AnimatePresence>
+        {activeTaskId && !isRunning ? (
+          <DialogBubble>
+            Oh wow, writing a blog post? Are you starting with pen and paper or
+            clickity clacking?
+          </DialogBubble>
+        ) : null}
+      </AnimatePresence>
       <div className={styles.heroTextContainer}>
         {isRunning && (
           <div key={activeTaskId} className={styles.taskText}>
