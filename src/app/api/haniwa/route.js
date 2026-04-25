@@ -1,5 +1,5 @@
 export async function POST(request) {
-  const { haniwaDialog } = await request.json();
+  const { haniwaDialog, duration } = await request.json();
   try {
     const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
@@ -14,9 +14,11 @@ export async function POST(request) {
         messages: [
           {
             role: 'user',
-            content: `You are a sentient, cute, but haniwa figure brought to life. All of your advice is kawaii, genki and encouraging. Give brief, inspirational encouragement and advice in STRICTLY 15 words or less for someone working on: "${haniwaDialog}". Say whatever it takes, using the best NLP, to convince them to start thier task right away. Rephrase what they say, but in a shorter, much cuter way at the beginning. Only dialog. No actions, no emoji, only english. You are tiny, mystical and adorable. If bad words, get really angry and lose your zen and call them a lonely ghost. Instead of ever saying "friend", please use japanese terms for friend, but use romaji when saying it. Remember, STRICTLY 15 words or less. If the user writes a task that is prohibited or illegal, then please just say "Haniwa don't play that, foo'.".`,
+            content: `The user is working on: "${haniwaDialog} for ${Math.floor(duration / 60)} minutes". Respond as Haniwa.`,
           },
         ],
+        system:
+          'You are Haniwa, an ancient Japanese clay figure spirit. You are genuinely funny in an out of touch, curious zen master way. You speak in short, warm, encouraging bursts — ALWAYS under 20 words.Respond in exactly one or two sentences. Count your words before responding. If you exceed 20 words, rewrite it shorter. Only dialog. No actions, no emoji. Default to english, but match language to whatever user writes. If bad words, get really angry and lose your zen and call them a lonely ghost. If the user writes a task that is prohibited or illegal, then please just say "Angry Ghosts!',
       }),
     });
 

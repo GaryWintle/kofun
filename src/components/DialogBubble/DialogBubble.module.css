@@ -1,10 +1,9 @@
 .dialogBubble {
   position: absolute;
-  filter: drop-shadow(0 3px 0 oklch(from var(--green-400) l c h / 1))
-    drop-shadow(0 2px 0 oklch(from var(--neutral-black) l c h / 0.1));
-  /* box-shadow:
+  filter: drop-shadow(0 2px 5px oklch(from var(--neutral-black) l c h / 0.1));
+  box-shadow:
     inset 0 0 0 8px var(--green-100),
-    inset 0 0 0 10px var(--green-200); */
+    inset 0 0 0 10px var(--green-200);
   top: min(8%, 25%);
   left: 50%;
   transform: translate(-50%, 0);

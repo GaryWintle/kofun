@@ -29,6 +29,7 @@ const TaskForm = ({ onAddTask, setTaskModule }) => {
     e.preventDefault();
     const newTask = {
       text: taskText,
+      dialog: null,
       duration: taskTime,
       remainingTime: taskTime,
       isComplete: false,

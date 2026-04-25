@@ -3,6 +3,7 @@ import { create } from 'zustand';
 interface Task {
   id: number;
   text: string;
+  dialog: string | null;
   duration: number;
   remainingTime: number;
   isComplete: boolean;
@@ -26,6 +27,7 @@ interface TimerStore extends TimerState {
   editTask: (id: number, text: string) => void;
   extendTime: (id: number, additionalTime: number) => void;
   completeTask: () => void;
+  setTaskDialog: (id: number, dialog: string) => void;
 }
 
 const useTimerStore = create<TimerStore>()((set) => ({
@@ -33,27 +35,31 @@ const useTimerStore = create<TimerStore>()((set) => ({
   isRunning: false,
   startedAt: null,
   tasks: [
-    {
-      id: 1,
-      text: 'Write blog post',
-      duration: 500,
-      remainingTime: 500,
-      isComplete: false,
-    },
-    {
-      id: 2,
-      text: 'Review designs',
-      duration: 15,
-      remainingTime: 15,
-      isComplete: false,
-    },
-    {
-      id: 3,
-      text: 'Work in Figma',
-      duration: 300,
-      remainingTime: 300,
-      isComplete: false,
-    },
+    // {
+    //   id: 1,
+    //   text: 'Write blog post',
+    //   dialog: "Oh, you're making a blog? Cool!",
+    //   duration: 500,
+    //   remainingTime: 500,
+    //   isComplete: false,
+    // },
+    // {
+    //   id: 2,
+    //   text: 'Review designs',
+    //   dialog: "It's always good to keep a sharp eye on the visuals",
+    //   duration: 15,
+    //   remainingTime: 15,
+    //   isComplete: false,
+    // },
+    // {
+    //   id: 3,
+    //   text: 'Work in Figma',
+    //   dialog:
+    //     "Ticky tacky, making web stuff is really rewarding. Let's get 'er done!",
+    //   duration: 300,
+    //   remainingTime: 300,
+    //   isComplete: false,
+    // },
   ],
 
   // START TIMER
@@ -106,6 +112,7 @@ const useTimerStore = create<TimerStore>()((set) => ({
       const newTask = {
         ...task,
         id: Date.now(),
+        dialog: null,
       };
       return { tasks: [...state.tasks, newTask] };
     }),
@@ -182,6 +189,12 @@ const useTimerStore = create<TimerStore>()((set) => ({
         ),
       };
     }),
+  setTaskDialog: (id: number, dialog: string) =>
+    set((state) => ({
+      tasks: state.tasks.map((task) =>
+        task.id === id ? { ...task, dialog } : task
+      ),
+    })),
   // end
 }));
 

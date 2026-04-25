@@ -10,9 +10,9 @@ const TaskDialog = () => {
     setError(null);
 
     try {
-      const response = await fetch('@/api/haniwa', {
+      const response = await fetch('/api/haniwa', {
         method: 'POST',
-        header: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ haniwaDialog }),
       });
 
@@ -27,10 +27,10 @@ const TaskDialog = () => {
   }
 
   return (
-    <>
+    <p>
       {isLoading && <p>Hmm...</p>}
       {error && <p>{error}</p>}
       {haniwaDialog ? !isLoading && <p>{haniwaDialog}</p> : null}
-    </>
+    </p>
   );
 };

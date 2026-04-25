@@ -23,9 +23,8 @@ const Hero = ({ displayTime, activeTask }) => {
       <AnimatePresence>
         {activeTaskId && !isRunning ? (
           <DialogBubble>
-            <TaskDialog />
-            {/* Oh wow, writing a blog post? Are you starting with pen and paper or
-            clickity clacking? */}
+            {/* <TaskDialog /> */}
+            {heroTask.dialog}
           </DialogBubble>
         ) : null}
       </AnimatePresence>

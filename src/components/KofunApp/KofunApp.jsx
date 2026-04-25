@@ -19,6 +19,7 @@ const KofunApp = () => {
   const addTask = useTimerStore((state) => state.addTask);
   const selectTask = useTimerStore((state) => state.selectTask);
   const deselectTask = useTimerStore((state) => state.deselectTask);
+  const setTaskDialog = useTimerStore((state) => state.setTaskDialog);
 
   // Chooses the active task
   const activeTask = tasks.find((task) => task.id === activeTaskId);
@@ -41,10 +42,23 @@ const KofunApp = () => {
   useTimer(activeTask, displayTime);
 
   // Adds task object to useReducer and selects it so it's highlighted
-  const handleAddTask = (newTask) => {
+  const handleAddTask = async (newTask) => {
     const id = Date.now();
     addTask({ ...newTask, id });
     selectTask(id);
+
+    const response = await fetch('/api/haniwa', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        haniwaDialog: newTask.text,
+        duration: newTask.duration,
+      }),
+    });
+
+    const data = await response.json();
+
+    setTaskDialog(id, data.message);
   };
 
   return (
