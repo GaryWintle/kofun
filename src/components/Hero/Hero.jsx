@@ -52,7 +52,7 @@ const Hero = ({ displayTime, activeTask }) => {
           </>
         )}
       </AnimatePresence>
-      {isRunning && (
+      {isRunning && heroTask && (
         <>
           <div key={activeTaskId} className={styles.numberTimer}>
             {formatTime(displayTime, false)}

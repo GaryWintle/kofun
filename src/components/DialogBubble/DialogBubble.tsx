@@ -1,7 +1,11 @@
 import styles from '@/components/DialogBubble/DialogBubble.module.css';
 import { motion } from 'motion/react';
 
-const DialogBubble = ({ children }) => {
+interface DialogBubbleProps {
+  children: React.ReactNode;
+}
+
+const DialogBubble = ({ children }: DialogBubbleProps) => {
   return (
     <motion.div
       className={styles.dialogBubble}
