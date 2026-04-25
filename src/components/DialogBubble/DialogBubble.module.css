@@ -6,7 +6,7 @@
     inset 0 0 0 10px var(--green-200);
   top: min(8%, 25%);
   left: 50%;
-  transform: translate(-50%, 0);
+  /* transform: translate(-50%, 0); */
   background-color: var(--green-100);
   padding-inline: var(--sp-05);
   padding-block: var(--sp-04);
