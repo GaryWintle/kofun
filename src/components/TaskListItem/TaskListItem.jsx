@@ -6,15 +6,30 @@ import CircleTimer from '../CircleTimer/CircleTimer';
 import { motion } from 'motion/react';
 import { buttonPress } from '@/animations/variants';
 
+function getTimeStyle(currentTime) {
+  if (currentTime <= 10) return styles.expiringTime;
+  if (currentTime <= 120) return styles.warningTime;
+  return styles.defaultTime;
+}
+
 const TaskListItem = ({ task, displayTime }) => {
   const activeTaskId = useTimerStore((state) => state.activeTaskId);
+  const isRunning = useTimerStore((state) => state.isRunning);
   const selectTask = useTimerStore((state) => state.selectTask);
   const deleteTask = useTimerStore((state) => state.deleteTask);
+
+  const currentTime =
+    task.id === activeTaskId ? displayTime : task.remainingTime;
+
+  const isActiveAndRunning = task.id === activeTaskId && isRunning;
+
+  const timeStyle = isActiveAndRunning ? getTimeStyle(currentTime) : null;
 
   return (
     <motion.li
       className={clsx(styles.task, {
         [styles.selectedTask]: activeTaskId === task.id,
+        [styles.runningTask]: activeTaskId === task.id && isRunning,
       })}
       onClick={(e) => {
         e.stopPropagation();
@@ -25,6 +40,7 @@ const TaskListItem = ({ task, displayTime }) => {
       <div
         className={clsx(styles.timeContainer, {
           [styles.selectedTimeContainer]: activeTaskId === task.id,
+          [styles.runningTimeContainer]: activeTaskId === task.id && isRunning,
         })}
       >
         <CircleTimer
@@ -37,10 +53,8 @@ const TaskListItem = ({ task, displayTime }) => {
           circleWidth={'22px'}
           circlePadding={0}
         />
-        <p className={styles.taskTime}>
-          {formatTime(
-            task.id === activeTaskId ? displayTime : task.remainingTime
-          )}
+        <p className={clsx(styles.taskTime, timeStyle)}>
+          {formatTime(currentTime)}
         </p>
       </div>
       <p>{task.text}</p>

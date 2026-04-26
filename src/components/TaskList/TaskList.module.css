@@ -1,7 +1,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  margin-inline: 1rem;
-  margin-block: 1.5rem;
+  gap: var(--sp-01);
+  margin-inline: var(--sp-03);
+  margin-block: var(--sp-04);
 }

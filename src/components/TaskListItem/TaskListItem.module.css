@@ -24,6 +24,41 @@
   /* transition: color 0.1s ease-in; */
 }
 
+.selectedTask {
+  background:
+    repeating-linear-gradient(
+      45deg,
+      oklch(from var(--green-500) l c h / 0.15) 0px,
+      oklch(from var(--green-500) l c h / 0.15) 10px,
+      transparent 10px,
+      transparent 20px
+    ),
+    linear-gradient(45deg in oklab, var(--green-500), var(--green-400));
+  color: var(--green-100);
+  font-weight: var(--font-weight-black);
+  border: 1px solid var(--green-500);
+  box-shadow:
+    inset 0 1px 0 oklch(from var(--highlight-green-300) l c h / 0.25),
+    inset 0 -1px 0 oklch(from var(--green-700) l c h / 0.15);
+
+  /* box-shadow:
+    0 0 12px oklch(from var(--highlight-green-300) l c h / 0.15),
+    0 0 4px oklch(from var(--highlight-green-300) l c h / 0.15); */
+}
+
+.runningTask {
+  background:
+    repeating-linear-gradient(
+      45deg,
+      oklch(from var(--green-500) l c h / 0.15) 0px,
+      oklch(from var(--green-500) l c h / 0.15) 10px,
+      transparent 10px,
+      transparent 20px
+    ),
+    linear-gradient(45deg in oklab, var(--green-500), var(--green-400));
+  animation: slide 3s linear infinite;
+}
+
 /* .task:first-child {
   border-radius: var(--br-lg) var(--br-lg) var(--br-sm) var(--br-lg);
 }
@@ -50,38 +85,30 @@
   /* border-right: 1px solid var(--neutral-400); */
 }
 
-.taskTime {
-}
-
-/* SELECTED TASK */
-
-.selectedTask {
-  background:
-    repeating-linear-gradient(
-      45deg,
-      oklch(from var(--green-500) l c h / 0.15) 0px,
-      oklch(from var(--green-500) l c h / 0.15) 10px,
-      transparent 10px,
-      transparent 20px
-    ),
-    linear-gradient(45deg in oklab, var(--green-500), var(--green-400));
-  color: var(--green-100);
-  font-weight: var(--font-weight-black);
-  border: 1px solid var(--green-500);
-  box-shadow:
-    inset 0 1px 0 oklch(from var(--highlight-green-300) l c h / 0.25),
-    inset 0 -1px 0 oklch(from var(--green-700) l c h / 0.25);
-  animation: slide 3s linear infinite;
-  /* box-shadow:
-    0 0 12px oklch(from var(--highlight-green-300) l c h / 0.15),
-    0 0 4px oklch(from var(--highlight-green-300) l c h / 0.15); */
-}
-
 .selectedTimeContainer {
   /* border-right: 2px solid var(--green-300); */
   border: 1px solid var(--green-500);
   background: linear-gradient(90deg, var(--green-700) 0, var(--green-600) 140%);
 }
+
+.runningTimeContainer {
+  color: var(--highlight-green-300);
+}
+
+.defaultTime {
+  color: var(--highlight-green-300);
+}
+.warningTime {
+  color: var(--highlight-yellow-300);
+}
+.expiringTime {
+  color: var(--highlight-red-300);
+}
+
+.taskTime {
+}
+
+/* SELECTED TASK */
 
 .endButton {
 }
