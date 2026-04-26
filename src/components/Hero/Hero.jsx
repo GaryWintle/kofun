@@ -52,18 +52,20 @@ const Hero = ({ displayTime, activeTask }) => {
           </>
         )}
       </AnimatePresence>
-      {isRunning && heroTask && (
-        <>
-          <div key={activeTaskId} className={styles.numberTimer}>
-            {formatTime(displayTime, false)}
-          </div>
-          <CircleTimer
-            task={heroTask}
-            displayTime={displayTime}
-            duration={activeTask?.duration}
-          />
-        </>
-      )}
+      <AnimatePresence>
+        {isRunning && heroTask && (
+          <>
+            <div key={activeTaskId} className={styles.numberTimer}>
+              {formatTime(displayTime, false)}
+            </div>
+            <CircleTimer
+              task={heroTask}
+              displayTime={displayTime}
+              duration={activeTask?.duration}
+            />
+          </>
+        )}
+      </AnimatePresence>
       {activeTaskId && <TimerButton />}
       <HaniwaCharacter />
       <ForegroundArt />

@@ -1,4 +1,5 @@
 import useTimerStore from '@/store/timerStore';
+import { motion } from 'motion/react';
 import styles from '@/components/CircleTimer/CircleTimer.module.css';
 import clsx from 'clsx';
 
@@ -32,7 +33,20 @@ const CircleTimer = ({
   const cy = size / 2;
 
   return (
-    <div className={styles.container}>
+    <motion.div
+      className={styles.container}
+      initial={{ opacity: 0.3, scale: 0.5 }}
+      animate={{
+        opacity: 1,
+        scale: 1,
+        transition: { duration: 0.3, ease: 'easeOut' },
+      }}
+      exit={{
+        opacity: 0,
+        scale: 1.5,
+        transition: { duration: 0.2 },
+      }}
+    >
       <svg
         style={{ width: circleWidth, padding: circlePadding }}
         viewBox="0 0 350 350"
@@ -80,7 +94,7 @@ const CircleTimer = ({
           transform={`rotate(-90 ${cx} ${cy})`}
         />
       </svg>
-    </div>
+    </motion.div>
   );
 };
 

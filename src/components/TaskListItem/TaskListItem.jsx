@@ -63,7 +63,6 @@ const TaskListItem = ({ task, displayTime }) => {
         onClick={(e) => {
           e.stopPropagation();
           deleteTask(task.id);
-          console.log('poop');
         }}
       >
         <svg width="14" height="14" viewBox="0 0 26 25" fill="none">
