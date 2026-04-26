@@ -10,8 +10,9 @@
   display: grid;
   align-items: center;
 
-  grid-template-columns: 5.5rem 1fr;
-  padding-inline: 4px;
+  grid-template-columns: 5.5rem 1fr auto;
+  padding-inline-start: 4px;
+  padding-inline-end: 12px;
   padding-block: 4px;
   /* border-radius: var(--br-lg) var(--br-sm) var(--br-sm) var(--br-lg); */
   border-radius: var(--br-lg);
@@ -80,6 +81,9 @@
   /* border-right: 2px solid var(--green-300); */
   border: 1px solid var(--green-500);
   background: linear-gradient(90deg, var(--green-700) 0, var(--green-600) 140%);
+}
+
+.endButton {
 }
 
 @keyframes slide {

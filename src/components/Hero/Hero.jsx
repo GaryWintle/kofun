@@ -24,7 +24,7 @@ const Hero = ({ displayTime, activeTask }) => {
         {activeTaskId && !isRunning ? (
           <DialogBubble>
             {/* <TaskDialog /> */}
-            {heroTask.dialog}
+            {heroTask?.dialog}
           </DialogBubble>
         ) : null}
       </AnimatePresence>
