@@ -66,8 +66,8 @@ const Hero = ({ displayTime, activeTask }) => {
           </>
         )}
       </AnimatePresence>
-      {activeTaskId && <TimerButton />}
       <HaniwaCharacter />
+      {activeTaskId && <TimerButton />}
       <ForegroundArt />
     </header>
   );
