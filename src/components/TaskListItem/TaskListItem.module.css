@@ -97,12 +97,15 @@
 
 .defaultTime {
   color: var(--highlight-green-300);
+  transition: color 3s ease;
 }
 .warningTime {
   color: var(--highlight-yellow-300);
+  transition: color 3s ease;
 }
 .expiringTime {
   color: var(--highlight-red-300);
+  transition: color 3s ease;
 }
 
 .taskTime {

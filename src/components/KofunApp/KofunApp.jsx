@@ -31,8 +31,10 @@ const KofunApp = () => {
     displayTime = null;
   } else {
     if (isRunning) {
-      displayTime =
-        activeTask.remainingTime - Math.floor((Date.now() - startedAt) / 1000);
+      displayTime = Math.max(
+        0,
+        activeTask.remainingTime - Math.floor((Date.now() - startedAt) / 1000)
+      );
     } else {
       displayTime = activeTask.remainingTime;
     }

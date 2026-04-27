@@ -85,7 +85,7 @@ const useTimerStore = create<TimerStore>()(
               task.id === state.activeTaskId
                 ? {
                     ...task,
-                    remainingTime: task.remainingTime - elapsedSeconds,
+                    remainingTime: Math.max(0, task.remainingTime - elapsedSeconds),
                   }
                 : task
             ),
@@ -135,7 +135,7 @@ const useTimerStore = create<TimerStore>()(
               task.id === state.activeTaskId
                 ? {
                     ...task,
-                    remainingTime: task.remainingTime - elapsedSeconds,
+                    remainingTime: Math.max(0, task.remainingTime - elapsedSeconds),
                   }
                 : task
             ),
@@ -187,7 +187,7 @@ const useTimerStore = create<TimerStore>()(
                 ? {
                     ...task,
                     isComplete: true,
-                    remainingTime: task.remainingTime - elapsedSeconds,
+                    remainingTime: Math.max(0, task.remainingTime - elapsedSeconds),
                   }
                 : task
             ),
