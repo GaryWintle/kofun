@@ -1,7 +1,7 @@
 import styles from '@/components/HaniwaCharacter/HaniwaCharacter.module.css';
 import { useState, useEffect } from 'react';
 import { useLottie } from 'lottie-react';
-import haniwaTest from '@/animations/haniwa-test-01.json';
+import haniwaTest from '@/animations/haniwa-test-baked.json';
 
 const HaniwaCharacter = () => {
   const [emotion, setEmotion] = useState('idle');
