@@ -11,6 +11,10 @@ export const metadata = {
   icons: {
     icon: '/favicon.svg',
   },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'black-translucent',
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -20,3 +24,8 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
+export const viewport = {
+  viewportFit: 'cover',
+  themeColor: 'oklch(76.658% 0.14238 233.664)',
+};

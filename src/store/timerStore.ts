@@ -14,6 +14,7 @@ interface TimerState {
   activeTaskId: number | null;
   isRunning: boolean;
   startedAt: number | null;
+  currentEmotion: string;
   tasks: Task[];
 }
 
@@ -29,14 +30,16 @@ interface TimerStore extends TimerState {
   extendTime: (id: number, additionalTime: number) => void;
   completeTask: () => void;
   setTaskDialog: (id: number, dialog: string) => void;
+  setCurrentEmotion: (emotion: string) => void;
 }
 
 const useTimerStore = create<TimerStore>()(
   persist(
     (set) => ({
-      activeTaskId: null,
+      activeTaskId: null as number | null,
       isRunning: false,
-      startedAt: null,
+      startedAt: null as number | null,
+      currentEmotion: 'Idle',
       tasks: [
         // {
         //   id: 1,
@@ -85,7 +88,10 @@ const useTimerStore = create<TimerStore>()(
               task.id === state.activeTaskId
                 ? {
                     ...task,
-                    remainingTime: Math.max(0, task.remainingTime - elapsedSeconds),
+                    remainingTime: Math.max(
+                      0,
+                      task.remainingTime - elapsedSeconds
+                    ),
                   }
                 : task
             ),
@@ -135,7 +141,10 @@ const useTimerStore = create<TimerStore>()(
               task.id === state.activeTaskId
                 ? {
                     ...task,
-                    remainingTime: Math.max(0, task.remainingTime - elapsedSeconds),
+                    remainingTime: Math.max(
+                      0,
+                      task.remainingTime - elapsedSeconds
+                    ),
                   }
                 : task
             ),
@@ -187,7 +196,10 @@ const useTimerStore = create<TimerStore>()(
                 ? {
                     ...task,
                     isComplete: true,
-                    remainingTime: Math.max(0, task.remainingTime - elapsedSeconds),
+                    remainingTime: Math.max(
+                      0,
+                      task.remainingTime - elapsedSeconds
+                    ),
                   }
                 : task
             ),
@@ -199,7 +211,9 @@ const useTimerStore = create<TimerStore>()(
             task.id === id ? { ...task, dialog } : task
           ),
         })),
+      setCurrentEmotion: (emotion: string) => set({ currentEmotion: emotion }),
     }),
+
     {
       name: 'kofun-storage',
       partialize: (state) => ({

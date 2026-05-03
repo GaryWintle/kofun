@@ -1,4 +1,5 @@
 .container {
+  padding-top: env(safe-area-inset-top);
   display: grid;
   /* max-width: 600px; */
   grid-template-areas:
@@ -25,6 +26,8 @@
   color: var(--green-100);
   place-self: center;
   font-weight: var(--font-weight-black);
+  line-height: 1.05;
+  letter-spacing: -0.5px;
 }
 
 /* Dialog Text */

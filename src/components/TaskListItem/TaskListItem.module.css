@@ -9,7 +9,7 @@
   gap: var(--sp-02);
   display: grid;
   align-items: center;
-
+  line-height: 1.1;
   grid-template-columns: 5.5rem 1fr auto;
   padding-inline-start: 4px;
   padding-inline-end: 12px;
@@ -68,6 +68,7 @@
 
 .timeContainer {
   display: flex;
+  align-items: center;
   background: linear-gradient(
     90deg,
     var(--neutral-300) 0,
