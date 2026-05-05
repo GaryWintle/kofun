@@ -19,6 +19,7 @@ const KofunApp = () => {
   const addTask = useTimerStore((state) => state.addTask);
   const selectTask = useTimerStore((state) => state.selectTask);
   const deselectTask = useTimerStore((state) => state.deselectTask);
+  const pauseTimer = useTimerStore((state) => state.pauseTimer);
   const setTaskDialog = useTimerStore((state) => state.setTaskDialog);
 
   // Chooses the active task
@@ -64,7 +65,7 @@ const KofunApp = () => {
   };
 
   return (
-    <div className={styles.container} onClick={() => deselectTask()}>
+    <div className={styles.container} onClick={() => { if (isRunning) pauseTimer(); deselectTask(); }}>
       {activeTask?.isComplete && <p>HURRAY!!!</p>}
       <Hero displayTime={displayTime} activeTask={activeTask} />
       <TaskList displayTime={displayTime} />

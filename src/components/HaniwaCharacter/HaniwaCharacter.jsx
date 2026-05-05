@@ -5,10 +5,9 @@ import haniwaTest from '@/animations/haniwa-test-02.json';
 import useTimerStore from '@/store/timerStore';
 
 const HaniwaCharacter = memo(() => {
-  // const [emotion, setEmotion] = useState('Idle');
+  const currentEmotion = useTimerStore((state) => state.currentEmotion);
+  const setCurrentEmotion = useTimerStore((state) => state.setCurrentEmotion);
   const isRunning = useTimerStore((state) => state.isRunning);
-
-  const emotion = isRunning ? 'Meditate' : 'Idle';
 
   const { View, goToAndPlay } = useLottie({
     animationData: haniwaTest,
@@ -17,15 +16,14 @@ const HaniwaCharacter = memo(() => {
   });
 
   useEffect(() => {
-    goToAndPlay(emotion, true);
-  }, [emotion, goToAndPlay]);
+    setCurrentEmotion(isRunning ? 'Meditate' : 'Idle');
+  }, [isRunning]);
 
-  return (
-    <div className={styles.haniwaCharacter}>
-      {View}
-      {/* <img src="/kofun-haniwa-04.svg" /> */}
-    </div>
-  );
+  useEffect(() => {
+    goToAndPlay(currentEmotion, true);
+  }, [currentEmotion]);
+
+  return <div className={styles.haniwaCharacter}>{View}</div>;
 });
 
 export default HaniwaCharacter;

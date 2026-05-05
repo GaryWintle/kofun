@@ -9,7 +9,6 @@ import TimerButton from '@/components/TimerButton/TimerButton';
 import DialogBubble from '@/components/DialogBubble/DialogBubble';
 import HaniwaCharacter from '../HaniwaCharacter/HaniwaCharacter';
 import ForegroundArt from '../ForegroundArt/ForegroundArt';
-import TaskDialog from '../TaskDialog/TaskDialog';
 
 const Hero = ({ displayTime, activeTask }) => {
   const tasks = useTimerStore((state) => state.tasks);
@@ -43,7 +42,14 @@ const Hero = ({ displayTime, activeTask }) => {
         {isRunning && (
           <>
             <motion.div
-              className={styles.blurFilter}
+              className={styles.blurFilterText}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, transition: { duration: 0.5 } }}
+              exit={{ opacity: 0, transition: { duration: 0.5 } }}
+              // transition={{ duration: 3, ease: 'easeInOut' }}
+            ></motion.div>
+            <motion.div
+              className={styles.blurFilterTimer}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1, transition: { duration: 0.5 } }}
               exit={{ opacity: 0, transition: { duration: 0.5 } }}

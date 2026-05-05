@@ -13,6 +13,9 @@
   overflow: hidden;
   isolation: isolate;
   position: relative;
+
+  /* z-index layer scale (scoped by isolation: isolate):
+     0 background | 1 blur | 2 content | 3 character/buttons | 4 foreground */
 }
 /* Top Text Section */
 .heroTextContainer {
@@ -20,6 +23,8 @@
   place-content: center;
   text-align: center;
   grid-area: text;
+  position: relative;
+  z-index: 2;
 }
 .taskText {
   font-size: clamp(1rem, 8vw, 3rem);
@@ -43,6 +48,8 @@
   font-size: clamp(1rem, 10vw, 5rem);
   color: white;
   text-align: center;
+  position: relative;
+  z-index: 2;
 }
 
 /* Background Image */
@@ -52,11 +59,24 @@
 
 /* Blur overlay — sits above background/character, below foreground */
 
-.blurFilter {
+.blurFilterText {
+  grid-area: text;
+  width: 100%;
+  height: 100%;
+  background-color: oklch(from var(--neutral-black) l c h / 0.25);
+  backdrop-filter: blur(7px);
+  position: relative;
+  z-index: 1;
+  /* mask-image: radial-gradient(circle at center, transparent 40%, black 70%); */
+}
+
+.blurFilterTimer {
   grid-area: timer;
   width: 100%;
   height: 100%;
-  /* background-color: rgba(16, 62, 88, 0.541); */
+  background-color: oklch(from var(--neutral-black) l c h / 0.25);
   backdrop-filter: blur(7px);
   mask-image: radial-gradient(circle at center, transparent 40%, black 70%);
+  position: relative;
+  z-index: 1;
 }
