@@ -4,6 +4,13 @@
   flex-direction: column;
 }
 
+.moduleWrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  overflow-y: auto;
+}
+
 .addTaskButton {
   background-color: transparent;
   align-self: center;

@@ -8,6 +8,7 @@ import TaskList from '@/components/TaskList/TaskList';
 import TaskForm from '@/components/TaskForm/TaskForm';
 import useTimer from '@/hooks/useTimer';
 import { motion, AnimatePresence } from 'motion/react';
+import { Drawer } from 'vaul';
 import { buttonPress } from '@/animations/variants';
 
 const KofunApp = () => {
@@ -85,11 +86,18 @@ const KofunApp = () => {
       >
         <img src="/buttons-icons/kofun-button-addtask.svg" />
       </motion.button>
-      <AnimatePresence>
-        {taskModule && (
-          <TaskForm onAddTask={handleAddTask} setTaskModule={setTaskModule} />
-        )}
-      </AnimatePresence>
+      <Drawer.Root open={taskModule} onOpenChange={setTaskModule}>
+        <Drawer.Portal>
+          <Drawer.Overlay />
+          <Drawer.Content
+            className={styles.moduleWrapper}
+            style={{ height: '100dvh' }}
+            snapPoints={[1]}
+          >
+            <TaskForm onAddTask={handleAddTask} setTaskModule={setTaskModule} />
+          </Drawer.Content>
+        </Drawer.Portal>
+      </Drawer.Root>
     </div>
   );
 };

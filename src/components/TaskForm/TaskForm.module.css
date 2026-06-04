@@ -1,4 +1,5 @@
-.moduleWrapper {
+/* This is below is from before i added Vaul */
+/* .moduleWrapper {
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -6,7 +7,7 @@
   max-height: 75dvh;
   width: 100%;
   z-index: 100;
-}
+} */
 
 /* Header Section */
 
@@ -48,6 +49,7 @@
 }
 
 .container {
+  flex: 1;
   display: flex;
   flex-direction: column;
   /* margin-inline: 1rem; */
