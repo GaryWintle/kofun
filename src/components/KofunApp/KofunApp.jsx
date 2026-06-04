@@ -65,7 +65,13 @@ const KofunApp = () => {
   };
 
   return (
-    <div className={styles.container} onClick={() => { if (isRunning) pauseTimer(); deselectTask(); }}>
+    <div
+      className={styles.container}
+      onClick={() => {
+        if (isRunning) pauseTimer();
+        deselectTask();
+      }}
+    >
       {activeTask?.isComplete && <p>HURRAY!!!</p>}
       <Hero displayTime={displayTime} activeTask={activeTask} />
       <TaskList displayTime={displayTime} />
