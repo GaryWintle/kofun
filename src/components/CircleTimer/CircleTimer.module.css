@@ -1,6 +1,7 @@
 .container {
   grid-area: timer;
   pointer-events: none;
+  z-index: 1;
 }
 
 /* .container svg {
