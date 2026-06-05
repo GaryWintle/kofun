@@ -7,8 +7,11 @@
 .moduleWrapper {
   display: flex;
   flex-direction: column;
-  height: 100dvh;
-  overflow-y: auto;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
 }
 
 .addTaskButton {

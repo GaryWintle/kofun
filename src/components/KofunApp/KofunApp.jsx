@@ -7,7 +7,7 @@ import Hero from '@/components/Hero/Hero';
 import TaskList from '@/components/TaskList/TaskList';
 import TaskForm from '@/components/TaskForm/TaskForm';
 import useTimer from '@/hooks/useTimer';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion } from 'motion/react';
 import { Drawer } from 'vaul';
 import { buttonPress } from '@/animations/variants';
 
@@ -91,8 +91,7 @@ const KofunApp = () => {
           <Drawer.Overlay />
           <Drawer.Content
             className={styles.moduleWrapper}
-            style={{ height: '100dvh' }}
-            snapPoints={[1]}
+            style={{ height: '75dvh' }}
           >
             <TaskForm onAddTask={handleAddTask} setTaskModule={setTaskModule} />
           </Drawer.Content>
