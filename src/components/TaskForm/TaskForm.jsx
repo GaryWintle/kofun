@@ -47,10 +47,7 @@ const TaskForm = ({ onAddTask, setTaskModule }) => {
       {...moduleSlideInOut}
     >
       <div className={styles.moduleHeader}>
-        <p className={styles.headerText}>Please enter task & time limit.</p>
-        {/* <p className={styles.headerSecondaryText}>
-          Enter your task and its time limit.
-        </p> */}
+        <p className={styles.headerText}>Enter task & time limit.</p>
         <motion.button
           {...buttonPress()}
           className={styles.cancelButton}
@@ -141,13 +138,13 @@ const TaskForm = ({ onAddTask, setTaskModule }) => {
                 </li>
               ))}
             </ul>
-            <button
+            {/* <button
               type="button"
               className={styles.subtleButton}
               onClick={() => setTaskTime((prev) => 0)}
             >
               Reset
-            </button>
+            </button> */}
           </div>
         </div>
         <div className={styles.finalButtonsWrapper}>
@@ -158,13 +155,13 @@ const TaskForm = ({ onAddTask, setTaskModule }) => {
           >
             ADD TASK
           </motion.button>
-          <button
+          {/* <button
             className={styles.subtleButton}
             onClick={() => setTaskModule((prev) => !prev)}
             type="button"
           >
             Cancel
-          </button>
+          </button> */}
         </div>
       </form>
     </motion.div>

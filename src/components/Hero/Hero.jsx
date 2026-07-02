@@ -36,7 +36,7 @@ const Hero = ({ displayTime, activeTask }) => {
       </div>
 
       <div className={styles.backgroundArt}>
-        <img src="/kofun-background-06.svg" />
+        <img src="/hero-parts/kofun-new-bg.svg" />
       </div>
       <AnimatePresence>
         {isRunning && (

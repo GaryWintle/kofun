@@ -6,9 +6,10 @@
     'text'
     'timer';
   background: linear-gradient(
-    to top,
-    oklch(92.852% 0.11207 195.449),
-    oklch(76.658% 0.14238 233.664)
+    to bottom,
+    oklch(82.82% 0.11283 191.693) -10%,
+    oklch(86.646% 0.08555 179.979) 30%,
+    oklch(94.056% 0.05454 182.152) 50%
   );
   overflow: hidden;
   isolation: isolate;

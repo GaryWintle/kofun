@@ -4,10 +4,10 @@ const ForegroundArt = () => {
   return (
     <>
       <div className={styles.foregroundLeft}>
-        <img src="/kofun-foreground-left.svg" />
+        <img src="/hero-parts/kofun-new-fg-left.svg" />
       </div>
       <div className={styles.foregroundRight}>
-        <img src="/kofun-foreground-right.svg" />
+        <img src="/hero-parts/kofun-new-fg-right.svg" />
       </div>
     </>
   );

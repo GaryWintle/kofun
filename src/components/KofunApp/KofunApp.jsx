@@ -86,15 +86,12 @@ const KofunApp = () => {
       >
         <img src="/buttons-icons/kofun-button-addtask.svg" />
       </motion.button>
-      <Drawer.Root
-        open={taskModule}
-        onOpenChange={setTaskModule}
-      >
+      <Drawer.Root open={taskModule} onOpenChange={setTaskModule}>
         <Drawer.Portal>
           <Drawer.Overlay />
           <Drawer.Content
             className={styles.moduleWrapper}
-            style={{ height: '75dvh' }}
+            style={{ height: 'auto' }}
           >
             <TaskForm onAddTask={handleAddTask} setTaskModule={setTaskModule} />
           </Drawer.Content>
