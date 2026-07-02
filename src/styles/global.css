@@ -1,4 +1,21 @@
 :root {
+  /* New Colors */
+  --blue-100: oklch(97.837% 0.0011 202.716);
+  --blue-200: oklch(95.258% 0.00758 187.704);
+  --blue-300: oklch(79.086% 0.03683 181.162);
+  --blue-400: oklch(76.659% 0.07389 197.997);
+  --blue-500: oklch(55.983% 0.04326 206.343);
+  --blue-600: oklch(38.554% 0.03064 199.197);
+  --blue-700: oklch(29.905% 0.01896 218.694);
+
+  --green-300: oklch(92.115% 0.09333 140.357);
+  --green-400: oklch(72.432% 0.19717 134.313);
+  --green-500: oklch(65.66% 0.15048 154.083);
+  --green-600: oklch(45.517% 0.05888 161.107);
+
+  --highlight-green-300: oklch(93.862% 0.09509 160.057);
+  --highlight-green-500: oklch(89.958% 0.17464 153.846);
+
   /* Green scale */
   --green-100: oklch(1 0.01 120);
   --green-200: oklch(0.94 0.08 126);
@@ -28,6 +45,10 @@
   /* Highlight red */
   --highlight-red-300: oklch(74.214% 0.15909 35.017);
   --highlight-red-400: oklch(65.124% 0.20217 38.289);
+
+  /* Semantic Colors */
+  --background: var(--blue-700);
+  --highlight: var(--highlight-green-500);
 
   /* Typography */
   --font-family-base: 'Aleo', serif;
@@ -60,10 +81,20 @@
 
 body {
   font-family: var(--font-family-base);
-  background-color: var(--green-700);
+  background-color: var(--background);
 }
 
 input:focus-visible {
   outline: 1px solid var(--color-highlight-green-300);
   outline-offset: 2px;
+}
+
+button {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+  appearance: none;
 }

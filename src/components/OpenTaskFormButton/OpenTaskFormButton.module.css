@@ -1,0 +1,26 @@
+.buttonContainer {
+  display: grid;
+  place-content: center;
+}
+
+.openTaskFormButton {
+  background: radial-gradient(
+    circle at top left,
+    var(--blue-600),
+    var(--blue-700)
+  );
+  padding: var(--sp-02);
+  border-radius: var(--br-circle);
+  box-shadow:
+    0 0 0 3px var(--blue-700),
+    2px 3px 1px 3px oklch(from var(--blue-600) l c h / 0.5),
+    -2px -2px 5px oklch(from var(--blue-600) l c h / 0.4),
+    -7px -7px 12px oklch(from var(--blue-600) l c h / 0.6);
+}
+
+.openTaskFormButton svg {
+  filter: drop-shadow(
+      0 0 2px oklch(from var(--highlight-green-300) l c h / 0.2)
+    )
+    drop-shadow(0 0 7px oklch(from var(--highlight-green-500) l c h / 0.15));
+}

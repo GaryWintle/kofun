@@ -5,6 +5,7 @@ import useTimerStore from '@/store/timerStore';
 import styles from '@/components/KofunApp/KofunApp.module.css';
 import Hero from '@/components/Hero/Hero';
 import TaskList from '@/components/TaskList/TaskList';
+import OpenTaskFormButton from '@/components/OpenTaskFormButton/OpenTaskFormButton';
 import TaskForm from '@/components/TaskForm/TaskForm';
 import useTimer from '@/hooks/useTimer';
 import { motion } from 'motion/react';
@@ -76,16 +77,7 @@ const KofunApp = () => {
       {activeTask?.isComplete && <p>HURRAY!!!</p>}
       <Hero displayTime={displayTime} activeTask={activeTask} />
       <TaskList displayTime={displayTime} />
-      <motion.button
-        {...buttonPress()}
-        className={styles.addTaskButton}
-        onClick={(e) => {
-          e.stopPropagation();
-          setTaskModule((prev) => !prev);
-        }}
-      >
-        <img src="/buttons-icons/kofun-button-addtask.svg" />
-      </motion.button>
+      <OpenTaskFormButton setTaskModule={setTaskModule} />
       <Drawer.Root open={taskModule} onOpenChange={setTaskModule}>
         <Drawer.Portal>
           <Drawer.Overlay />
