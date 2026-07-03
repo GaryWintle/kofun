@@ -33,8 +33,8 @@ const OpenTaskFormButton = ({ setTaskModule }) => {
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(16 16) rotate(90) scale(16)"
             >
-              <stop stop-color="#ADFCD1" />
-              <stop offset="1" stop-color="#70FFA7" />
+              <stop stopColor="var(--highlight-green-300)" />
+              <stop offset="1" stopColor="var(--highlight-green-500)" />
             </radialGradient>
           </defs>
         </svg>
