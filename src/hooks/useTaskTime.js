@@ -10,13 +10,43 @@ export function useTaskTime(initial = 0) {
   const increment = (amount) => {
     setTaskTime((prev) => prev + amount);
   };
+  const holdDecrement = (amount) => {
+    let tickCount = 0;
+
+    const intervalId = setInterval(() => {
+      tickCount++;
+
+      let scaledAmount = amount;
+
+      if (tickCount > 20) {
+        scaledAmount = amount * 5;
+      } else if (tickCount > 10) {
+        scaledAmount = amount * 2;
+      }
+
+      setTaskTime((prev) => prev - scaledAmount);
+    }, 100);
+
+    intervalRef.current = intervalId;
+  };
 
   const holdIncrement = (amount) => {
-    const intervalId = setInterval(() => {
-      console.log('tick fired', Date.now());
+    let tickCount = 0;
 
-      setTaskTime((prev) => prev + amount);
-    }, 300);
+    const intervalId = setInterval(() => {
+      tickCount++;
+
+      let scaledAmount = amount;
+
+      if (tickCount > 20) {
+        scaledAmount = amount * 5;
+      } else if (tickCount > 10) {
+        scaledAmount = amount * 2;
+      }
+
+      setTaskTime((prev) => prev + scaledAmount);
+    }, 100);
+
     intervalRef.current = intervalId;
   };
 
@@ -33,6 +63,7 @@ export function useTaskTime(initial = 0) {
   return {
     taskTime,
     presetTime,
+    holdDecrement,
     holdIncrement,
     increment,
     decrement,

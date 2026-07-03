@@ -12,6 +12,7 @@ const TaskForm = ({ onAddTask, setTaskModule }) => {
     taskTime,
     presetTime,
     holdIncrement,
+    holdDecrement,
     increment,
     decrement,
     stopInterval,
@@ -71,6 +72,14 @@ const TaskForm = ({ onAddTask, setTaskModule }) => {
                 type="button"
                 className={styles.taskTimeButton}
                 onClick={() => decrement(60)}
+                onPointerDown={() => {
+                  holdDecrement(60);
+                }}
+                onPointerUp={() => {
+                  stopInterval();
+                }}
+                onMouseLeave={() => stopInterval()}
+                onContextMenu={(e) => e.preventDefault()}
               >
                 <svg
                   width="16"
@@ -94,15 +103,15 @@ const TaskForm = ({ onAddTask, setTaskModule }) => {
                 {...buttonPress()}
                 type="button"
                 className={styles.taskTimeButton}
-                // onClick={() => increment(60)}
-                onMouseDown={() => {
-                  console.log('mouse down fired', Date.now());
+                onClick={() => increment(60)}
+                onPointerDown={() => {
                   holdIncrement(60);
                 }}
-                onMouseUp={() => {
-                  console.log('mouse up fired', Date.now());
+                onPointerUp={() => {
                   stopInterval();
                 }}
+                onMouseLeave={() => stopInterval()}
+                onContextMenu={(e) => e.preventDefault()}
               >
                 <svg
                   width="16"
