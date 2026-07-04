@@ -4,11 +4,11 @@
   flex: 1;
   min-height: 0;
   backdrop-filter: blur(10px);
-  background-color: oklch(from var(--blue-700) l c h / 0.65);
+  background-color: oklch(from var(--blue-700) l c h / 0.85);
   border-radius: var(--br-lg) var(--br-lg) 0 0;
   box-shadow:
     inset 0 2px 0 oklch(from var(--highlight-green-500) l c h / 0.45),
-    inset 0 0 16px oklch(from var(--highlight-green-500) l c h / 0.3);
+    inset 0 17px 16px oklch(from var(--highlight-green-500) l c h / 0.1);
 }
 
 .moduleHeader {
@@ -22,12 +22,6 @@
   font-size: var(--font-size-md);
   font-weight: var(--font-weight-bold);
   color: var(--blue-100);
-  text-align: center;
-}
-
-.headerSecondaryText {
-  font-size: var(--font-size-sm);
-  color: var(--neutral-200);
   text-align: center;
 }
 
@@ -52,21 +46,6 @@
   display: flex;
   flex-direction: column;
   gap: var(--sp-03);
-}
-
-.submitButton {
-  align-self: center;
-  color: var(--blue-100);
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-black);
-  background-color: var(--green-500);
-  padding-block: var(--sp-02);
-  padding-inline: var(--sp-04);
-  margin-inline: 3rem;
-  border-radius: 1rem;
-  box-shadow:
-    inset 0 2px 0 var(--green-300),
-    0 12px 12px oklch(from var(--neutral-black) l c h / 0.5);
 }
 
 /* enter text */
@@ -169,19 +148,45 @@ input::placeholder {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  column-gap: var(--sp-02);
-  row-gap: var(--sp-03);
+  column-gap: var(--sp-03);
+  row-gap: var(--sp-04);
 }
 
 .presetButton {
-  color: var(--green-300);
-  background-color: var(--green-700);
+  color: var(--blue-100);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-bold);
   line-height: 1;
   border-radius: var(--br-sm);
   padding-block: var(--sp-02);
-  padding-inline: clamp(var(--sp-02), 12vw, var(--sp-03));
-  border: 1px solid var(--green-500);
+  padding-inline: var(--sp-02);
+  /* border: 1px solid var(--green-500); */
   box-shadow: 0 1px 0 var(--green-400);
+  background: radial-gradient(
+    circle at top left,
+    var(--blue-600),
+    var(--blue-700)
+  );
+  box-shadow:
+    0 0 0 3px var(--blue-700),
+    1px 1px 1px 4px oklch(from var(--blue-500) l c h / 0.4),
+    -2px -2px 5px oklch(from var(--blue-600) l c h / 0.4),
+    -7px -7px 12px oklch(from var(--blue-600) l c h / 0.6);
+}
+
+.submitButton {
+  align-self: center;
+  color: var(--blue-100);
+  font-size: var(--font-size-md);
+  text-shadow: 0 2px 2px oklch(from var(--green-500) l c h / 0.5);
+  font-weight: var(--font-weight-black);
+  background-color: var(--green-500);
+  padding-block: var(--sp-03);
+  padding-inline: var(--sp-06);
+  border: 2px solid oklch(from var(--highlight-green-500) l c h / 1);
+  border-radius: var(--br-lg);
+  box-shadow:
+    inset 0 2px 0 oklch(from var(--green-300) l c h / 0.3),
+    inset 0 0 12px oklch(from var(--highlight-green-500) l c h / 1),
+    0 2px 12px oklch(from var(--blue-700) l c h / 0.5);
 }
