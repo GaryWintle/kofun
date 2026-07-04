@@ -17,13 +17,13 @@
   --highlight-green-500: oklch(89.958% 0.17464 153.846);
 
   /* Green scale */
-  --green-100: oklch(1 0.01 120);
+  /* --green-100: oklch(1 0.01 120);
   --green-200: oklch(0.94 0.08 126);
   --green-300: oklch(0.84 0.14 133);
   --green-400: oklch(0.72 0.2 134);
   --green-500: oklch(0.58 0.11 150);
   --green-600: oklch(0.47 0.07 147);
-  --green-700: oklch(0.3 0.02 165);
+  --green-700: oklch(0.3 0.02 165); */
 
   /* Neutrals */
   --neutral-white: oklch(0.98 0 90);

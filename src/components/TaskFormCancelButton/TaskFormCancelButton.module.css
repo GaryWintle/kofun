@@ -1,0 +1,7 @@
+.cancelButton {
+  /* width: 1.6rem; */
+  background-color: transparent;
+  position: absolute;
+  right: var(--sp-03);
+  top: var(--sp-03);
+}

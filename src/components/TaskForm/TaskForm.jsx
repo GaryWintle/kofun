@@ -45,7 +45,9 @@ const TaskForm = ({ onAddTask, setTaskModule }) => {
 
   return (
     <div className={styles.moduleWrapper} {...moduleSlideInOut}>
-      <TaskFormCancelButton setTaskModule={setTaskModule} />
+      <div className={styles.moduleHeader}>
+        <TaskFormCancelButton setTaskModule={setTaskModule} />
+      </div>
 
       <form onSubmit={handleSubmit} className={styles.container}>
         <div className={styles.field}>
@@ -150,7 +152,7 @@ const TaskForm = ({ onAddTask, setTaskModule }) => {
             type="submit"
             className={styles.submitButton}
           >
-            ADD TASK
+            Add Task
           </motion.button>
         </div>
       </form>

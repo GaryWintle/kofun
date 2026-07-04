@@ -1,4 +1,4 @@
-import styles from '@/components/TaskForm/TaskForm.module.css';
+import styles from '@/components/TaskFormCancelButton/TaskFormCancelButton.module.css';
 import { motion } from 'motion/react';
 import { buttonPress } from '@/animations/variants';
 
