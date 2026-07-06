@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 
-export function useTaskTime(initial = 0) {
+export function useTaskTime(initial = 1200) {
   const [taskTime, setTaskTime] = useState(initial);
   const intervalRef = useRef(0);
 

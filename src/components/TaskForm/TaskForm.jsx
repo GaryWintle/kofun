@@ -46,27 +46,28 @@ const TaskForm = ({ onAddTask, setTaskModule }) => {
   return (
     <div className={styles.moduleWrapper} {...moduleSlideInOut}>
       <div className={styles.moduleHeader}>
+        <div className={styles.drawerHandle}></div>
         <TaskFormCancelButton setTaskModule={setTaskModule} />
       </div>
 
       <form onSubmit={handleSubmit} className={styles.container}>
         <div className={styles.field}>
           <label htmlFor="taskText" className={styles.title}>
-            What's your task?
+            Ready to focus?
           </label>
           <input
             id="taskText"
             className={styles.textInput}
             value={taskText}
             type="text"
-            placeholder="Whatcha working on?"
+            placeholder="Task here, time limit below."
             onChange={(e) => setTaskText(e.target.value)}
           ></input>
         </div>
         <div className={styles.field}>
-          <label htmlFor="taskTime" className={styles.title}>
+          {/* <label htmlFor="taskTime" className={styles.title}>
             How long ya need?
-          </label>
+          </label> */}
           <div className={styles.timeField}>
             <div className={styles.timeStepper}>
               <motion.button

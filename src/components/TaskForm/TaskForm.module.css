@@ -4,7 +4,11 @@
   flex: 1;
   min-height: 0;
   backdrop-filter: blur(10px);
-  background-color: oklch(from var(--blue-700) l c h / 0.85);
+  /* background-color: oklch(from var(--blue-700) l c h / 0.85); */
+  background: linear-gradient(
+    oklch(from var(--blue-700) l c h / 0.85) 10%,
+    oklch(from var(--blue-700) l c h / 1) 150%
+  );
   border-radius: var(--br-lg) var(--br-lg) 0 0;
   box-shadow: inset 0 17px 16px
     oklch(from var(--highlight-green-500) l c h / 0.1);
@@ -14,6 +18,18 @@
   position: relative;
   padding-inline: var(--sp-05);
   padding-block-start: var(--sp-06);
+}
+
+.drawerHandle {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4rem;
+  height: 0.25rem;
+  border-radius: var(--br-lg);
+  background-color: var(--blue-700);
+  box-shadow: 0 1px 0 oklch(from var(--blue-400) l c h / 0.15);
 }
 
 .title {
@@ -30,14 +46,14 @@
   padding-inline: var(--sp-05);
   padding-block-start: 0;
   padding-block-end: var(--sp-06);
-  gap: var(--sp-05);
+  gap: var(--sp-04);
   overflow-y: auto;
 }
 
 .field {
   display: flex;
   flex-direction: column;
-  gap: var(--sp-02);
+  gap: var(--sp-03);
 }
 
 .finalButtonsWrapper {
@@ -48,7 +64,7 @@
 
 /* enter text */
 .textInput {
-  color: var(--blue-500);
+  color: var(--blue-600);
   font-size: var(--font-size-md);
   font-weight: var(--font-weight-medium);
   background-color: var(--blue-200);
@@ -61,11 +77,13 @@
   border-radius: var(--br-md);
   line-height: 1;
   transition:
-    box-shadow 0.2s ease,
+    box-shadow 0.5s ease,
     background-color 0.2s ease;
 }
 .textInput:focus {
-  box-shadow: inset 0 0 14px var(--highlight-green-300);
+  box-shadow: inset 0 0 14px
+    oklch(from var(--hightlight-green-500) l c h / 0.55);
+  border: 2px solid var(--green-400);
 }
 
 input::placeholder {
@@ -79,8 +97,11 @@ input::placeholder {
   display: flex;
   flex-direction: column;
   gap: var(--sp-05);
-  background: var(--blue-600);
-  background: oklch(from var(--blue-700) l c h / 1);
+  /* background: var(--blue-600); */
+  background: linear-gradient(
+    oklch(from var(--blue-700) l c h / 1) 10%,
+    oklch(from var(--blue-600) l c h / 0.9) 150%
+  );
   padding-block-start: var(--sp-04);
   padding-block-end: var(--sp-05);
   padding-inline: var(--sp-05);
