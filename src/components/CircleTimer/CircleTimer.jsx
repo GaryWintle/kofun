@@ -63,7 +63,6 @@ const CircleTimer = ({
           cy={cy}
           r={radius}
           fill="none"
-          stroke="oklch(from var(--green-700) l c h / 0.15)"
           strokeWidth={backStrokeWidth}
         />
         <circle

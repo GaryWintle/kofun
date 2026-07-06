@@ -18,10 +18,10 @@
 }
 
 .backCircle {
-  stroke: oklch(from var(--neutral-black) l c h / 0.45);
+  stroke: oklch(from var(--blue-600) l c h / 0.8);
   /* filter: drop-shadow(0 0 3px oklch(from var(--green-700) l c h / 0.45)); */
 }
 
 .selectedBackCircle {
-  stroke: oklch(from var(--green-100) l c h / 0.15);
+  stroke: oklch(from var(--blue-700) l c h / 0.8);
 }

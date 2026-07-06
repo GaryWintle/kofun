@@ -1,23 +1,20 @@
 /* DEFAULT TASK */
 
 .task {
-  /* background-color: var(--green-100); */
-  color: var(--green-700);
+  color: var(--blue-100);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
-  background: linear-gradient(in oklab, var(--neutral-200), var(--green-100));
+  background: var(--blue-700);
   gap: var(--sp-02);
   display: grid;
   align-items: center;
   line-height: 1.1;
-  grid-template-columns: 5.5rem 1fr auto;
+  grid-template-columns: auto 1fr auto;
   padding-inline-start: 4px;
   padding-inline-end: 12px;
   padding-block: 4px;
-  /* border-radius: var(--br-lg) var(--br-sm) var(--br-sm) var(--br-lg); */
-  border-radius: var(--br-lg);
-  border: 1px solid var(--green-600);
-  /* box-shadow: inset 1px 1px 5px oklch(from var(--green-700) l c h / 0.15); */
+  border-radius: 44px;
+  border: 2px solid var(--blue-600);
   box-shadow:
     inset 0 1px 0 oklch(from var(--highlight-green-300) l c h / 0.25),
     inset 0 -1px 0 oklch(from var(--green-700) l c h / 0.25);
@@ -25,70 +22,28 @@
 }
 
 .selectedTask {
-  background:
-    repeating-linear-gradient(
-      45deg,
-      oklch(from var(--green-500) l c h / 0.15) 0px,
-      oklch(from var(--green-500) l c h / 0.15) 10px,
-      transparent 10px,
-      transparent 20px
-    ),
-    linear-gradient(45deg in oklab, var(--green-500), var(--green-400));
-  color: var(--green-100);
+  background: var(--blue-600);
+  color: var(--blue-100);
   font-weight: var(--font-weight-black);
-  border: 1px solid var(--green-500);
+  border: 1px solid oklch(from var(--blue-500) l c h / 0.25);
   box-shadow:
     inset 0 1px 0 oklch(from var(--highlight-green-300) l c h / 0.25),
     inset 0 -1px 0 oklch(from var(--green-700) l c h / 0.15);
-
-  /* box-shadow:
-    0 0 12px oklch(from var(--highlight-green-300) l c h / 0.15),
-    0 0 4px oklch(from var(--highlight-green-300) l c h / 0.15); */
 }
 
 .runningTask {
-  background:
-    repeating-linear-gradient(
-      45deg,
-      oklch(from var(--green-500) l c h / 0.15) 0px,
-      oklch(from var(--green-500) l c h / 0.15) 10px,
-      transparent 10px,
-      transparent 20px
-    ),
-    linear-gradient(45deg in oklab, var(--green-500), var(--green-400));
-  animation: slide 3s linear infinite;
+  background: var(--blue-600);
+  color: var(--highlight-green-500);
 }
-
-/* .task:first-child {
-  border-radius: var(--br-lg) var(--br-lg) var(--br-sm) var(--br-lg);
-}
-.task:last-child {
-  border-radius: var(--br-lg) var(--br-sm) var(--br-lg) var(--br-lg);
-} */
 
 .timeContainer {
-  display: flex;
-  align-items: center;
-  background: linear-gradient(
-    90deg,
-    var(--neutral-300) 0,
-    var(--neutral-200) 100%
-  );
-  /* border-radius: calc(var(--br-md) + var(--sp-005)) var(--br-sm) var(--br-sm)
-    calc(var(--br-md) + var(--sp-005)); */
-  border-radius: calc(var(--br-md) + var(--sp-005));
-  /* width: 5rem; */
-  gap: var(--sp-01);
-  padding-block: var(--sp-005);
-  padding-inline: var(--sp-01);
-  border: 1px solid var(--neutral-300);
-  box-shadow: inset 2px 2px 1px oklch(from var(--green-700) l c h / 0.08);
-  /* border-right: 1px solid var(--neutral-400); */
+  display: grid;
+  grid-template-areas: 'timer';
+  place-items: center;
 }
 
 .selectedTimeContainer {
-  /* border-right: 2px solid var(--green-300); */
-  border: 1px solid var(--green-500);
+  /* border: 1px solid var(--green-500); */
   background: linear-gradient(90deg, var(--green-700) 0, var(--green-600) 140%);
 }
 
@@ -110,11 +65,14 @@
 }
 
 .taskTime {
+  grid-area: timer;
+  font-size: 14px;
 }
 
 /* SELECTED TASK */
 
 .endButton {
+  /* background-color: red; */
 }
 
 @keyframes slide {
