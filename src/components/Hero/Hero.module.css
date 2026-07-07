@@ -29,7 +29,7 @@
 }
 .taskText {
   font-size: clamp(1rem, 8vw, 3rem);
-  color: var(--green-100);
+  color: var(--blue-100);
   place-self: center;
   font-weight: var(--font-weight-black);
   line-height: 1.05;

@@ -9,7 +9,7 @@ const DialogBubble = ({ children }: DialogBubbleProps) => {
   return (
     <motion.div
       className={styles.dialogBubble}
-      initial={{ opacity: 0, x: '-50%', y: 10 }}
+      initial={{ opacity: 0, x: '-50%', y: 6 }}
       animate={{
         opacity: 1,
         x: '-50%',

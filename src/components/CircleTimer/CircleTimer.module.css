@@ -4,17 +4,23 @@
   z-index: 1;
 }
 
-/* .container svg {
-  width: 100%;
-  padding: 5%;
-} */
+.container svg {
+  transform: scaleX(-1);
+  /* width: 100%;
+  padding: 5%; */
+}
 
 .progressCircle {
-  filter: brightness(-20);
-
   transition:
     stroke-dashoffset 1s linear,
-    stroke 3s ease;
+    stroke 200ms ease;
+  stroke: var(--blue-500);
+}
+.selectedProgressCircle {
+  transition:
+    stroke-dashoffset 1s linear,
+    stroke 200ms ease;
+  stroke: var(--highlight-green-500);
 }
 
 .backCircle {

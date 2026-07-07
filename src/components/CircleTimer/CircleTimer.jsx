@@ -28,7 +28,7 @@ const CircleTimer = ({
   const backStrokeWidth = timerStrokeWidth;
   const radius = size / 2 - strokeWidth;
   const circumference = 2 * Math.PI * radius;
-  const offset = duration ? circumference * (currentTime / duration) : 0;
+  const offset = duration ? circumference * (1 - currentTime / duration) : 0;
   const cx = size / 2;
   const cy = size / 2;
 
@@ -66,7 +66,10 @@ const CircleTimer = ({
           strokeWidth={backStrokeWidth}
         />
         <circle
-          className={styles.progressCircle}
+          // className={styles.progressCircle}
+          className={clsx(styles.progressCircle, {
+            [styles.selectedProgressCircle]: activeTaskId === task.id,
+          })}
           cx={cx}
           cy={cy}
           r={radius}
@@ -80,7 +83,10 @@ const CircleTimer = ({
           filter="url(#myBlur)"
         />
         <circle
-          className={styles.progressCircle}
+          // className={styles.progressCircle}
+          className={clsx(styles.progressCircle, {
+            [styles.selectedProgressCircle]: activeTaskId === task.id,
+          })}
           cx={cx}
           cy={cy}
           r={radius}

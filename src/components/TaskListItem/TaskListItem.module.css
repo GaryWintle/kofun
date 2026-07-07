@@ -10,9 +10,9 @@
   align-items: center;
   line-height: 1.1;
   grid-template-columns: auto 1fr auto;
-  padding-inline-start: 4px;
-  padding-inline-end: 12px;
-  padding-block: 4px;
+  padding-inline-start: 6px;
+  padding-inline-end: 1rem;
+  padding-block: 5px;
   border-radius: 44px;
   border: 2px solid var(--blue-600);
   box-shadow:
@@ -52,21 +52,24 @@
 }
 
 .defaultTime {
-  color: var(--highlight-green-300);
-  transition: color 3s ease;
+  color: var(--highlight-green-500);
+  transition: color 1s ease;
 }
 .warningTime {
   color: var(--highlight-yellow-300);
-  transition: color 3s ease;
+  transition: color 1s ease;
 }
 .expiringTime {
   color: var(--highlight-red-300);
-  transition: color 3s ease;
+  transition: color 1s ease;
 }
 
 .taskTime {
   grid-area: timer;
   font-size: 14px;
+  letter-spacing: -0.4;
+  transform: scaleX(0.95);
+  font-weight: var(--font-weight-medium);
 }
 
 /* SELECTED TASK */

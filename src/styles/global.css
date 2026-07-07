@@ -52,6 +52,7 @@
 
   /* Typography */
   --font-family-base: 'Aleo', serif;
+  --font-family-numbers: 'Aleo', serif;
 
   --font-size-sm: 1rem; /* 16px */
   --font-size-md: 1.25rem; /* 20px */
