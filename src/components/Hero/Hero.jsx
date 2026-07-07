@@ -68,6 +68,7 @@ const Hero = ({ displayTime, activeTask }) => {
               task={heroTask}
               displayTime={displayTime}
               duration={activeTask?.duration}
+              timerStrokeWidth={12}
             />
           </>
         )}

@@ -29,5 +29,5 @@
 }
 
 .selectedBackCircle {
-  stroke: oklch(from var(--blue-700) l c h / 0.8);
+  stroke: oklch(from var(--blue-700) l c h / 0.2);
 }
