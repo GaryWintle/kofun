@@ -19,6 +19,8 @@
 }
 
 .openTaskFormButton svg {
+  width: 24px;
+  height: auto;
   filter: drop-shadow(
       0 0 2px oklch(from var(--highlight-green-300) l c h / 0.2)
     )
