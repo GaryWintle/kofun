@@ -26,6 +26,7 @@ const TaskForm = ({ onAddTask, setTaskModule }) => {
     { timeDisplay: '30m', timeAmount: 1800 },
     { timeDisplay: '20m', timeAmount: 1200 },
     { timeDisplay: '10m', timeAmount: 600 },
+    { timeDisplay: '3s', timeAmount: 3 },
   ];
 
   const handleSubmit = (e) => {

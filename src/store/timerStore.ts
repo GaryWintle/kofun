@@ -226,3 +226,8 @@ const useTimerStore = create<TimerStore>()(
 );
 
 export default useTimerStore;
+
+export const useActiveTask = () =>
+  useTimerStore((state) =>
+    state.tasks.find((task) => task.id === state.activeTaskId)
+  );

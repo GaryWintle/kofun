@@ -19,3 +19,7 @@
   background-color: transparent;
   align-self: center;
 }
+
+.completeToken {
+  width: 32px;
+}

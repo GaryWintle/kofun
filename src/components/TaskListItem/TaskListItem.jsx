@@ -1,10 +1,11 @@
 import styles from '@/components/TaskListItem/TaskListItem.module.css';
 import useTimerStore from '@/store/timerStore';
+import { useActiveTask } from '@/store/timerStore';
 import clsx from 'clsx';
 import formatTime from '@/utils/formatTime';
 import CircleTimer from '../CircleTimer/CircleTimer';
-import { motion } from 'motion/react';
-import { buttonPress } from '@/animations/variants';
+import { motion, AnimatePresence } from 'motion/react';
+import { buttonPress, elSwap } from '@/animations/variants';
 
 function getTimeStyle(currentTime) {
   if (currentTime <= 10) return styles.expiringTime;
@@ -25,11 +26,14 @@ const TaskListItem = ({ task, displayTime }) => {
 
   const timeStyle = isActiveAndRunning ? getTimeStyle(currentTime) : null;
 
+  const activeTask = useActiveTask();
+
   return (
     <motion.li
       className={clsx(styles.task, {
         [styles.selectedTask]: activeTaskId === task.id,
         [styles.runningTask]: activeTaskId === task.id && isRunning,
+        [styles.completedTask]: task.isComplete === true,
       })}
       onClick={(e) => {
         e.stopPropagation();
@@ -43,19 +47,45 @@ const TaskListItem = ({ task, displayTime }) => {
           [styles.runningTimeContainer]: activeTaskId === task.id && isRunning,
         })}
       >
-        <CircleTimer
-          task={task}
-          displayTime={
-            task.id === activeTaskId ? displayTime : task.remainingTime
-          }
-          duration={task.duration}
-          timerStrokeWidth={20}
-          circleWidth={'45px'}
-          circlePadding={0}
-        />
-        <p className={clsx(styles.taskTime, timeStyle)}>
-          {formatTime(currentTime)}
-        </p>
+        <AnimatePresence mode="wait">
+          {task.isComplete ? (
+            <motion.div
+              key="checkbox"
+              className={styles.checkbox}
+              variants={elSwap}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+            >
+              <p>✓</p>
+            </motion.div>
+          ) : (
+            <motion.div
+              key="timer"
+              className={styles.timerSlot}
+              variants={elSwap}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+            >
+              <CircleTimer
+                task={task}
+                displayTime={
+                  task.id === activeTaskId ? displayTime : task.remainingTime
+                }
+                duration={task.duration}
+                timerStrokeWidth={20}
+                circleWidth={'45px'}
+                circlePadding={0}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
+        {task.isComplete || (
+          <p className={clsx(styles.taskTime, timeStyle)}>
+            {formatTime(currentTime)}
+          </p>
+        )}
       </div>
       <p>{task.text}</p>
       <div

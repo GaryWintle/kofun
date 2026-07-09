@@ -29,3 +29,17 @@ export const moduleSlideInOut = {
 };
 
 export const heroTimerOpening = {};
+
+export const elSwap = {
+  initial: { scale: 0, opacity: 0 },
+  animate: {
+    scale: 1,
+    opacity: 1,
+    transition: { type: 'spring', stiffness: 300, damping: 20 },
+  },
+  exit: {
+    scale: 0,
+    opacity: 0,
+    transition: { duration: 0.15, ease: 'easeIn' },
+  },
+};
