@@ -198,6 +198,20 @@ input::placeholder {
     -5px -5px 9px oklch(from var(--blue-600) l c h / 0.4);
 }
 
+.presetButtonActive {
+  color: var(--highlight-green-300);
+  background: radial-gradient(
+    circle at top 10%,
+    var(--blue-700),
+    var(--blue-700)
+  );
+  box-shadow:
+    0 0 0 3px var(--blue-700),
+    1px 1px 1px 4px oklch(from var(--blue-500) l c h / 0.2),
+    -2px -2px 5px oklch(from var(--blue-600) l c h / 0.2),
+    -5px -5px 9px oklch(from var(--blue-600) l c h / 0.4);
+}
+
 .submitButton {
   align-self: center;
   color: var(--blue-100);

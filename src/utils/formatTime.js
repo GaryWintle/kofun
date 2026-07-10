@@ -1,4 +1,4 @@
-function formatTime(time, compact = true) {
+function formatTime(time, compact = true, numerical = false) {
   if (!time) return `0`;
 
   const minutes = Math.floor((time / 60) % 60);
@@ -8,6 +8,10 @@ function formatTime(time, compact = true) {
   const numPadding = (num) => {
     return String(num).padStart(2, 0);
   };
+
+  if (numerical) {
+    return `${hours}:${numPadding(minutes)}:${numPadding(seconds)}`;
+  }
 
   const expandedHours = `${hours}h${numPadding(minutes)}m`;
 

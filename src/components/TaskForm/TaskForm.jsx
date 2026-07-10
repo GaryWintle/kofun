@@ -3,6 +3,7 @@ import styles from '@/components/TaskForm/TaskForm.module.css';
 import TaskFormCancelButton from '@/components/TaskFormCancelButton/TaskFormCancelButton.jsx';
 import formatTime from '@/utils/formatTime';
 import { useTaskTime } from '@/hooks/useTaskTime';
+import clsx from 'clsx';
 import { motion } from 'motion/react';
 import { buttonPress, moduleSlideInOut } from '@/animations/variants';
 
@@ -51,6 +52,8 @@ const TaskForm = ({ onAddTask, setTaskModule }) => {
         <TaskFormCancelButton setTaskModule={setTaskModule} />
       </div>
 
+      {/* TASK TEXT FORM */}
+
       <form onSubmit={handleSubmit} className={styles.container}>
         <div className={styles.field}>
           <label htmlFor="taskText" className={styles.title}>
@@ -65,6 +68,9 @@ const TaskForm = ({ onAddTask, setTaskModule }) => {
             onChange={(e) => setTaskText(e.target.value)}
           ></input>
         </div>
+
+        {/* TIME LIMIT CHOOSER */}
+
         <div className={styles.field}>
           {/* <label htmlFor="taskTime" className={styles.title}>
             How long ya need?
@@ -132,22 +138,33 @@ const TaskForm = ({ onAddTask, setTaskModule }) => {
               </motion.button>
             </div>
 
+            {/* PRESET BUTTONS */}
+
             <ul className={styles.presetButtonsWrapper} role="list">
-              {presetTimes.map((time) => (
-                <li key={time.timeAmount}>
-                  <motion.button
-                    {...buttonPress()}
-                    type="button"
-                    className={styles.presetButton}
-                    onClick={() => presetTime(time.timeAmount)}
-                  >
-                    {time.timeDisplay}
-                  </motion.button>
-                </li>
-              ))}
+              {presetTimes.map((time) => {
+                const isActive = time.timeAmount === taskTime;
+                return (
+                  <li key={time.timeAmount}>
+                    <motion.button
+                      {...buttonPress()}
+                      type="button"
+                      className={clsx(
+                        styles.presetButton,
+                        isActive && styles.presetButtonActive
+                      )}
+                      onClick={() => presetTime(time.timeAmount)}
+                    >
+                      {time.timeDisplay}
+                    </motion.button>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
+
+        {/* ADD TASK */}
+
         <div className={styles.finalButtonsWrapper}>
           <motion.button
             {...buttonPress()}
