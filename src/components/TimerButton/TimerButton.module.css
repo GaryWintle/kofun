@@ -13,12 +13,20 @@
   padding: 0;
   cursor: pointer;
   position: absolute;
-  top: 67%;
-  left: 43.5%;
-  width: 13%;
+  top: 69%;
+  left: 44.5%;
 }
 
-.button img {
-  width: 100%;
-  height: auto;
+.startTaskButton {
+  display: grid;
+  place-items: center;
+  padding: 8px;
+  border-radius: var(--br-circle);
+  background-color: var(--highlight-green-500);
+  border: 3px solid var(--blue-700);
+  box-shadow: 0 0 12px oklch(from var(--blue-600) l c h / 0.4);
+  svg {
+    width: 20px;
+    height: auto;
+  }
 }

@@ -1,5 +1,7 @@
 /* Haniwa Character */
 .haniwaCharacter {
+  position: absolute;
+  transform: translateY(10px);
   grid-area: timer;
   place-self: start;
   width: 100%;
