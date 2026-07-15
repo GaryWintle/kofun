@@ -94,6 +94,9 @@ const KofunApp = () => {
             className={styles.moduleWrapper}
             style={{ height: 'auto' }}
           >
+            <Drawer.Title className={styles.visuallyHidden}>
+              Add a task
+            </Drawer.Title>
             <TaskForm onAddTask={handleAddTask} setTaskModule={setTaskModule} />
           </Drawer.Content>
         </Drawer.Portal>

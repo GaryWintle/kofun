@@ -61,9 +61,23 @@ const Hero = ({ displayTime, activeTask }) => {
       <AnimatePresence>
         {isRunning && heroTask && (
           <>
-            <div key={activeTaskId} className={styles.numberTimer}>
+            <motion.div
+              key={activeTaskId}
+              className={styles.numberTimer}
+              initial={{ opacity: 0.3, scale: 0.5 }}
+              animate={{
+                opacity: 1,
+                scale: 1,
+                transition: { duration: 0.3, ease: 'easeOut' },
+              }}
+              exit={{
+                opacity: 0,
+                scale: 1.5,
+                transition: { duration: 0.2 },
+              }}
+            >
               {formatTime(displayTime, false)}
-            </div>
+            </motion.div>
             <CircleTimer
               task={heroTask}
               displayTime={displayTime}
@@ -74,7 +88,9 @@ const Hero = ({ displayTime, activeTask }) => {
         )}
       </AnimatePresence>
       <HaniwaCharacter />
-      {activeTaskId && <TimerButton />}
+      <AnimatePresence>
+        {activeTaskId && <TimerButton key="timer-button" />}
+      </AnimatePresence>
       <ForegroundArt />
     </header>
   );

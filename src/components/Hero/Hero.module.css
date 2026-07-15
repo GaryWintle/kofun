@@ -65,8 +65,7 @@
   width: 100%;
   height: 100%;
   background-color: oklch(from var(--blue-700) l c h / 0.25);
-  backdrop-filter: blur(7px);
-  mix-blend-mode: multiply;
+  backdrop-filter: blur(5px) brightness(95%) saturate(120%);
   position: relative;
   z-index: 1;
   /* mask-image: radial-gradient(circle at center, transparent 40%, black 70%); */
@@ -77,9 +76,14 @@
   width: 100%;
   height: 100%;
   background-color: oklch(from var(--blue-700) l c h / 0.25);
-  backdrop-filter: blur(7px);
-  mix-blend-mode: multiply;
-  mask-image: radial-gradient(circle at center, transparent 40%, black 70%);
+  backdrop-filter: blur(5px) brightness(95%) saturate(120%);
+  mask-image: radial-gradient(circle at center, transparent 45%, black 70%);
   position: relative;
   z-index: 1;
+}
+
+@media (min-width: 600px) {
+  .container {
+    border-radius: 55px 55px 0 0;
+  }
 }

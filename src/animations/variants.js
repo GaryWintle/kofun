@@ -1,5 +1,5 @@
 export const buttonPress = (tapStrength = 0.95) => ({
-  whileHover: { scale: 1.05 },
+  whileHover: { scale: 1.02 },
   whileTap: { scale: tapStrength, y: 1, filter: 'brightness(0.85)' },
   transition: { duration: 0.1, ease: 'easeIn' },
 });
@@ -28,7 +28,42 @@ export const moduleSlideInOut = {
   },
 };
 
-export const heroTimerOpening = {};
+export const heroTimerOpening = {
+  initial: { opacity: 0, scale: 0.3 },
+  animate: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      scale: { type: 'spring', stiffness: 300, damping: 30 },
+      opacity: { duration: 0.1 },
+    },
+  },
+  exit: {
+    opacity: 0,
+    scale: 0.3,
+    transition: { duration: 0.1, ease: 'easeIn' },
+  },
+};
+
+export const iconPop = {
+  initial: { opacity: 0, scale: 0.3 },
+  animate: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      scale: { type: 'spring', stiffness: 300, damping: 30, delay: 0.01 },
+      opacity: { duration: 0.12, delay: 0.01 },
+    },
+  },
+  exit: {
+    opacity: 0,
+    scale: 0.3,
+    transition: {
+      scale: { duration: 0.1, ease: 'easeIn' },
+      opacity: { duration: 0.1, ease: 'easeIn' },
+    },
+  },
+};
 
 export const elSwap = {
   initial: { scale: 0, opacity: 0 },

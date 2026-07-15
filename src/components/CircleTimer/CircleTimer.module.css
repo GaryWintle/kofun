@@ -2,6 +2,7 @@
   grid-area: timer;
   pointer-events: none;
   z-index: 1;
+  transform-origin: 50% 80%;
 }
 
 .container svg {
