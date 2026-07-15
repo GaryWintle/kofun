@@ -31,6 +31,8 @@ const TaskForm = ({ onAddTask, setTaskModule }) => {
   ];
 
   const taskTextLength = 30;
+  const taskTimeMax = 10800;
+  const taskTimeMin = 600;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -69,9 +71,13 @@ const TaskForm = ({ onAddTask, setTaskModule }) => {
             placeholder="Task here, time limit below."
             onChange={(e) => setTaskText(e.target.value)}
           ></input>
-          {taskText.length > taskTextLength && (
-            <p className={styles.taskTextLimiter}>
-              Please keep it snappy! {`${taskText.length}/35`}
+          {taskText.length > taskTextLength - 5 && (
+            <p
+              className={clsx(styles.taskTextLimiter, {
+                [styles.taskTextLimiterDanger]: taskText.length > 30,
+              })}
+            >
+              Text is focused, task is focused. {`${taskText.length}/30`}
             </p>
           )}
         </div>
@@ -176,7 +182,11 @@ const TaskForm = ({ onAddTask, setTaskModule }) => {
           <motion.button
             {...buttonPress()}
             type="submit"
-            disabled={taskText.length > taskTextLength}
+            disabled={
+              taskText.length > taskTextLength ||
+              taskTime > taskTimeMax ||
+              taskTime < taskTimeMin
+            }
             className={clsx(
               styles.submitButton,
               taskText.length > taskTextLength && styles.submitButtonInactive
