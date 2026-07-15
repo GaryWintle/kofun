@@ -30,6 +30,8 @@ const TaskForm = ({ onAddTask, setTaskModule }) => {
     { timeDisplay: '3s', timeAmount: 3 },
   ];
 
+  const taskTextLength = 30;
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const newTask = {
@@ -67,6 +69,11 @@ const TaskForm = ({ onAddTask, setTaskModule }) => {
             placeholder="Task here, time limit below."
             onChange={(e) => setTaskText(e.target.value)}
           ></input>
+          {taskText.length > taskTextLength && (
+            <p className={styles.taskTextLimiter}>
+              Please keep it snappy! {`${taskText.length}/35`}
+            </p>
+          )}
         </div>
 
         {/* TIME LIMIT CHOOSER */}
@@ -169,7 +176,12 @@ const TaskForm = ({ onAddTask, setTaskModule }) => {
           <motion.button
             {...buttonPress()}
             type="submit"
-            className={styles.submitButton}
+            disabled={taskText.length > taskTextLength}
+            className={clsx(
+              styles.submitButton,
+              taskText.length > taskTextLength && styles.submitButtonInactive
+            )}
+            // className={styles.submitButton}
           >
             Add Task
           </motion.button>
