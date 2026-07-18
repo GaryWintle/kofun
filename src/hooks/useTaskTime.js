@@ -1,14 +1,16 @@
 import { useState, useRef } from 'react';
 
-export function useTaskTime(initial = 1200) {
+export function useTaskTime(initial = 1200, min = 0, max = Infinity) {
   const [taskTime, setTaskTime] = useState(initial);
   const intervalRef = useRef(0);
 
+  const clamp = (value) => Math.min(max, Math.max(value, min));
+
   const decrement = (amount) => {
-    setTaskTime((prev) => Math.max(0, prev - amount));
+    setTaskTime((prev) => clamp(prev - amount));
   };
   const increment = (amount) => {
-    setTaskTime((prev) => prev + amount);
+    setTaskTime((prev) => clamp(prev + amount));
   };
   const holdDecrement = (amount) => {
     let tickCount = 0;
@@ -24,8 +26,8 @@ export function useTaskTime(initial = 1200) {
         scaledAmount = amount * 2;
       }
 
-      setTaskTime((prev) => prev - scaledAmount);
-    }, 100);
+      setTaskTime((prev) => clamp(prev - scaledAmount));
+    }, 200);
 
     intervalRef.current = intervalId;
   };
@@ -44,7 +46,7 @@ export function useTaskTime(initial = 1200) {
         scaledAmount = amount * 2;
       }
 
-      setTaskTime((prev) => prev + scaledAmount);
+      setTaskTime((prev) => clamp(prev + scaledAmount));
     }, 100);
 
     intervalRef.current = intervalId;

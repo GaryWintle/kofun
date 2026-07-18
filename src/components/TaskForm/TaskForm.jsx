@@ -7,6 +7,11 @@ import clsx from 'clsx';
 import { motion } from 'motion/react';
 import { buttonPress, moduleSlideInOut } from '@/animations/variants';
 
+const taskTextLength = 30;
+const taskDefaultTime = 1200;
+const taskTimeMax = 10800;
+const taskTimeMin = 600;
+
 const TaskForm = ({ onAddTask, setTaskModule }) => {
   const [taskText, setTaskText] = useState('');
   const {
@@ -18,7 +23,10 @@ const TaskForm = ({ onAddTask, setTaskModule }) => {
     decrement,
     stopInterval,
     reset,
-  } = useTaskTime();
+  } = useTaskTime(taskDefaultTime, taskTimeMin, taskTimeMax);
+
+  const isAtMinTime = taskTime <= taskTimeMin;
+  const isAtMaxTime = taskTime >= taskTimeMax;
 
   const presetTimes = [
     { timeDisplay: '3h', timeAmount: 10800 },
@@ -29,10 +37,6 @@ const TaskForm = ({ onAddTask, setTaskModule }) => {
     { timeDisplay: '10m', timeAmount: 600 },
     { timeDisplay: '3s', timeAmount: 3 },
   ];
-
-  const taskTextLength = 30;
-  const taskTimeMax = 10800;
-  const taskTimeMin = 600;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -89,11 +93,16 @@ const TaskForm = ({ onAddTask, setTaskModule }) => {
             How long ya need?
           </label> */}
           <div className={styles.timeField}>
+            {/* decrement button */}
+
             <div className={styles.timeStepper}>
               <motion.button
                 {...buttonPress()}
                 type="button"
-                className={styles.taskTimeButton}
+                className={clsx(
+                  styles.taskTimeButton,
+                  isAtMinTime && styles.taskTimeButtonInactive
+                )}
                 onClick={() => decrement(60)}
                 onPointerDown={() => {
                   holdDecrement(60);
@@ -103,6 +112,7 @@ const TaskForm = ({ onAddTask, setTaskModule }) => {
                 }}
                 onMouseLeave={() => stopInterval()}
                 onContextMenu={(e) => e.preventDefault()}
+                disabled={isAtMinTime}
               >
                 <svg
                   width="16"
@@ -114,6 +124,9 @@ const TaskForm = ({ onAddTask, setTaskModule }) => {
                   <path d="M16 2.00098H0V0H16V2.00098Z" fill="#EAF1F0" />
                 </svg>
               </motion.button>
+
+              {/* task time display */}
+
               <input
                 id="taskTime"
                 className={styles.taskTime}
@@ -122,10 +135,16 @@ const TaskForm = ({ onAddTask, setTaskModule }) => {
                 onChange={(e) => setTaskTime(Number(e.target.value))}
                 readOnly
               ></input>
+
+              {/* increment button */}
+
               <motion.button
                 {...buttonPress()}
                 type="button"
-                className={styles.taskTimeButton}
+                className={clsx(
+                  styles.taskTimeButton,
+                  isAtMaxTime && styles.taskTimeButtonInactive
+                )}
                 onClick={() => increment(60)}
                 onPointerDown={() => {
                   holdIncrement(60);
@@ -135,6 +154,7 @@ const TaskForm = ({ onAddTask, setTaskModule }) => {
                 }}
                 onMouseLeave={() => stopInterval()}
                 onContextMenu={(e) => e.preventDefault()}
+                disabled={isAtMaxTime}
               >
                 <svg
                   width="16"
@@ -150,6 +170,20 @@ const TaskForm = ({ onAddTask, setTaskModule }) => {
                 </svg>
               </motion.button>
             </div>
+            {isAtMaxTime && (
+              <p
+                className={clsx(styles.taskTimeLimiter, {
+                  [styles.taskTimeLimiterDanger]: taskText.length > 30,
+                })}
+              >
+                Break task into smaller chunks?
+              </p>
+            )}
+            {isAtMinTime && (
+              <p className={styles.taskTimeLimiter}>
+                Longer tasks wield better results?
+              </p>
+            )}
 
             {/* PRESET BUTTONS */}
 
